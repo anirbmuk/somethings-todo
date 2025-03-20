@@ -23,7 +23,12 @@ A light and fast todo-app, built with Vue3
 - - - -
 
 ### How do you use it?  
-Just hit https://somethings-todo.web.app on your browser. If you wish you can also install it as a hybrid app on your phone.  
+Just hit https://somethings-todo.web.app or https://somethings-todo.netlify.app on your browser. If you wish you can also install it as a hybrid app on your phone.  
+
+- - - -
+
+## Netlify  
+[![Live on Netlify](https://api.netlify.com/api/v1/badges/57b5b968-1c41-46b8-bc5d-8c92c926bf3d/deploy-status)](https://app.netlify.com/sites/somethings-todo/deploys)  
 
 - - - -
 
