@@ -28,4 +28,4 @@ Just hit https://somethings-todo.web.app on your browser. If you wish you can al
 - - - -
 
 ## Developer  
-https://github.com/anirbmuk. 2025  
+Anirban Mukherjee (https://anirbmuk.appspot.com/en). 2025  
