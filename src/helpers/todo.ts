@@ -3,6 +3,9 @@ import {
   isNextMonth,
   isThisMonth,
 } from './date';
+import {
+  toValue, type MaybeRefOrGetter,
+} from 'vue';
 
 const ending = 'pending TODO';
 
@@ -147,4 +150,44 @@ export const getPerformance = (
     Math.round(+formattedcompletedDate - +formattedDueDate) /
     (24 * 60 * 60 * 1000);
   return getRating(variation);
+};
+
+export const getCompletedTodoCount = (todos: MaybeRefOrGetter<ITodo[]>) => {
+  const todosValue = toValue(todos);
+  if (!todosValue.length) {
+    return 0;
+  }
+  return todosValue.filter((todo) => todo.status === 'Complete').length;
+};
+
+export const getInCompleteTodoCount = (todos: MaybeRefOrGetter<ITodo[]>) => {
+  const todosValue = toValue(todos);
+  if (!todosValue.length) {
+    return 0;
+  }
+  return todosValue.filter((todo) => todo.status === 'Incomplete').length;
+};
+
+export const getOnTimeTodoCount = (todos: MaybeRefOrGetter<ITodo[]>) => {
+  const todosValue = toValue(todos);
+  if (!todosValue.length) {
+    return 0;
+  }
+  return todosValue.filter((todo) => todo.status === 'Complete' && ['beforetime', 'ontime'].includes(todo?.performance?.rating || '')).length;
+};
+
+export const getLateTodoCount = (todos: MaybeRefOrGetter<ITodo[]>) => {
+  const todosValue = toValue(todos);
+  if (!todosValue.length) {
+    return 0;
+  }
+  return todosValue.filter((todo) => todo.status === 'Complete' && ['delayed', 'late'].includes(todo?.performance?.rating || '')).length;
+};
+
+export const getPastDueTodoCount = (todos: MaybeRefOrGetter<ITodo[]>) => {
+  const todosValue = toValue(todos);
+  if (!todosValue.length) {
+    return 0;
+  }
+  return todosValue.filter((todo) => todo.status === 'Incomplete' && (todo?.additional?.remaining ?? 0) < 0).length;
 };

@@ -19,6 +19,14 @@ const router = createRouter({
       },
     },
     {
+      path: '/dashboard',
+      name: 'dashboard',
+      component: () => import('@/views/DashboardView.vue'),
+      meta: {
+        title: 'Dashboard',
+      },
+    },
+    {
       path: '/notfound',
       name: 'page-not-found',
       component: () => import('@/views/PageNotFoundView.vue'),

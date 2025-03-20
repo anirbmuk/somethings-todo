@@ -185,6 +185,7 @@ export const useTodo = () => {
   return {
     groupBy,
     filterBy,
+    hydratedTodos,
     todos,
     groupedTodos,
     addTodo,
