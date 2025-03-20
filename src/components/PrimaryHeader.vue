@@ -1,5 +1,5 @@
 <template>
-  <div class="flex h-16 items-center justify-between px-3 md:px-4 bg-primary dark:bg-transparent sticky inset-0 z-20">
+  <div class="flex h-16 items-center justify-between px-3 md:px-4 bg-primary dark:bg-base sticky inset-0 z-20">
     <div
       class="text-white md:text-2xl"
       router-link="/">
