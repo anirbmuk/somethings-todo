@@ -1,0 +1,262 @@
+@import './root.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply text-base;
+  }
+  h1 {
+    @apply text-4xl md:text-6xl;
+  }
+  h2 {
+    @apply text-3xl md:text-5xl;
+  }
+  h3 {
+    @apply text-2xl md:text-4xl;
+  }
+  h4 {
+    @apply text-xl md:text-3xl;
+  }
+  h5 {
+    @apply text md:text-2xl;
+  }
+  h6 {
+    @apply text-md md:text;
+  }
+  @media screen and (max-width: 767px) {
+    input,
+    textarea,
+    select {
+      font-size: 16px !important;
+    }
+  }
+  hr {
+    @apply my-3;
+    border-top: 1px solid lightgray;
+  }
+  div[info] {
+    @apply -mb-2 text-md text-gray-400 md:text;
+  }
+  div[progress] {
+    @apply animate-pulse p-2 text-center uppercase tracking-wider text-primary duration-200 md:text-xl;
+  }
+  div[error],
+  p[error] {
+    @apply text-md text-error;
+  }
+  nav {
+    @apply flex w-full flex-row items-center whitespace-nowrap bg-primary text-white;
+  }
+  label {
+    @apply mb-1 text-md text-gray-700 font-semibold dark:text-white;
+  }
+  label[required='true']::after,
+  div[required='true']::after {
+    content: ' *';
+    @apply text-sm text-error dark:text-white;
+  }
+  label[required='false']::after {
+    content: '';
+    @apply text-sm text-gray-700;
+  }
+  label[error='true'] {
+    @apply animate-vibrate text-md font-semibold text-error;
+  }
+  label[error='true']::after {
+    content: ' *';
+    @apply text-sm text-error;
+  }
+  select {
+    @apply rounded border border-gray-200 bg-gray-50 px-8 py-4 outline-gray-700;
+  }
+  input::placeholder {
+    @apply text-md;
+  }
+  input[type='text'],
+  input[type='number'],
+  input[type='numeric'],
+  input[type='month'],
+  input[type='tel'],
+  input[type='date'],
+  input[type='email'],
+  input[type='password'],
+  input[type='url'],
+  input[type='search'],
+  input[type='datetime-local'] {
+    @apply rounded-sm border border-indigo-200 px-3 py-2 shadow outline-indigo-400 hover:border focus:shadow !h-11 bg-indigo-50;
+  }
+  textarea {
+    @apply rounded-sm border border-indigo-200 px-3 py-2 shadow outline-indigo-400 hover:border focus:shadow bg-indigo-50;
+  }
+  input[type='radio'],
+  label[radio] {
+    @apply cursor-pointer;
+  }
+  input[type='radio'] {
+    @apply scale-150 border-none accent-primary outline-none;
+  }
+  input[type='month'] {
+    @apply max-h-[42px];
+  }
+  input[type='date'],
+  input[type='datetime-local'] {
+    appearance: none;
+    -webkit-appearance: none;
+    min-height: 42px !important;
+    padding: 8px 12px !important;
+    width: 100% !important;
+  }
+  input[type='number'] {
+    appearance: textfield;
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+  }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input::-webkit-date-and-time-value {
+    text-align: left !important;
+  }
+  button {
+    @apply h-11 font-semibold;
+  }
+  .cta-button-primary {
+    @apply min-w-32 cursor-pointer rounded-sm border-none bg-primary px-5 py-2.5 text-center text-white shadow-md outline-gray-800 duration-200 ease-in-out md:hover:bg-primary;
+  }
+  .cta-button-icon {
+    @apply flex size-10 cursor-pointer items-center justify-center rounded-full border-none bg-primary text-center text-white shadow-md outline-gray-800 duration-200 ease-in-out md:hover:opacity-70;
+  }
+  .cta-button-secondary {
+    @apply cursor-pointer rounded-sm border border-gray-200 bg-white px-5 py-2.5 text-center text-secondary shadow-md outline-gray-800 duration-200 ease-in-out md:hover:bg-gray-100;
+  }
+  button[type='submit'] {
+    @apply enabled:opacity-90 hover:enabled:opacity-100 min-w-24 cursor-pointer rounded-sm border-none bg-primary px-4 py-2.5 text-center text-white shadow-lg outline-primary duration-200 ease-in-out md:hover:bg-primary;
+  }
+  button[type='reset'] {
+    @apply enabled:opacity-90 hover:enabled:opacity-100 min-w-24 cursor-pointer rounded-sm border-none bg-transparent px-4 py-2.5 text-center text-error outline-red-100 duration-200 ease-in-out;
+  }
+  button:disabled {
+    @apply pointer-events-none cursor-wait opacity-50;
+  }
+  .absolute-center {
+    @apply absolute left-1/2 top-1/2;
+    transform: translate(-50%, -50%);
+  }
+  .text-shadow {
+    text-shadow: 0 0 1px var(--base-color);
+  }
+  .text-shadow-error {
+    text-shadow: 0 0 1px var(--error-color);
+  }
+  div[todolist] {
+    @apply pb-2 pt-0.5;
+  }
+  div[todolistitem] {
+    @apply mb-4 mt-2 block min-h-20 p-3 text-md first:mt-0 last:mb-0;
+    box-shadow:
+      0 3px 3px -2px #0003,
+      0 3px 4px #00000024,
+      0 1px 8px #0000001f;
+  }
+  .signin-container {
+    @apply mx-2 mt-16 rounded border border-gray-300 bg-gray-50 px-2 py-4 md:ml-auto md:w-[555px];
+  }
+  #auth {
+    @apply m-auto rounded-sm lg:relative;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  /* MENU start */
+  .menu-container {
+    @apply p-2 outline-white;
+  }
+  .toggle-menu-btn {
+    @apply mx-0 my-2 px-2 py-2.5;
+  }
+
+  .toggle-menu-btn .menu-bar {
+    @apply block h-0.5 w-5 rounded-sm bg-white;
+  }
+
+  .toggle-menu-btn .menu-bar + .menu-bar {
+    @apply mt-1;
+  }
+  /* MENU end */
+  /* TABLE start */
+  table {
+    @apply w-full rounded-sm p-4;
+    box-shadow:
+      rgba(0, 0, 0, 0.2) 0px 2px 4px -1px,
+      rgba(0, 0, 0, 0.14) 0px 4px 5px 0px,
+      rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
+  }
+  tr > th {
+    @apply py-4 text-left font-semibold text-gray-700 opacity-80;
+  }
+  tr > th:first-child {
+    @apply pl-6;
+  }
+  tr > th:last-child {
+    @apply pr-6;
+  }
+  tr > td {
+    @apply py-4 text-left;
+  }
+  tbody > tr {
+    @apply border-t border-t-gray-200 text-md;
+  }
+  /* tbody>tr:nth-child(odd) {
+    background-color: #dddddd;
+  } */
+  tbody > tr:hover {
+    @apply bg-gray-200;
+  }
+  tr > td:first-child {
+    @apply pl-6;
+  }
+  tr > td:last-child {
+    @apply pr-6;
+  }
+  /* TABLE end */
+  .disabled {
+    @apply border border-gray-100 bg-[#EFEFEF] shadow;
+  }
+  mark {
+    @apply bg-transparent font-semibold !text-primary;
+  }
+  .center-position {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  buttom {
+    @apply border-none;
+  }
+  details > summary {
+    @apply cursor-pointer;
+  }
+  details > p {
+    @apply !cursor-text;
+  }
+  @media screen and (min-width: 768px) and (hover: hover) {
+    a.navlink::after {
+      @apply absolute bottom-0 left-0 h-[1px] w-full origin-right scale-x-0 bg-current;
+      content: '';
+      transition: transform 250ms ease-in;
+    }
+  
+    a.navlink:hover::after {
+      @apply origin-left scale-x-100;
+    }
+  }
+}
