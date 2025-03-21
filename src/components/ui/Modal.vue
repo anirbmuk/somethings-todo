@@ -11,7 +11,7 @@
             class="z-20"
             role="dialog">
             <div
-              class="m-auto max-md:h-dvh max-md:w-dvw md:mt-[65px] md:rounded md:translate-y-1/3"
+              class="m-auto max-md:h-dvh max-md:w-dvw md:mt-[65px] md:rounded md:translate-y-[5%]"
               :class="{ 'sm:w-1/2 lg:w-1/3': type === 'default',
                         'md:w-1/2': type === 'wide',
                         'md:max-w-[450px]': type === 'narrow',
