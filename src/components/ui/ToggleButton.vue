@@ -11,12 +11,12 @@
         :class="{
           '!bg-primary dark:!bg-white text-white dark:!text-base border-primary': modelValue === option.Value && type === 'default',
           '!bg-primary text-white opacity-85': modelValue === option.Value && type === 'pill',
-          'min-w-14 rounded-sm dark:rounded-none p-3': type === 'default',
+          'min-w-14 p-3': type === 'default',
           'mr-1 min-w-16 rounded-full px-2 py-1.5 text-md md:min-w-20': type === 'pill'
         }"
         :disabled="disabled"
         :aria-pressed="modelValue === option.Value"
-        @click="$emit('update:model-value', option.Value)">
+        @click="!disabled && $emit('update:model-value', option.Value)">
         {{ option.Key }}
       </button>
     </template>
@@ -49,9 +49,11 @@ defineProps({
     default: 'default',
   },
 });
+
 defineEmits<{
   (e: 'update:model-value', value: string | boolean): void
 }>();
+
 defineOptions({
   name: 'ToggleButton',
 });
