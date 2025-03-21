@@ -13,7 +13,7 @@
           name="searchTextField"
           type="text"
           placeholder="Search TODOs"
-          class="w-36 border-none bg-indigo-100 py-2 text-sm text-black-dark caret-indigo outline-none md:w-48 md:text-md lg:w-60 xl:w-72"
+          class="w-36 border-none bg-indigo-100 py-2 text-sm text-black-dark caret-indigo !outline-none md:w-48 md:text-md lg:w-60 xl:w-72 mr-1"
           v-model.trim="searchValue" />
         <button
           v-if="!reduced"

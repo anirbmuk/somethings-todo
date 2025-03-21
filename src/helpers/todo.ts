@@ -96,7 +96,7 @@ export const getStatus = (date: string): ITodo['additional'] | undefined => {
       message: `Due in ${remaining} days`,
       remaining,
     };
-  } else if (remaining >= 7 && remaining < 8) {
+  } else if (remaining === 7) {
     return {
       state: 'info',
       message: 'Due next week',

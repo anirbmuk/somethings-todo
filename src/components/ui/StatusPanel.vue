@@ -36,10 +36,10 @@ const props = defineProps({
 });
 
 const panelBackgroundClasses = computed(() => ({
-  'bg-green-50': props.type === 'complete',
-  'bg-red-50': props.type === 'incomplete' || props.type === 'past',
-  'bg-blue-50': props.type === 'ontime',
-  'bg-orange-50': props.type === 'late',
+  'bg-green-50 border-green-100': props.type === 'complete',
+  'bg-red-50 border-red-100': props.type === 'incomplete' || props.type === 'past',
+  'bg-blue-50 border-blue-100': props.type === 'ontime',
+  'bg-orange-50 border-orange-100': props.type === 'late',
 }));
 
 const panelTextClasses = computed(() => ({
