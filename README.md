@@ -11,7 +11,7 @@ A light and fast todo-app, built with Vue3
 > Makes use of light UI components, so that your app remains featherlight and blazing fast!  
 
 :heavy_check_mark: **Strong Search**  
-> Searches your TODOs by text or heading or due-date tags. e.g. search by **`grocery`**, **`due tomorrow`**, **`next week`** etc.  
+> Searches your TODOs by text or heading or due-date tags. e.g. search for **`grocery`**, **`due tomorrow`**, **`next week`** etc.  
 > You can also use arithmetic operators such as **`=, >, <, >=, <=`**. For example, **'`= 7`'** or **'`>= 5`'** or **'`< 3`'** to filter on the due date.  
 
 :heavy_check_mark: **Dark Mode Support**  

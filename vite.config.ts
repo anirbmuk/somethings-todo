@@ -24,7 +24,7 @@ export default defineConfig({
       manifest: {
         name: 'TODOs',
         short_name: 'TODOs',
-        description: 'A light and fast todo-app, built with Vue3',
+        description: 'A light and fast todo-app, built with Vue3 and Pinia',
         theme_color: '#3F50B5',
         background_color: '#fafafa',
         display: 'standalone',

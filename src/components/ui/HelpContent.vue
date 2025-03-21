@@ -19,7 +19,7 @@
     </details>
     <details class="mt-2">
       <summary class="font-semibold">Strong Search</summary>
-      <p>Searches your TODOs by text or heading or due-date tags. e.g. search by <mark>grocery</mark>, <mark>due tomorrow</mark>, <mark>next week</mark> etc.</p>
+      <p>Searches your TODOs by text or heading or due-date tags. e.g. search for <mark>grocery</mark>, <mark>due tomorrow</mark>, <mark>next week</mark> etc.</p>
       <p>You can also use arithmetic operators such as <mark>{{ '=, >, <, >=, <=' }}</mark>. For example, <mark>{{ '= 7 or >= 5 or < 3' }}</mark> to filter on the due date.</p>
     </details>
     <details class="mt-2">
@@ -29,6 +29,10 @@
     <details class="mt-2">
       <summary class="font-semibold">Easy Share</summary>
       <p>Share your TODO items on your favourite medium.</p>
+    </details>
+    <details class="mt-2">
+      <summary class="font-semibold">Hybrid App</summary>
+      <p>Install as hybrid app on Android or add to your home-screen on iOS.</p>
     </details>
     <h3 class="mt-6 md:text-2xl font-semibold text-primary dark:text-white">May I see the source code?</h3>
     <p>Sure, why not! Just go to the <a
@@ -56,3 +60,9 @@
 <script setup lang="ts">
 defineEmits(['close-help']);
 </script>
+
+<style lang="css" scoped>
+p {
+  @apply text-justify text-pretty;
+}
+</style>
