@@ -104,6 +104,9 @@ const text = ref<string | undefined>(props.todo?.text);
 const duedate = ref<string | undefined>(props.todo?.duedate ? getCurrentFormDateTime(props.todo.duedate) : getCurrentFormDateTime());
 
 const onSaveTodo = () => {
+  if (!editable.value) {
+    return;
+  }
   if (mode.value === 'create') {
     const output = {
       heading: heading.value!,
