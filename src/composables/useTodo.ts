@@ -172,7 +172,7 @@ export const useTodo = () => {
     const headingLength = Math.max(Math.floor(todoToBeShared.heading.length * 2), 10);
     const fill = (new Array(headingLength) as string[]).fill('-', 0).join('');
     const due = `Due: ${getReadableDate(todoToBeShared.duedate)}`;
-    const url = 'https://somethings-todo.web.app';
+    const url = window.location.href || 'https://somethings-todo.netlify.app/';
     const text = `${todoToBeShared.heading || ''}\n${fill}\n${todoToBeShared.text || ''}\n\n${due}\n\nURL: ${url}`;
     window.navigator.share({
       title: 'Sharing my TODO item',
