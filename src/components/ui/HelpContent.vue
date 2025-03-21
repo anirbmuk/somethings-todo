@@ -38,7 +38,7 @@
     <p>Sure, why not! Just go to the <a
       href="https://github.com/anirbmuk/somethings-todo.git"
       target="_blank"
-      class="font-semibold underline">GitHub project</a>.</p>
+      class="font-semibold max-md:underline md:navlink relative">GitHub project</a>.</p>
     <p>Found a bug? Just open an issue.</p>
     <h6 class="mt-6 text font-semibold text-primary dark:text-white">Who am I?</h6>
     <p>Ah! I would be <a
