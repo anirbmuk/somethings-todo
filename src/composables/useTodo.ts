@@ -41,7 +41,7 @@ export const useTodo = () => {
   const groupStore = useGroupStore();
   const todoStore = useTodoStore();
 
-  const { conditons } = useSearch();
+  const { conditions } = useSearch();
 
   const {
     showModal: showCreateOrUpdateModal,
@@ -93,7 +93,7 @@ export const useTodo = () => {
 
   const todos = computed<ITodo[]>(() => {
     let filteredTodos = [...hydratedTodos.value];
-    for (const condition of conditons.value) {
+    for (const condition of conditions.value) {
       filteredTodos = filteredTodos?.filter(condition) || [];
     }
     return filteredTodos;
@@ -185,6 +185,8 @@ export const useTodo = () => {
   return {
     groupBy,
     filterBy,
+    groupByState: computed(() => groupStore.groupBy),
+    filterByState: computed(() => filterStore.filterBy),
     hydratedTodos,
     todos,
     groupedTodos,

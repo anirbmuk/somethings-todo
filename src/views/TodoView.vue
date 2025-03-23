@@ -5,6 +5,7 @@
     <todo-list
       :todos="groupedTodos.groupedTodos"
       :total-pending="groupedTodos.pending"
+      :all-todos-shown="allTodosShown"
       @edit-todo="showUpdateModal($event)"
       @toggle-todo="toggleTodo($event)"
       @share-todo="shareTodo($event)"
@@ -30,7 +31,10 @@
 </template>
 
 <script setup lang="ts">
-import { defineAsyncComponent } from 'vue';
+import {
+  computed,
+  defineAsyncComponent,
+} from 'vue';
 import TodoAction from '@/components/todo/Action.vue';
 import TodoList from '@/components/todo/List.vue';
 import { useTodo } from '@/composables/useTodo';
@@ -58,6 +62,7 @@ const {
   deleteTodo,
   CREATE_UPDATE_MODAL_NAME,
   closeCreateOrUpdateModal,
+  filterByState,
 } = useTodo();
 
 let idOfTodoToBeDeleted: ITodo['todoid'] | undefined;
@@ -97,6 +102,8 @@ const saveTodo = (mode: 'create' | 'edit', todo: AddTodo | UpdateTodo) => {
     });
   }
 };
+
+const allTodosShown = computed(() => filterByState.value === 'show');
 
 defineOptions({
   name: 'TodoView',

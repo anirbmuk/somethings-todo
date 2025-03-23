@@ -31,10 +31,18 @@
         </fieldset>
       </template>
     </template>
-    <div
-      v-else
-      class="text-red-600"
-      data-test-id="nodata">No TODOs found</div>
+    <template v-else>
+      <div
+        class="text-red-600"
+        data-test-id="nodata">
+        No TODOs found
+      </div>
+      <p
+        v-if="!allTodosShown"
+        class="text-md text-red-600">
+        There may be completed TODOs which are not shown
+      </p>
+    </template>
   </div>
 </template>
 
@@ -56,6 +64,10 @@ defineProps({
   totalPending: {
     type: Number,
     default: 0,
+  },
+  allTodosShown: {
+    type: Boolean,
+    default: false,
   },
 });
 
