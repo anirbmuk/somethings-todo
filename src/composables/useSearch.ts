@@ -19,7 +19,7 @@ export const useSearch = () => {
 
   const searchValue = ref<string | undefined>(searchStore.todoSearchState.text);
 
-  const conditons = computed<ITodoCondition[]>(() => {
+  const conditions = computed<ITodoCondition[]>(() => {
     let hasOperator = false;
     const todoFilterConditions: ITodoCondition[] = [];
     if (filterStore.filterBy === 'hide') {
@@ -53,7 +53,7 @@ export const useSearch = () => {
   const toggleSearchState = () => searchStore.toggleSearchState();
 
   return {
-    conditons,
+    conditions,
     searchValue,
     toggleSearchState,
   };
