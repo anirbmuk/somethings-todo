@@ -16,7 +16,7 @@
         }"
         :disabled="disabled"
         :aria-pressed="modelValue === option.Value"
-        @click="!disabled && $emit('update:model-value', option.Value)">
+        @click="updateValue(option.Value)">
         {{ option.Key }}
       </button>
     </template>
@@ -27,7 +27,7 @@
 import type { PropType } from 'vue';
 import type { KeyValue } from '@/types/key-value';
 
-defineProps({
+const props = defineProps({
   id: {
     type: String,
     required: true,
@@ -50,9 +50,20 @@ defineProps({
   },
 });
 
-defineEmits<{
+const emit = defineEmits<{
   (e: 'update:model-value', value: string | boolean): void
 }>();
+
+const updateValue = (value: string | boolean) => {
+  if (props.disabled) {
+    return;
+  }
+  emit('update:model-value', value);
+  window.scrollTo({
+    behavior: 'smooth',
+    top: 0,
+  });
+};
 
 defineOptions({
   name: 'ToggleButton',
