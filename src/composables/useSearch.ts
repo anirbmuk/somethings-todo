@@ -27,7 +27,7 @@ export const useSearch = () => {
     }
 
     const searchInput = searchStore.todoSearchState.text;
-    if (!searchInput || searchInput.length < 3) {
+    if (!searchInput || searchInput.length < 2) {
       return todoFilterConditions;
     }
 

@@ -2,11 +2,11 @@ import type { ITodoCondition } from '@/types/condition';
 import type { ITodo } from '@/types/todo';
 
 const SEARCH_OPERATORS = {
+  LESS_THAN_OR_EQUALS: '<=',
+  GREATER_THAN_OR_EQUALS: '>=',
   EQUALS: '=',
   LESS_THAN: '<',
-  LESS_THAN_OR_EQUALS: '<=',
   GREATER_THAN: '>',
-  GREATER_THAN_OR_EQUALS: '>=',
 } as const;
 
 type OperatorKeys = keyof typeof SEARCH_OPERATORS;
@@ -20,19 +20,19 @@ export const getCompareConditions = (operator: Operators, comparator: number): I
     ) {
       const { remaining } = item.additional;
       switch (operator) {
-      case '<': {
+      case SEARCH_OPERATORS.LESS_THAN: {
         return remaining < comparator;
       }
-      case '>': {
+      case SEARCH_OPERATORS.GREATER_THAN: {
         return remaining > comparator;
       }
-      case '<=': {
+      case SEARCH_OPERATORS.LESS_THAN_OR_EQUALS: {
         return remaining <= comparator;
       }
-      case '>=': {
+      case SEARCH_OPERATORS.GREATER_THAN_OR_EQUALS: {
         return remaining >= comparator;
       }
-      case '=': {
+      case SEARCH_OPERATORS.EQUALS: {
         return remaining === comparator;
       }
       default: {
@@ -48,9 +48,9 @@ export const findOperator = (input: string | undefined): Operators | undefined =
   if (!input) {
     return;
   }
-  const validOperators = Object.values(SEARCH_OPERATORS);
+  const validOperators = Object.values(SEARCH_OPERATORS).sort((operator1, operator2) => operator2.length - operator1.length);
   for (const validOperator of validOperators) {
-    if (input.startsWith(`${validOperator} `)) {
+    if (input.startsWith(`${validOperator}`)) {
       return validOperator;
     }
   }
