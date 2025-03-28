@@ -33,13 +33,13 @@
     </template>
     <template v-else>
       <div
-        class="text-red-600"
+        class="text-red-600 dark:text-white"
         data-test-id="nodata">
         No TODOs found
       </div>
       <p
         v-if="!allTodosShown"
-        class="text-md text-red-600">
+        class="text-md text-red-600 dark:text-white">
         There may be completed TODOs which are not shown
       </p>
     </template>

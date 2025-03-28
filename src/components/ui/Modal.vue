@@ -17,7 +17,7 @@
                         'md:max-w-[450px]': type === 'narrow',
                         'max-md:translate-y-1/5 rounded-t': !fullHeightInMobile,
                         'p-0': transparent,
-                        'bg-white dark:bg-black dark:border dark:border-white p-2': !transparent,
+                        'bg-white dark:bg-base dark:border dark:border-white p-2': !transparent,
               }"
               @click.stop="() => {}">
               <div class="flex h-full flex-col md:max-h-[700px] 5xl:max-h-dvh">
