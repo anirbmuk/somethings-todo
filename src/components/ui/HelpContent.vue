@@ -40,8 +40,8 @@
       target="_blank"
       class="font-semibold max-md:underline md:navlink relative">GitHub project</a>.</p>
     <p>Found a bug? Just open an issue.</p>
-    <h6 class="mt-6 text font-semibold text-primary dark:text-white">Who am I?</h6>
-    <p>Ah! I would be <a
+    <h6 class="mt-6 text font-semibold text-primary dark:text-white">Who developed this?</h6>
+    <p>That would be me, <a
       href="https://anirbmuk.appspot.com/en"
       target="_blank"
       class="font-semibold max-md:underline md:navlink relative">Anirban Mukherjee</a>.</p>
