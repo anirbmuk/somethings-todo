@@ -10,10 +10,6 @@
     <p class="mt-2">A light and fast todo-app, built with Vue3 and Pinia</p>
     <h2 class="mt-6 md:text-3xl font-semibold text-primary dark:text-white">Features</h2>
     <details class="mt-2">
-      <summary class="font-semibold">Uses LocalStorage</summary>
-      <p>Uses your browser's local-storage. So remember, a new browser means a new set of TODOs :-)</p>
-    </details>
-    <details class="mt-2">
       <summary class="font-semibold">Lightweight UI</summary>
       <p>Makes use of light UI components, so that your app remains featherlight and blazing fast!</p>
     </details>
@@ -21,6 +17,10 @@
       <summary class="font-semibold">Strong Search</summary>
       <p>Searches your TODOs by text or heading or due-date tags. e.g. search for <mark>grocery</mark>, <mark>due tomorrow</mark>, <mark>next week</mark> etc.</p>
       <p>You can also use arithmetic operators such as <mark>{{ '=, >, <, >=, <=' }}</mark>. For example, <mark>{{ '= 7 or >= 5 or < 3' }}</mark> to filter on the due date.</p>
+    </details>
+    <details class="mt-2">
+      <summary class="font-semibold">Uses LocalStorage</summary>
+      <p>Uses your browser's local-storage. So remember, a new browser means a new set of TODOs :-)</p>
     </details>
     <details class="mt-2">
       <summary class="font-semibold">Dark Mode Support</summary>
