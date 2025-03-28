@@ -41,20 +41,20 @@
       <button
         v-if="route.name === 'todo'"
         type="button"
-        title="View dashboard"
+        title="Analyse TODOs"
         @click="router.push('/dashboard')">
         <icon-dashboard class="size-6 text-white" />
       </button>
       <button
         v-else-if="route.name === 'dashboard'"
         type="button"
-        title="View Todos"
+        title="View TODOs"
         @click="router.push('/')">
         <icon-task class="size-6 text-white" />
       </button>
       <button
         type="button"
-        title="Help topics"
+        title="Help with TODOs"
         @click="showHelpModal">
         <icon-help class="size-6 text-white" />
       </button>
