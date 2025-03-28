@@ -1,6 +1,6 @@
 <template>
   <primary-header :reduced="reduced" />
-  <main class="mx-auto mb-4 mt-2 p-1 sm:p-2">
+  <main class="mx-auto mb-4 px-1 pb-1 sm:px-2 sm:pb-2">
     <suspense>
       <router-view />
     </suspense>

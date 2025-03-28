@@ -1,7 +1,9 @@
 <template>
   <div>
-    <todo-action />
-    <hr>
+    <div class="sticky top-16 z-20 bg-white dark:bg-base pt-3">
+      <todo-action />
+      <hr>
+    </div>
     <todo-list
       :todos="groupedTodos.groupedTodos"
       :total-pending="groupedTodos.pending"
