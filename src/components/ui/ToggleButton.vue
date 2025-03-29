@@ -7,9 +7,9 @@
       :key="option.value">
       <button
         type="button"
-        class="border border-gray-300 dark:border-white bg-white dark:bg-transparent dark:text-white py-1 outline-gray-400 transition-all duration-200 ease-in-out"
+        class="border border-gray-300 bg-white py-1 outline-gray-400 transition-all duration-200 ease-in-out dark:border-white dark:bg-transparent dark:text-white"
         :class="{
-          '!bg-primary dark:!bg-white text-white dark:!text-base border-primary': modelValue === option.Value && type === 'default',
+          'border-primary !bg-primary text-white dark:!bg-white dark:!text-base': modelValue === option.Value && type === 'default',
           '!bg-primary text-white opacity-85': modelValue === option.Value && type === 'pill',
           'min-w-14 p-3': type === 'default',
           'mr-1 min-w-16 rounded-full px-2 py-1.5 text-md md:min-w-20': type === 'pill'

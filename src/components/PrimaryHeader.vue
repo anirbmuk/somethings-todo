@@ -1,10 +1,10 @@
 <template>
-  <div class="flex h-16 items-center justify-between px-3 md:px-4 bg-primary dark:bg-base sticky inset-0 z-20">
+  <div class="sticky inset-0 z-20 flex h-16 items-center justify-between bg-primary px-3 md:px-4 dark:bg-base">
     <div
       class="text-white md:text-2xl"
       router-link="/">
       <router-link to="/">Things TODO</router-link></div>
-    <div class="flex gap-2 md:gap-4 items-center justify-between">
+    <div class="flex items-center justify-between gap-2 md:gap-4">
       <div
         v-if="!reduced && searchStore.todoSearchState.search"
         class="flex flex-row">
@@ -13,12 +13,12 @@
           name="searchTextField"
           type="text"
           placeholder="Search TODOs"
-          class="w-36 border-none bg-indigo-100 py-2 text-sm text-black-dark caret-indigo !outline-none md:w-48 md:text-md lg:w-60 xl:w-72 mr-1"
+          class="mr-1 w-36 border-none bg-indigo-100 py-2 text-sm text-base caret-primary !outline-none md:w-48 md:text-md lg:w-60 xl:w-72 dark:caret-white"
           v-model.trim="searchValue" />
         <button
           v-if="!reduced"
           type="button"
-          class="-ml-8 z-10"
+          class="z-10 -ml-8"
           title="Cancel search"
           @click="searchStore.toggleSearchState">
           <icon-close class="size-6" />

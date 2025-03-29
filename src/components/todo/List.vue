@@ -2,7 +2,7 @@
   <div class="mx-auto my-4 lg:w-1/2">
     <template v-if="todos.length">
       <div
-        class="text-gray-700 dark:text-white flex h-3 items-center justify-center text-md"
+        class="flex h-3 items-center justify-center text-md text-gray-800 dark:text-white"
         data-test-id="totalpending"
         :class="{ show: totalPending }">
         {{ getTodoCountText(totalPending, true) }}
@@ -14,7 +14,7 @@
           <legend class="-mb-3 flex items-center justify-center py-3 pl-1 pr-2.5">
             <span class="text-shadow dark:text-white">{{ transformDateDivider(group.datedivider) }}</span><span
               v-if="group.pending"
-              class="todo-group-count pl-2 text-sm dark:text-white"
+              class="pl-2 text-sm text-gray-600 dark:text-white"
               data-test-id="grouppending">
               {{ getTodoCountText(group.pending) }}</span>
           </legend>

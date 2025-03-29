@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto lg:w-1/2 flex items-center justify-between">
+  <div class="mx-auto flex items-center justify-between lg:w-1/2">
     <div class="flex flex-col">
       <label
         for="groupbyid"

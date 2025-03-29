@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="sticky top-16 z-20 bg-white dark:bg-base pt-3">
+    <div class="sticky top-16 z-20 bg-white pt-3 dark:bg-base">
       <todo-action />
       <hr>
     </div>

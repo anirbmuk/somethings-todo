@@ -1,6 +1,6 @@
 <template>
   <div
-    class="border-2 bg-gray-50/75 mx-2 my-2 cursor-pointer rounded px-2 py-2 md:mx-6 md:px-4 dark:border-white dark:bg-transparent flex flex-col justify-stretch"
+    class="m-2 flex cursor-pointer flex-col justify-stretch rounded border-2 bg-gray-50/75 p-2 md:mx-6 md:px-4 dark:border-white dark:bg-transparent"
     :class="{
       'border-error': todo.additional?.state === 'error',
       'border-warning': todo.additional?.state === 'warn',
@@ -9,9 +9,9 @@
       'border-green-800': todo.additional?.state === 'safe',
     }"
     role="listitem">
-    <div class="w-full flex">
+    <div class="flex w-full">
       <div
-        class="w-5/6 flex flex-col space-y-2"
+        class="flex w-5/6 flex-col space-y-2"
         @click.stop="$emit('edit-todo', todo.todoid)">
         <div
           v-if="todo.additional"
@@ -25,7 +25,7 @@
               'bg-green-600 text-white': todo.additional.state === 'moderate',
               'bg-green-800 text-white': todo.additional.state === 'safe',
               'bg-gray-500 text-white': todo.additional.state === 'later',
-              'bg-green-50 border border-green-800 text-green-800': todo.additional.state === 'done'
+              'border border-green-800 bg-green-50 text-green-800': todo.additional.state === 'done'
             }"
             todoadditional>{{ todo.additional.message }}</span>
         </div>
@@ -43,13 +43,13 @@
         </div>
         <div
           v-if="todo.status === 'Incomplete'"
-          class="todo-duedate z-10 pb-1 pt-4 text-sm dark:text-white"
+          class="z-10 pb-1 pt-4 text-sm text-gray-700 dark:text-white"
           todostatus>
           Due: {{ getReadableDate(todo.duedate) }}
         </div>
         <div
           v-if="todo.performance && todo.status === 'Complete'"
-          class="todo-duedate z-10 pb-1 pt-4 text-sm dark:text-white"
+          class="z-10 pb-1 pt-4 text-sm text-gray-800 dark:text-white"
           :class="{
             'text-red-600': todo.performance.rating === 'late',
             'text-orange-600': todo.performance.rating === 'delayed',
@@ -61,7 +61,7 @@
           {{ todo?.performance?.message }}
         </div>
       </div>
-      <div class="w-1/6 flex flex-col justify-between z-10">
+      <div class="z-10 flex w-1/6 flex-col justify-between">
         <div class="flex justify-end">
           <button
             type="button"
@@ -70,10 +70,10 @@
             @click.stop="$emit('toggle-todo', todo.todoid)">
             <lazy-icon-complete
               v-if="todo.status === 'Incomplete'"
-              class="text-green-700 dark:text-white size-6" />
+              class="size-6 text-green-700 dark:text-white" />
             <lazy-icon-incomplete
               v-else
-              class="text-error dark:text-white size-6" />
+              class="size-6 text-error dark:text-white" />
           </button>
         </div>
         <div class="flex justify-end">
@@ -82,7 +82,7 @@
             class="size-auto"
             title="Share this TODO"
             @click.stop="$emit('share-todo', todo.todoid)">
-            <icon-share class="text-primary dark:text-white size-6" />
+            <icon-share class="size-6 text-primary dark:text-white" />
           </button>
         </div>
         <div class="flex justify-end">
@@ -91,7 +91,7 @@
             class="size-auto"
             title="Delete this TODO"
             @click.stop="$emit('delete-todo', todo.todoid)">
-            <icon-delete class="text-amber-900 dark:text-white size-6" />
+            <icon-delete class="size-6 text-amber-900 dark:text-white" />
           </button>
         </div>
       </div>

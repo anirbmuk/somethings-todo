@@ -1,14 +1,14 @@
 <template>
   <div
-    class="border rounded dark:border-white dark:bg-transparent p-2 md:p-4"
+    class="rounded border p-2 md:p-4 dark:border-white dark:bg-transparent"
     :class="panelBackgroundClasses"
     :title="`${value > 0 ? value : 'None'} ${label}`">
-    <div class="flex gap-2 justify-between items-start">
+    <div class="flex items-start justify-between gap-2">
       <div
-        class="uppercase dark:text-white text-xl"
+        class="text-xl uppercase dark:text-white"
         :class="panelTextClasses">{{ label }}</div>
       <div
-        class="dark:text-white text-16xl md:text-massive"
+        class="text-16xl md:text-massive dark:text-white"
         :class="panelTextClasses">{{ value }}</div>
     </div>
   </div>

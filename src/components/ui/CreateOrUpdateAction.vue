@@ -8,7 +8,7 @@
     </div>
     <form
       id="createOrUpdateActionForm"
-      class="pb-4 px-2 md:px-3"
+      class="px-2 pb-4 md:px-3"
       @submit.prevent="onSaveTodo">
       <div class="grid gap-4">
         <div class="grid gap-1">

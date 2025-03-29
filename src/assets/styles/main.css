@@ -54,7 +54,7 @@
     @apply flex w-full flex-row items-center whitespace-nowrap bg-primary text-white;
   }
   label {
-    @apply mb-1 text-md font-semibold text-gray-700 dark:text-white;
+    @apply mb-1 text-md font-semibold text-gray-800 dark:text-white;
   }
   label[required='true']::after,
   div[required='true']::after {
@@ -63,7 +63,7 @@
   }
   label[required='false']::after {
     content: '';
-    @apply text-sm text-gray-700;
+    @apply text-sm text-gray-800;
   }
   label[error='true'] {
     @apply animate-vibrate text-md font-semibold text-error;
@@ -200,7 +200,7 @@
       rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
   }
   tr > th {
-    @apply py-4 text-left font-semibold text-gray-700 opacity-80;
+    @apply py-4 text-left font-semibold text-gray-800 opacity-80;
   }
   tr > th:first-child {
     @apply pl-6;

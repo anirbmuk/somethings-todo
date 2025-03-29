@@ -11,13 +11,13 @@
             class="z-20"
             role="dialog">
             <div
-              class="m-auto max-md:h-dvh max-md:w-dvw md:mt-[65px] md:rounded md:translate-y-[5%]"
+              class="m-auto max-md:h-dvh max-md:w-dvw md:mt-[65px] md:translate-y-[5%] md:rounded"
               :class="{ 'sm:w-1/2 lg:w-1/3': type === 'default',
                         'md:w-1/2': type === 'wide',
                         'md:max-w-[450px]': type === 'narrow',
-                        'max-md:translate-y-1/5 rounded-t': !fullHeightInMobile,
+                        'rounded-t max-md:translate-y-1/5': !fullHeightInMobile,
                         'p-0': transparent,
-                        'bg-white dark:bg-base dark:border dark:border-white p-2': !transparent,
+                        'bg-white p-2 dark:border dark:border-white dark:bg-base': !transparent,
               }"
               @click.stop="() => {}">
               <div class="flex h-full flex-col md:max-h-[700px] 5xl:max-h-dvh">
