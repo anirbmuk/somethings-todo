@@ -79,4 +79,4 @@ jobs:
       - name: Deploy somethings-todo project to firebase
         run: yarn host
         env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
