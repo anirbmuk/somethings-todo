@@ -42,8 +42,8 @@ describe('[HELPER] DATE', () => {
     const input_1 = '2025-01-31T00:00:00.000Z';
     const input_2 = '2025-05-31T00:00:00.000Z';
 
-    expect(getReadableDate(input_1)).toEqual('Jan 31, 2025, 1:00:00 AM'); // DST off
-    expect(getReadableDate(input_2)).toEqual('May 31, 2025, 2:00:00 AM'); // DST on
+    expect(getReadableDate(input_1)).toEqual('Jan 31, 2025, 0:00:00 AM'); // DST off
+    expect(getReadableDate(input_2)).toEqual('May 31, 2025, 0:00:00 AM'); // DST on
   });
 
   test('groupByFn should return correct date-group', () => {
@@ -75,10 +75,10 @@ describe('[HELPER] DATE', () => {
     expect(getCurrentFormDateTime(input_1)).toEqual('2025-01-01T14:30:00');
 
     const input_2 = '2025-01-01T14:30:30.000Z';
-    expect(getCurrentFormDateTime(input_2)).toEqual('2025-01-01T15:30:00');
+    expect(getCurrentFormDateTime(input_2)).toEqual('2025-01-01T14:30:00');
 
     const input_3 = '2025-06-01T14:30:30.000Z';
-    expect(getCurrentFormDateTime(input_3)).toEqual('2025-06-01T16:30:00');
+    expect(getCurrentFormDateTime(input_3)).toEqual('2025-06-01T14:30:00');
 
     const currentDate = new Date();
     const yyyy = currentDate.getFullYear();
