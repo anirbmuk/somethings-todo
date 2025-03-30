@@ -48,7 +48,6 @@ export const getReadableDate = (isoDate: string) => {
     minute: 'numeric',
     second: '2-digit',
     hour12: true,
-
   });
   return `${mm} ${dd}, ${yyyy}, ${time}`;
 };

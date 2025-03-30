@@ -1,11 +1,12 @@
+import {
+  toValue,
+  type MaybeRefOrGetter,
+} from 'vue';
 import type { ITodo } from '@/types/todo';
 import {
   isNextMonth,
   isThisMonth,
 } from './date';
-import {
-  toValue, type MaybeRefOrGetter,
-} from 'vue';
 
 const ending = 'pending TODO';
 
