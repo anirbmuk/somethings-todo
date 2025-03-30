@@ -75,8 +75,10 @@ jobs:
         with:
           name: dist-somethings-todo
           path: dist
+      - id: 'auth'
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
 
       - name: Deploy somethings-todo project to firebase
         run: yarn host
-        env:
-          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
