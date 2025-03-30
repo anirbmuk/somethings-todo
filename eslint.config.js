@@ -52,7 +52,7 @@ export default [
       'space-in-parens': ['error', 'never'],
       'space-before-function-paren': 'off',
       'arrow-parens': ['error', 'always'],
-      'vue/multi-word-component-names': 'off',
+      'vue/multi-word-component-names': ['warn'],
       'vue/first-attribute-linebreak': [
         'error',
         {
