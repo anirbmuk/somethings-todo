@@ -1,0 +1,82 @@
+name: somethings-todo production onpush
+
+# Controls when the action will run.
+on:
+  # Triggers the workflow on push events but only for the master branch
+  push:
+    branches: [production]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+      - name: Cache node_modules
+        id: cache-node-modules-pre
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-build-somethings-todo-node-modules-${{ hashFiles('yarn.lock') }}
+
+      - name: Install node_modules
+        if: steps.cache-node-modules-pre.outputs.cache-hit != 'true'
+        run: npm install
+
+  check:
+    needs: [install]
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-build-somethings-todo-node-modules-${{ hashFiles('yarn.lock') }}
+
+      - name: Run linter
+        run: yarn lint
+
+  build:
+    needs: [check]
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-build-somethings-todo-node-modules-${{ hashFiles('yarn.lock') }}
+
+      - name: Build things-to-do project
+        run: yarn build
+
+      - name: Archive build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-somethings-todo
+          path: dist
+
+  deploy:
+    needs: [build]
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-build-somethings-todo-node-modules-${{ hashFiles('yarn.lock') }}
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist-somethings-todo
+          path: dist
+
+      - name: Deploy somethings-todo project to firebase
+        run: yarn host
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
