@@ -1,3 +1,11 @@
+## 1.2.0
+- Sticky action toolbar.  
+- Scroll to top after toggling states.  
+- Prettier and eslint formatting.  
+- Setup husky and lint-staged.  
+- Setup GitHub Actions for CI/CD.  
+- Setup vitest.  
+
 ## 1.1.1
 - UI improvements and bug fixes.  
 - Dark mode fixes.  
