@@ -43,11 +43,11 @@ export const getReadableDate = (isoDate: string) => {
   const dd = dt.getDate();
   const mm = MONTHS[dt.getMonth()];
   const yyyy = dt.getFullYear();
-  const time = dt.toLocaleString('de-DE', {
+  const time = dt.toLocaleString('en', {
     hour: 'numeric',
     minute: 'numeric',
     second: '2-digit',
-    hour12: true,
+    hourCycle: 'h12',
   });
   return `${mm} ${dd}, ${yyyy}, ${time}`;
 };
