@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div data-test-id="createupdatemodal">
     <div class="flex h-20 flex-col items-start justify-start dark:text-white">
       <div class="my-2 flex items-center justify-between px-2 text-3xl md:px-3">
         {{ mode === 'create' ? 'Create TODO' : 'Edit TODO' }}
@@ -23,6 +23,7 @@
             type="text"
             required
             :disabled="!editable"
+            data-test-id="createupdatemodal-heading"
             v-model.trim="heading">
         </div>
         <div class="grid gap-1">
@@ -34,8 +35,9 @@
           <textarea
             id="todotext"
             :disabled="!editable"
-            v-model.trim="text"
-            rows="4" />
+            data-test-id="createupdatemodal-text"
+            rows="4"
+            v-model.trim="text" />
         </div>
         <div class="grid gap-1">
           <label
@@ -50,6 +52,7 @@
             :min="getMinDate()"
             :disabled="!editable"
             required
+            data-test-id="createupdatemodal-duedate"
             v-model="duedate">
         </div>
       </div>
@@ -60,6 +63,7 @@
         type="submit"
         class="min-w-24 cursor-pointer rounded-sm border-none bg-primary px-5 py-2.5 text-center text-white shadow-lg outline-primary md:hover:bg-primary"
         form="createOrUpdateActionForm"
+        data-test-id="createupdatemodal-save"
         :disabled="!editable">
         SAVE
       </button>

@@ -16,6 +16,7 @@
         }"
         :disabled="disabled"
         :aria-pressed="modelValue === option.Value"
+        :data-test-id="`toggle-option-${option.Value}`"
         @click="updateValue(option.Value)">
         {{ option.Key }}
       </button>
