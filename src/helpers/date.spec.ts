@@ -40,10 +40,10 @@ describe('[HELPER] DATE', () => {
 
   test('getReadableDate should return correct formatted string', () => {
     const input_1 = '2025-01-31T00:00:00.000Z';
-    const input_2 = '2025-05-31T00:00:00.000Z';
+    expect(getReadableDate(input_1)).toEqual('Jan 31, 2025, 12:00:00 AM');
 
-    expect(getReadableDate(input_1)).toEqual('Jan 31, 2025, 0:00:00 AM'); // DST off
-    expect(getReadableDate(input_2)).toEqual('May 31, 2025, 0:00:00 AM'); // DST on
+    const input_2 = '2025-05-31T00:00:00.000Z';
+    expect(getReadableDate(input_2)).toEqual('May 31, 2025, 12:00:00 AM');
   });
 
   test('groupByFn should return correct date-group', () => {

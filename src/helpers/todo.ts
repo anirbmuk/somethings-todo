@@ -10,7 +10,7 @@ import {
 
 const ending = 'pending TODO';
 
-const getRating = (variation: number): ITodo['performance'] => {
+export const getRating = (variation: number): ITodo['performance'] => {
   if (variation < 0) {
     return {
       variation,
