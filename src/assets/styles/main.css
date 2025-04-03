@@ -159,13 +159,6 @@
   div[todolist] {
     @apply pb-2 pt-0.5;
   }
-  div[todolistitem] {
-    @apply mb-4 mt-2 block min-h-20 p-3 text-md first:mt-0 last:mb-0;
-    box-shadow:
-      0 3px 3px -2px #0003,
-      0 3px 4px #00000024,
-      0 1px 8px #0000001f;
-  }
   .signin-container {
     @apply mx-2 mt-16 rounded border border-gray-300 bg-gray-50 px-2 py-4 md:ml-auto md:w-[555px];
   }

@@ -25,9 +25,11 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 //
+// eslint-disable-next-line @typescript-eslint/no-namespace
 declare namespace Cypress {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
   interface Chainable<Subject = any, T = any> {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     createtodo(heading: string, text: string, duedate: string): Chainable<any>;
   }
 }

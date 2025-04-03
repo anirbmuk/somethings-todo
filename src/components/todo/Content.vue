@@ -8,7 +8,8 @@
       'border-green-600': todo.additional?.state === 'moderate',
       'border-green-800': todo.additional?.state === 'safe',
     }"
-    role="listitem">
+    role="listitem"
+    todolistitem>
     <div class="flex w-full">
       <div
         class="flex w-5/6 flex-col space-y-2"
@@ -67,6 +68,7 @@
             type="button"
             class="size-auto"
             :title="todo.status === 'Complete' ? 'Mark as incomplete' : 'Mark as complete'"
+            data-test-id="togglestatus"
             @click.stop="$emit('toggle-todo', todo.todoid)">
             <lazy-icon-complete
               v-if="todo.status === 'Incomplete'"
