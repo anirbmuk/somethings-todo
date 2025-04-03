@@ -36,7 +36,7 @@ describe('[HELPER] TODO', () => {
 
   });
 
-  test('getStatus should return correct message', () => {
+  test('getRating should return correct message', () => {
 
     expect(getRating(-1)).toMatchObject({
       message: 'Completed before due date :-)',
