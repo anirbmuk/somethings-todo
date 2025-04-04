@@ -1,3 +1,7 @@
+## 1.3.0
+- Added Cypress e2e tests.  
+- Added e2e to GitHub Actions.  
+
 ## 1.2.0
 - Sticky action toolbar.  
 - Scroll to top after toggling states.  
