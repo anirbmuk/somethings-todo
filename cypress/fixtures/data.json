@@ -1,0 +1,29 @@
+{
+  "baseUrl": "http://localhost:5173",
+  "title": "Things TODO",
+  "todos": {
+    "key": "todos",
+    "new": {
+      "heading": "New TODO Heading",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    },
+    "alt": {
+      "heading": "Alternate TODO Heading",
+      "text": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus, explicabo."
+    }
+  },
+  "months": [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
+  ]
+}
