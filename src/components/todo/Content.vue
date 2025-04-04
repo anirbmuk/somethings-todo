@@ -68,6 +68,7 @@
             type="button"
             class="size-auto"
             :title="todo.status === 'Complete' ? 'Mark as incomplete' : 'Mark as complete'"
+            data-test-id="togglestatus"
             @click.stop="$emit('toggle-todo', todo.todoid)">
             <lazy-icon-complete
               v-if="todo.status === 'Incomplete'"
@@ -91,6 +92,7 @@
             type="button"
             class="size-auto"
             title="Delete this TODO"
+            data-test-id="deletetodo"
             @click.stop="$emit('delete-todo', todo.todoid)">
             <icon-delete class="size-6 text-amber-900 dark:text-white" />
           </button>

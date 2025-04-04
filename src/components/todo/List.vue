@@ -18,7 +18,9 @@
               data-test-id="grouppending">
               {{ getTodoCountText(group.pending) }}</span>
           </legend>
-          <div role="list">
+          <div
+            role="list"
+            todolist>
             <todo-content
               v-for="todo of group.todos"
               :key="todo.todoid"
