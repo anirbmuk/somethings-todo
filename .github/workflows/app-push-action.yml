@@ -20,7 +20,9 @@ jobs:
         id: cache-node-modules-pre
         uses: actions/cache@v4
         with:
-          path: node_modules
+          path: |
+            ~/.cache/Cypress
+            node_modules
           key: ${{ runner.os }}-build-somethings-todo-node-modules-${{ hashFiles('yarn.lock') }}
 
       - name: Install node_modules
@@ -35,7 +37,9 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/cache@v4
         with:
-          path: node_modules
+          path: |
+            ~/.cache/Cypress
+            node_modules
           key: ${{ runner.os }}-build-somethings-todo-node-modules-${{ hashFiles('yarn.lock') }}
 
       - name: Run linter
