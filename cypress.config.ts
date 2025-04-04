@@ -8,6 +8,8 @@ export default defineConfig({
     viewportHeight: 768,
     video: false,
     screenshotOnRunFailure: false,
+    defaultBrowser: 'chrome',
+    trashAssetsBeforeRuns: true,
   },
   component: {
     specPattern: 'src/**/__tests__/*.{cy,spec}.{js,ts,jsx,tsx}',

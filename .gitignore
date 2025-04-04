@@ -36,3 +36,5 @@ coverage
 
 *.env
 functions/.env
+
+cypress/downloads/*
