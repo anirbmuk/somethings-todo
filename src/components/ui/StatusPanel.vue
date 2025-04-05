@@ -6,9 +6,11 @@
     <div class="flex items-start justify-between gap-2">
       <div
         class="text-xl uppercase dark:text-white"
+        :data-test-id="`status-${dataTestId}-label`"
         :class="panelTextClasses">{{ label }}</div>
       <div
         class="text-16xl md:text-massive dark:text-white"
+        :data-test-id="`status-${dataTestId}-count`"
         :class="panelTextClasses">{{ value }}</div>
     </div>
   </div>
@@ -48,6 +50,8 @@ const panelTextClasses = computed(() => ({
   'text-blue-600': props.type === 'ontime',
   'text-orange-600': props.type === 'late',
 }));
+
+const dataTestId = computed(() => props.label.replaceAll(' ', '-'));
 
 defineOptions({
   name: 'UiStatusPanel',
