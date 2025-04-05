@@ -38,10 +38,10 @@ const createNewTodo = (heading: string, text: string, duedate: string) => {
   cy.get('[data-test-id=add-todo-btn]').click();
   cy.wait(250);
 
-  cy.get('[data-test-id=createupdatemodal-heading]').click().type(heading);
-  cy.get('[data-test-id=createupdatemodal-text]').click().type(text);
-  cy.get('[data-test-id=createupdatemodal-duedate]').click().type(duedate);
-  cy.get('[data-test-id=createupdatemodal-save]').click();
+  cy.get('[data-test-id=create-update-modal-heading]').click().type(heading);
+  cy.get('[data-test-id=create-update-modal-text]').click().type(text);
+  cy.get('[data-test-id=create-update-modal-duedate]').click().type(duedate);
+  cy.get('[data-test-id=create-update-modal-save]').click();
 
   cy.wait(250);
 };

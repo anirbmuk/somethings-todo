@@ -32,6 +32,6 @@ describe('Test Header', () => {
     cy.visit('/');
 
     cy.get('[data-test-id=add-todo-btn]').click();
-    cy.get('[data-test-id=createupdatemodal]').should('be.visible');
+    cy.get('[data-test-id=create-update-modal]').should('be.visible');
   });
 });

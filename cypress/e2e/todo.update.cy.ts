@@ -52,11 +52,11 @@ describe('Update TODO', () => {
     const listitem = cy.get('[todolist]').get('[todolistitem]');
     listitem.click();
 
-    cy.get('[data-test-id=createupdatemodal]').should('be.visible');
-    cy.get('[data-test-id=createupdatemodal-heading]').should('be.disabled');
-    cy.get('[data-test-id=createupdatemodal-text]').should('be.disabled');
-    cy.get('[data-test-id=createupdatemodal-duedate]').should('be.disabled');
-    cy.get('[data-test-id=createupdatemodal-save]').should('be.disabled');
+    cy.get('[data-test-id=create-update-modal]').should('be.visible');
+    cy.get('[data-test-id=create-update-modal-heading]').should('be.disabled');
+    cy.get('[data-test-id=create-update-modal-text]').should('be.disabled');
+    cy.get('[data-test-id=create-update-modal-duedate]').should('be.disabled');
+    cy.get('[data-test-id=create-update-modal-save]').should('be.disabled');
   });
 
   it('should correctly toggle past TODO', () => {
@@ -149,15 +149,15 @@ describe('Update TODO', () => {
     cy.get('[todolistitem]').eq(0).click();
     cy.wait(250);
 
-    cy.get('[data-test-id=createupdatemodal-heading]').click().clear();
-    cy.get('[data-test-id=createupdatemodal-heading]')
+    cy.get('[data-test-id=create-update-modal-heading]').click().clear();
+    cy.get('[data-test-id=create-update-modal-heading]')
       .click()
       .type('Updated future TODO heading 1');
-    cy.get('[data-test-id=createupdatemodal-text]').click().clear();
-    cy.get('[data-test-id=createupdatemodal-text]')
+    cy.get('[data-test-id=create-update-modal-text]').click().clear();
+    cy.get('[data-test-id=create-update-modal-text]')
       .click()
       .type('Future TODO text (exactly one year later)');
-    cy.get('[data-test-id=createupdatemodal-save]').click();
+    cy.get('[data-test-id=create-update-modal-save]').click();
     cy.wait(250);
 
     cy.getAllLocalStorage({
@@ -188,15 +188,15 @@ describe('Update TODO', () => {
     cy.get('[todolistitem]').eq(1).click();
     cy.wait(250);
 
-    cy.get('[data-test-id=createupdatemodal-heading]').click().clear();
-    cy.get('[data-test-id=createupdatemodal-heading]')
+    cy.get('[data-test-id=create-update-modal-heading]').click().clear();
+    cy.get('[data-test-id=create-update-modal-heading]')
       .click()
       .type('Updated future TODO heading 2');
-    cy.get('[data-test-id=createupdatemodal-text]').click().clear();
-    cy.get('[data-test-id=createupdatemodal-text]')
+    cy.get('[data-test-id=create-update-modal-text]').click().clear();
+    cy.get('[data-test-id=create-update-modal-text]')
       .click()
       .type('Future TODO text (exactly two years later)');
-    cy.get('[data-test-id=createupdatemodal-save]').click();
+    cy.get('[data-test-id=create-update-modal-save]').click();
     cy.wait(250);
 
     cy.getAllLocalStorage({
