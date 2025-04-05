@@ -11,7 +11,7 @@ describe('Test routing', () => {
     cy.visit('/wrong');
     cy.get('[data-test-id=show-search]').should('not.exist');
     cy.get('[data-test-id=add-todo-btn]').should('not.exist');
-    cy.get('[data-test-id=analysetodobtn]').should('not.exist');
+    cy.get('[data-test-id=analyse-todo-btn]').should('not.exist');
     cy.get('[data-test-id=viewtodobtn]').should('not.exist');
 
     cy.log('Only the help button should be visible on a 404 page');
@@ -27,12 +27,12 @@ describe('Test routing', () => {
 
   it('clicking on dashboard link should correctly redirect to dashboard page', () => {
     cy.visit('/');
-    cy.get('[data-test-id=analysetodobtn]').click();
+    cy.get('[data-test-id=analyse-todo-btn]').click();
     cy.url().should('contain', '/dashboard');
     cy.title().should('equal', `${data.title} | Dashboard`);
     cy.get('[data-test-id=show-search]').should('not.exist');
     cy.get('[data-test-id=add-todo-btn]').should('not.exist');
-    cy.get('[data-test-id=analysetodobtn]').should('not.exist');
+    cy.get('[data-test-id=analyse-todo-btn]').should('not.exist');
     cy.get('[data-test-id=viewtodobtn]').should('exist');
     cy.get('[data-test-id=helptodobtn]').should('exist');
   });

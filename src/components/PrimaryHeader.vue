@@ -51,7 +51,7 @@
         v-if="route.name === 'todo'"
         type="button"
         title="Analyse TODOs"
-        data-test-id="analysetodobtn"
+        data-test-id="analyse-todo-btn"
         @click="router.push('/dashboard')">
         <icon-dashboard class="size-6 text-white" />
       </button>

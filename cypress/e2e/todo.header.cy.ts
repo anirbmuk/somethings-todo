@@ -9,7 +9,7 @@ describe('Test Header', () => {
     cy.visit('/');
 
     cy.get('[data-test-id=show-search]').should('exist');
-    cy.get('[data-test-id=analysetodobtn]').should('exist');
+    cy.get('[data-test-id=analyse-todo-btn]').should('exist');
     cy.get('[data-test-id=add-todo-btn]').should('exist');
     cy.get('[data-test-id=helptodobtn]').should('exist');
   });
