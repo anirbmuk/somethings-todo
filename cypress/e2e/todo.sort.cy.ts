@@ -55,9 +55,9 @@ describe('Sort TODO', () => {
   });
 
   it('should initially sort in ascending order of duedate', () => {
-    cy.get('[todolistitem]').should('exist').should('have.length', 3);
+    cy.get('[data-test-id=todo-list-item]').should('exist').should('have.length', 3);
 
-    cy.get('[todolistitem]')
+    cy.get('[data-test-id=todo-list-item]')
       .eq(0)
       .then((listitem) => {
         cy.wrap(listitem)
@@ -67,7 +67,7 @@ describe('Sort TODO', () => {
           .find('[todotext]')
           .should('contain.text', `TODO text ${day0}`);
       });
-    cy.get('[todolistitem]')
+    cy.get('[data-test-id=todo-list-item]')
       .eq(1)
       .then((listitem) => {
         cy.wrap(listitem)
@@ -77,7 +77,7 @@ describe('Sort TODO', () => {
           .find('[todotext]')
           .should('contain.text', `TODO text ${day1}`);
       });
-    cy.get('[todolistitem]')
+    cy.get('[data-test-id=todo-list-item]')
       .eq(2)
       .then((listitem) => {
         cy.wrap(listitem)
@@ -94,7 +94,7 @@ describe('Sort TODO', () => {
     cy.get('[data-test-id=toggle-status]').eq(0).click();
     cy.wait(250);
 
-    cy.get('[todolistitem]')
+    cy.get('[data-test-id=todo-list-item]')
       .eq(0)
       .then((listitem) => {
         cy.wrap(listitem)
@@ -104,7 +104,7 @@ describe('Sort TODO', () => {
           .find('[todotext]')
           .should('contain.text', `TODO text ${day1}`);
       });
-    cy.get('[todolistitem]')
+    cy.get('[data-test-id=todo-list-item]')
       .eq(1)
       .then((listitem) => {
         cy.wrap(listitem)
@@ -114,7 +114,7 @@ describe('Sort TODO', () => {
           .find('[todotext]')
           .should('contain.text', `TODO text ${day2}`);
       });
-    cy.get('[todolistitem]')
+    cy.get('[data-test-id=todo-list-item]')
       .eq(2)
       .then((listitem) => {
         cy.wrap(listitem)
@@ -129,7 +129,7 @@ describe('Sort TODO', () => {
     cy.get('[data-test-id=toggle-status]').eq(0).click();
     cy.wait(250);
 
-    cy.get('[todolistitem]')
+    cy.get('[data-test-id=todo-list-item]')
       .eq(0)
       .then((listitem) => {
         cy.wrap(listitem)
@@ -139,7 +139,7 @@ describe('Sort TODO', () => {
           .find('[todotext]')
           .should('contain.text', `TODO text ${day2}`);
       });
-    cy.get('[todolistitem]')
+    cy.get('[data-test-id=todo-list-item]')
       .eq(1)
       .then((listitem) => {
         cy.wrap(listitem)
@@ -149,7 +149,7 @@ describe('Sort TODO', () => {
           .find('[todotext]')
           .should('contain.text', `TODO text ${day0}`);
       });
-    cy.get('[todolistitem]')
+    cy.get('[data-test-id=todo-list-item]')
       .eq(2)
       .then((listitem) => {
         cy.wrap(listitem)
@@ -168,7 +168,7 @@ describe('Sort TODO', () => {
     });
     cy.wait(250);
 
-    cy.get('[todolistitem]')
+    cy.get('[data-test-id=todo-list-item]')
       .eq(0)
       .then((listitem) => {
         cy.wrap(listitem)
@@ -178,7 +178,7 @@ describe('Sort TODO', () => {
           .find('[todotext]')
           .should('contain.text', `TODO text ${day0}`);
       });
-    cy.get('[todolistitem]')
+    cy.get('[data-test-id=todo-list-item]')
       .eq(1)
       .then((listitem) => {
         cy.wrap(listitem)
@@ -188,7 +188,7 @@ describe('Sort TODO', () => {
           .find('[todotext]')
           .should('contain.text', `TODO text ${day1}`);
       });
-    cy.get('[todolistitem]')
+    cy.get('[data-test-id=todo-list-item]')
       .eq(2)
       .then((listitem) => {
         cy.wrap(listitem)
@@ -203,7 +203,7 @@ describe('Sort TODO', () => {
     cy.get('[data-test-id=toggle-status]').eq(2).click();
     cy.wait(250);
 
-    cy.get('[todolistitem]')
+    cy.get('[data-test-id=todo-list-item]')
       .eq(0)
       .then((listitem) => {
         cy.wrap(listitem)
@@ -213,7 +213,7 @@ describe('Sort TODO', () => {
           .find('[todotext]')
           .should('contain.text', `TODO text ${day2}`);
       });
-    cy.get('[todolistitem]')
+    cy.get('[data-test-id=todo-list-item]')
       .eq(1)
       .then((listitem) => {
         cy.wrap(listitem)
@@ -223,7 +223,7 @@ describe('Sort TODO', () => {
           .find('[todotext]')
           .should('contain.text', `TODO text ${day0}`);
       });
-    cy.get('[todolistitem]')
+    cy.get('[data-test-id=todo-list-item]')
       .eq(2)
       .then((listitem) => {
         cy.wrap(listitem)
@@ -237,7 +237,7 @@ describe('Sort TODO', () => {
     cy.get('[data-test-id=toggle-status]').eq(2).click();
     cy.wait(250);
 
-    cy.get('[todolistitem]')
+    cy.get('[data-test-id=todo-list-item]')
       .eq(0)
       .then((listitem) => {
         cy.wrap(listitem)
@@ -247,7 +247,7 @@ describe('Sort TODO', () => {
           .find('[todotext]')
           .should('contain.text', `TODO text ${day1}`);
       });
-    cy.get('[todolistitem]')
+    cy.get('[data-test-id=todo-list-item]')
       .eq(1)
       .then((listitem) => {
         cy.wrap(listitem)
@@ -257,7 +257,7 @@ describe('Sort TODO', () => {
           .find('[todotext]')
           .should('contain.text', `TODO text ${day2}`);
       });
-    cy.get('[todolistitem]')
+    cy.get('[data-test-id=todo-list-item]')
       .eq(2)
       .then((listitem) => {
         cy.wrap(listitem)

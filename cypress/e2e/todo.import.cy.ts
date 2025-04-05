@@ -13,9 +13,9 @@ describe('Import TODO', () => {
     cy.get('[data-test-id=title-link]').click();
 
     cy.url().should('contain', data.baseUrl);
-    cy.get('[todolistitem]').should('exist').should('have.length', 1);
+    cy.get('[data-test-id=todo-list-item]').should('exist').should('have.length', 1);
 
-    cy.get('[todolistitem]')
+    cy.get('[data-test-id=todo-list-item]')
       .eq(0)
       .then((listitem) => {
         cy.wrap(listitem)

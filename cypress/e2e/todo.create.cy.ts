@@ -30,7 +30,7 @@ describe('Create TODO', () => {
     });
 
     cy.get('[data-test-id=todo-list]').should('exist').should('have.length', 1);
-    const listitem = cy.get('[data-test-id=todo-list]').get('[todolistitem]');
+    const listitem = cy.get('[data-test-id=todo-list]').get('[data-test-id=todo-list-item]');
     listitem
       .get('[todoheading]')
       .should('contain.text', data.todos.new.heading);
@@ -68,7 +68,7 @@ describe('Create TODO', () => {
     });
 
     cy.get('[data-test-id=todo-list]').should('exist').should('have.length', 1);
-    const listitem = cy.get('[data-test-id=todo-list]').get('[todolistitem]');
+    const listitem = cy.get('[data-test-id=todo-list]').get('[data-test-id=todo-list-item]');
     listitem
       .get('[todoheading]')
       .should('contain.text', data.todos.new.heading);

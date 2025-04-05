@@ -19,7 +19,7 @@ describe('Update TODO', () => {
     cy.get('[data-test-id=toggle-option-show]').click();
     cy.get('[data-test-id=toggle-status').click();
 
-    const listitem = cy.get('[data-test-id=todo-list]').get('[todolistitem]');
+    const listitem = cy.get('[data-test-id=todo-list]').get('[data-test-id=todo-list-item]');
     listitem.get('[tododuedate]').should('not.exist');
     listitem.get('[todostatus]').should('not.exist');
     listitem.get('[todoadditional]').should('contain.text', 'Done');
@@ -49,7 +49,7 @@ describe('Update TODO', () => {
     cy.get('[data-test-id=toggle-option-show]').click();
     cy.get('[data-test-id=toggle-status').click();
 
-    const listitem = cy.get('[data-test-id=todo-list]').get('[todolistitem]');
+    const listitem = cy.get('[data-test-id=todo-list]').get('[data-test-id=todo-list-item]');
     listitem.click();
 
     cy.get('[data-test-id=create-update-modal]').should('be.visible');
@@ -93,7 +93,7 @@ describe('Update TODO', () => {
     });
 
     cy.get('[data-test-id=todo-list]').should('exist').should('have.length', 1);
-    const listitem = cy.get('[data-test-id=todo-list]').get('[todolistitem]');
+    const listitem = cy.get('[data-test-id=todo-list]').get('[data-test-id=todo-list-item]');
     listitem.get('[todoheading]').should('contain.text', 'Past TODO heading');
     listitem.get('[todotext]').should('contain.text', 'Past TODO text');
     listitem.get('[tododuedate]').should('contain.text', 'Jan 1, 2020');
@@ -143,10 +143,10 @@ describe('Update TODO', () => {
     });
 
     cy.get('[data-test-id=toggle-option-show]').click();
-    cy.get('[todolistitem]').should('exist').should('have.length', 2);
+    cy.get('[data-test-id=todo-list-item]').should('exist').should('have.length', 2);
 
     cy.log('Edit first item');
-    cy.get('[todolistitem]').eq(0).click();
+    cy.get('[data-test-id=todo-list-item]').eq(0).click();
     cy.wait(250);
 
     cy.get('[data-test-id=create-update-modal-heading]').click().clear();
@@ -173,7 +173,7 @@ describe('Update TODO', () => {
       );
     });
 
-    cy.get('[todolistitem]')
+    cy.get('[data-test-id=todo-list-item]')
       .eq(0)
       .then((listitem) => {
         cy.wrap(listitem)
@@ -185,7 +185,7 @@ describe('Update TODO', () => {
       });
 
     cy.log('Edit second item');
-    cy.get('[todolistitem]').eq(1).click();
+    cy.get('[data-test-id=todo-list-item]').eq(1).click();
     cy.wait(250);
 
     cy.get('[data-test-id=create-update-modal-heading]').click().clear();
@@ -215,7 +215,7 @@ describe('Update TODO', () => {
       );
     });
 
-    cy.get('[todolistitem]')
+    cy.get('[data-test-id=todo-list-item]')
       .eq(1)
       .then((listitem) => {
         cy.wrap(listitem)

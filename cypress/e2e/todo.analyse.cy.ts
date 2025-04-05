@@ -109,7 +109,7 @@ describe('Analyse TODO', () => {
       expect(output).to.be.instanceOf(Array).of.length(9);
 
       cy.get('[data-test-id=todo-list]').should('exist').should('have.length', 9);
-      cy.get('[data-test-id=todo-list]').get('[todolistitem]').should('have.length', 9);
+      cy.get('[data-test-id=todo-list]').get('[data-test-id=todo-list-item]').should('have.length', 9);
 
       cy.log('Set all TODOs as complete');
       cy.get('[data-test-id=toggle-status').click({

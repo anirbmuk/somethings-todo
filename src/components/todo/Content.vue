@@ -8,8 +8,8 @@
       'border-green-600': todo.additional?.state === 'moderate',
       'border-green-800': todo.additional?.state === 'safe',
     }"
-    role="listitem"
-    todolistitem>
+    data-test-id="todo-list-item"
+    role="listitem">
     <div class="flex w-full">
       <div
         class="flex w-5/6 flex-col space-y-2"
