@@ -110,12 +110,18 @@ describe('Label TODO', () => {
       .eq(0)
       .then((listitem) => {
         cy.wrap(listitem)
+          .find('[todostatus]')
+          .should('contain.text', 'Incomplete');
+        cy.wrap(listitem)
           .find('[todoadditional]')
           .should('contain.text', 'Past due date');
       });
     cy.get('[todolistitem]')
       .eq(1)
       .then((listitem) => {
+        cy.wrap(listitem)
+          .find('[todostatus]')
+          .should('contain.text', 'Incomplete');
         cy.wrap(listitem)
           .find('[todoadditional]')
           .should('contain.text', 'Due today');
@@ -124,12 +130,18 @@ describe('Label TODO', () => {
       .eq(2)
       .then((listitem) => {
         cy.wrap(listitem)
+          .find('[todostatus]')
+          .should('contain.text', 'Incomplete');
+        cy.wrap(listitem)
           .find('[todoadditional]')
           .should('contain.text', 'Due tomorrow');
       });
     cy.get('[todolistitem]')
       .eq(3)
       .then((listitem) => {
+        cy.wrap(listitem)
+          .find('[todostatus]')
+          .should('contain.text', 'Incomplete');
         cy.wrap(listitem)
           .find('[todoadditional]')
           .should('contain.text', 'Due in 2 days');
@@ -138,12 +150,18 @@ describe('Label TODO', () => {
       .eq(4)
       .then((listitem) => {
         cy.wrap(listitem)
+          .find('[todostatus]')
+          .should('contain.text', 'Incomplete');
+        cy.wrap(listitem)
           .find('[todoadditional]')
           .should('contain.text', 'Due next week');
       });
     cy.get('[todolistitem]')
       .eq(5)
       .then((listitem) => {
+        cy.wrap(listitem)
+          .find('[todostatus]')
+          .should('contain.text', 'Incomplete');
         cy.wrap(listitem)
           .find('[todoadditional]')
           .should('contain.text', 'Due this month');
@@ -152,12 +170,18 @@ describe('Label TODO', () => {
       .eq(6)
       .then((listitem) => {
         cy.wrap(listitem)
+          .find('[todostatus]')
+          .should('contain.text', 'Incomplete');
+        cy.wrap(listitem)
           .find('[todoadditional]')
           .should('contain.text', 'Due next month');
       });
     cy.get('[todolistitem]')
       .eq(7)
       .then((listitem) => {
+        cy.wrap(listitem)
+          .find('[todostatus]')
+          .should('contain.text', 'Incomplete');
         cy.wrap(listitem)
           .find('[todoadditional]')
           .should('contain.text', 'Due later');
