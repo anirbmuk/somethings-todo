@@ -17,7 +17,7 @@ describe('Update TODO', () => {
     cy.createtodo(data.todos.new.heading, data.todos.new.text, duedate);
 
     cy.get('[data-test-id=toggle-option-show]').click();
-    cy.get('[data-test-id=toggle-status').click();
+    cy.get('[data-test-id=toggle-status]').click();
 
     const listitem = cy.get('[data-test-id=todo-list]').get('[data-test-id=todo-list-item]');
     listitem.get('[data-test-id=todo-due-date]').should('not.exist');
