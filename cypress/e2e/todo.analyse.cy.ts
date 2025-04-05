@@ -120,7 +120,7 @@ describe('Analyse TODO', () => {
       cy.get('[data-test-id=toggle-status]').eq(0).click();
 
       cy.log('Navigate to the dashboard page');
-      cy.get('[data-test-id=analyse-todo-btn').click();
+      cy.get('[data-test-id=analyse-todo-btn]').click();
 
       expect(cy.get('[data-test-id=status-completed-label').should('have.text', 'completed'));
       expect(cy.get('[data-test-id=status-completed-count').should('have.text', '8'));
