@@ -25,7 +25,7 @@ describe('Delete TODO', () => {
     cy.get('[data-test-id=deletetodo]').click();
     cy.wait(250);
 
-    cy.get('[data-test-id=confirmmodal]').should('exist');
+    cy.get('[data-test-id=confirmmodal]').should('be.visible');
     cy.get('[data-test-id=confirmmodal-yes]').click();
     cy.wait(250);
 
@@ -43,7 +43,7 @@ describe('Delete TODO', () => {
     cy.get('[data-test-id=deletetodo]').click();
     cy.wait(250);
 
-    cy.get('[data-test-id=confirmmodal]').should('exist');
+    cy.get('[data-test-id=confirmmodal]').should('be.visible');
     cy.get('[data-test-id=confirmmodal-no]').click();
     cy.wait(250);
 

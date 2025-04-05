@@ -34,7 +34,6 @@ describe('Label TODO', () => {
   const daylater = getStorageDate(addDays(62));
 
   beforeEach(() => {
-    // cy.clock(+new Date('2025-04-01T00:00:00.000Z'))
     cy.visit('/', {
       onBeforeLoad(win) {
         win.localStorage.setItem(

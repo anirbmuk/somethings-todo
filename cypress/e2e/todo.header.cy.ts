@@ -32,6 +32,6 @@ describe('Test Header', () => {
     cy.visit('/');
 
     cy.get('[data-test-id=addtodobtn]').click();
-    cy.get('[data-test-id=createupdatemodal]').should('exist');
+    cy.get('[data-test-id=createupdatemodal]').should('be.visible');
   });
 });

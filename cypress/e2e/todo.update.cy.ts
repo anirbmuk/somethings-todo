@@ -50,7 +50,7 @@ describe('Update TODO', () => {
     const listitem = cy.get('[todolist]').get('[todolistitem]');
     listitem.click();
 
-    cy.get('[data-test-id=createupdatemodal]').should('exist');
+    cy.get('[data-test-id=createupdatemodal]').should('be.visible');
     cy.get('[data-test-id=createupdatemodal-heading]').should('be.disabled');
     cy.get('[data-test-id=createupdatemodal-text]').should('be.disabled');
     cy.get('[data-test-id=createupdatemodal-duedate]').should('be.disabled');
