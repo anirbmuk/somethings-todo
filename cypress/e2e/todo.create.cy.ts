@@ -36,8 +36,11 @@ describe('Create TODO', () => {
       .should('contain.text', data.todos.new.heading);
     listitem.get('[todotext]').should('contain.text', data.todos.new.text);
     listitem
-      .get('[todostatus]')
+      .get('[tododuedate]')
       .should('contain.text', `${data.months[+mm - 1]} ${+dd}, ${yyyy}`);
+    listitem
+      .get('[todostatus]')
+      .should('contain.text', 'Incomplete');
     listitem.get('[todoadditional]').should('contain.text', 'Due today');
   });
 
@@ -71,12 +74,16 @@ describe('Create TODO', () => {
       .should('contain.text', data.todos.new.heading);
     listitem.get('[todotext]').should('contain.text', data.todos.new.text);
     listitem
-      .get('[todostatus]')
+      .get('[tododuedate]')
       .should('contain.text', `${data.months[+mm - 1]} ${+dd}, ${yyyy}`);
+    listitem
+      .get('[todostatus]')
+      .should('contain.text', 'Incomplete');
     listitem.get('[todoadditional]').should('contain.text', 'Due later');
 
     cy.get('[data-test-id=toggle-option-show]').click();
     cy.get('[data-test-id=togglestatus').click();
+    listitem.get('[tododuedate]').should('not.exist');
     listitem.get('[todostatus]').should('not.exist');
     listitem.get('[todoadditional]').should('contain.text', 'Done');
     listitem
@@ -122,16 +129,19 @@ describe('Create TODO', () => {
       cy.wrap(listitem)
         .find('[todotext]')
         .should('contain.text', data.todos[index === 0 ? 'new' : 'alt'].text);
+      cy.wrap(listitem)
+        .find('[todostatus]')
+        .should('contain.text', 'Incomplete');
       if (index === 0) {
         cy.wrap(listitem)
-          .find('[todostatus]')
+          .find('[tododuedate]')
           .should('contain.text', `${data.months[+mm1 - 1]} ${+dd1}, ${yyyy1}`);
         cy.wrap(listitem)
           .find('[todoadditional]')
           .should('contain.text', 'Due today');
       } else {
         cy.wrap(listitem)
-          .find('[todostatus]')
+          .find('[tododuedate]')
           .should('contain.text', `${data.months[+mm2 - 1]} ${+dd2}, ${yyyy2}`);
         cy.wrap(listitem)
           .find('[todoadditional]')

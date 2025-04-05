@@ -16,7 +16,11 @@
         @click.stop="$emit('edit-todo', todo.todoid)">
         <div
           v-if="todo.additional"
-          class="z-10">
+          class="z-10 flex space-x-2">
+          <span
+            v-if="todo.status !== 'Complete'"
+            class="rounded-sm border border-red-800 bg-red-50 px-2 py-1 text-center text-sm font-normal text-red-800"
+            todostatus>{{ todo.status }}</span>
           <span
             class="rounded-sm px-2 py-1 text-center text-sm font-normal"
             :class="{
@@ -45,7 +49,7 @@
         <div
           v-if="todo.status === 'Incomplete'"
           class="z-10 pb-1 pt-4 text-sm text-gray-700 dark:text-white"
-          todostatus>
+          tododuedate>
           Due: {{ getReadableDate(todo.duedate) }}
         </div>
         <div

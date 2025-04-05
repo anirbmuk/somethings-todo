@@ -1,3 +1,7 @@
+## 1.4.0
+- Allow searching by todo status (done, complete or incomplete).  
+- Added more Cypress e2e tests.  
+
 ## 1.3.0
 - Added Cypress e2e tests.  
 - Added e2e to GitHub Actions.  

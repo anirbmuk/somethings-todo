@@ -16,7 +16,7 @@
       </details>
       <details class="mt-2">
         <summary class="font-semibold">Strong Search</summary>
-        <p>Searches your TODOs by text or heading or due-date tags. e.g. search for <mark>grocery</mark>, <mark>due tomorrow</mark>, <mark>next week</mark> etc.</p>
+        <p>Searches your TODOs by text or status or heading or due-date tags. e.g. search for <mark>grocery</mark>, <mark>due tomorrow</mark>, <mark>next week</mark>, <mark>done</mark> or <mark>incomplete</mark> or <mark>complete</mark> etc.</p>
         <p>You can also use arithmetic operators such as <mark>{{ '=, >, <, >=, <=' }}</mark>. For example, <mark>{{ '= 7 or >= 5 or < 3' }}</mark> to filter on the due date.</p>
       </details>
       <details class="mt-2">
