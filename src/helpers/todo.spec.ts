@@ -8,9 +8,33 @@ import {
   getTodoCountText,
   getRating,
   getStatus,
+  decryptTodo,
+  encryptTodo,
 } from './todo';
 
 import { isThisMonth } from './date.ts';
+import type {
+  ImportTodo,
+  ITodo,
+} from '@/types/todo.js';
+
+const inputTodo = {
+  todoid: 'mtc0mzg2nzq2mtuzmy02od',
+  duedate: '2025-04-06T21:59:00.000Z',
+  heading: 'TEST IMPORT',
+  text: 'Test import text',
+  status: 'Incomplete',
+} satisfies ITodo;
+
+const outputTodo = {
+  todoid: 'mtc0mzg2nzq2mtuzmy02od',
+  duedate: '2025-04-06T21:59:00.000Z',
+  heading: 'TEST IMPORT',
+  text: 'Test import text',
+} satisfies ImportTodo;
+
+const expectedEncryptedOutput = 'eyJ0b2RvaWQiOiJtdGMwbXpnMm56cTJtdHV6bXkwMm9kIiwiaGVhZGluZyI6IlRFU1QgSU1QT1JUIiwidGV4dCI6IlRlc3QgaW1wb3J0IHRleHQiLCJkdWVkYXRlIjoiMjAyNS0wNC0wNlQyMTo1OTowMC4wMDBaIn0=' as const;
+const wrongEncryptedOutput = 'eyJoZWFkaW5nIjoiVEVTVCBJTVBPUlQiLCJ0ZXh0IjoiVGVzdCBpbXBvcnQgdGV4dCIsImR1ZWRhdGUiOiIyMDI1LTA0LTA2VDIxOjU5OjAwLjAwMFoifQ==' as const;
 
 describe('[HELPER] TODO', () => {
 
@@ -93,6 +117,17 @@ describe('[HELPER] TODO', () => {
       message: 'Due later',
     });
 
+  });
+
+  test('encryptTodo should return correct string', () => {
+    expect(encryptTodo(inputTodo)).toEqual(expectedEncryptedOutput);
+  });
+
+  test('decryptTodo should return correct object or undefined', () => {
+    expect(decryptTodo(expectedEncryptedOutput)).toMatchObject(outputTodo);
+    expect(decryptTodo(wrongEncryptedOutput)).toBeFalsy();
+    expect(decryptTodo('')).toBeFalsy();
+    expect(decryptTodo('wrong_value')).toBeFalsy();
   });
 
 });
