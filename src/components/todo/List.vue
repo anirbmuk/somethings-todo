@@ -41,7 +41,7 @@
       </div>
       <p
         v-if="!allTodosShown"
-        data-test-id="nodata-additional"
+        data-test-id="no-data-additional"
         class="text-md text-red-600 dark:text-white">
         There may be completed TODOs which are not shown
       </p>
