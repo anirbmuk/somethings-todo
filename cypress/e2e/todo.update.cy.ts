@@ -95,7 +95,7 @@ describe('Update TODO', () => {
     cy.get('[data-test-id=todo-list]').should('exist').should('have.length', 1);
     const listitem = cy.get('[data-test-id=todo-list]').get('[data-test-id=todo-list-item]');
     listitem.get('[data-test-id=todo-heading]').should('contain.text', 'Past TODO heading');
-    listitem.get('[todotext]').should('contain.text', 'Past TODO text');
+    listitem.get('[data-test-id=todo-text]').should('contain.text', 'Past TODO text');
     listitem.get('[tododuedate]').should('contain.text', 'Jan 1, 2020');
     listitem.get('[todoadditional]').should('contain.text', 'Past due date');
     listitem.get('[data-test-id=todo-status]').should('contain.text', 'Incomplete');
@@ -180,7 +180,7 @@ describe('Update TODO', () => {
           .find('[data-test-id=todo-heading]')
           .should('contain.text', 'Updated future TODO heading 1');
         cy.wrap(listitem)
-          .find('[todotext]')
+          .find('[data-test-id=todo-text]')
           .should('contain.text', 'Future TODO text (exactly one year later)');
       });
 
@@ -222,7 +222,7 @@ describe('Update TODO', () => {
           .find('[data-test-id=todo-heading]')
           .should('contain.text', 'Updated future TODO heading 2');
         cy.wrap(listitem)
-          .find('[todotext]')
+          .find('[data-test-id=todo-text]')
           .should('contain.text', 'Future TODO text (exactly two years later)');
       });
   });

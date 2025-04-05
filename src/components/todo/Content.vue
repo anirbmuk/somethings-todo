@@ -43,8 +43,8 @@
         </div>
         <div class="max-h-24 overflow-auto md:overflow-y-auto dark:text-white">
           <div
-            class="whitespace-pre-line break-words py-2 text-justify text-md xl:py-1.5 3xl:py-1"
-            todotext>
+            data-test-id="todo-text"
+            class="whitespace-pre-line break-words py-2 text-justify text-md xl:py-1.5 3xl:py-1">
             {{ todo.text }}
           </div>
         </div>

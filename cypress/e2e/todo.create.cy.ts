@@ -34,7 +34,7 @@ describe('Create TODO', () => {
     listitem
       .get('[data-test-id=todo-heading]')
       .should('contain.text', data.todos.new.heading);
-    listitem.get('[todotext]').should('contain.text', data.todos.new.text);
+    listitem.get('[data-test-id=todo-text]').should('contain.text', data.todos.new.text);
     listitem
       .get('[tododuedate]')
       .should('contain.text', `${data.months[+mm - 1]} ${+dd}, ${yyyy}`);
@@ -72,7 +72,7 @@ describe('Create TODO', () => {
     listitem
       .get('[data-test-id=todo-heading]')
       .should('contain.text', data.todos.new.heading);
-    listitem.get('[todotext]').should('contain.text', data.todos.new.text);
+    listitem.get('[data-test-id=todo-text]').should('contain.text', data.todos.new.text);
     listitem
       .get('[tododuedate]')
       .should('contain.text', `${data.months[+mm - 1]} ${+dd}, ${yyyy}`);
@@ -127,7 +127,7 @@ describe('Create TODO', () => {
           data.todos[index === 0 ? 'new' : 'alt'].heading,
         );
       cy.wrap(listitem)
-        .find('[todotext]')
+        .find('[data-test-id=todo-text]')
         .should('contain.text', data.todos[index === 0 ? 'new' : 'alt'].text);
       cy.wrap(listitem)
         .find('[data-test-id=todo-status]')
