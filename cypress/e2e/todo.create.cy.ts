@@ -82,7 +82,7 @@ describe('Create TODO', () => {
     listitem.get('[todoadditional]').should('contain.text', 'Due later');
 
     cy.get('[data-test-id=toggle-option-show]').click();
-    cy.get('[data-test-id=togglestatus').click();
+    cy.get('[data-test-id=toggle-status').click();
     listitem.get('[tododuedate]').should('not.exist');
     listitem.get('[todostatus]').should('not.exist');
     listitem.get('[todoadditional]').should('contain.text', 'Done');

@@ -17,7 +17,7 @@ describe('Update TODO', () => {
     cy.createtodo(data.todos.new.heading, data.todos.new.text, duedate);
 
     cy.get('[data-test-id=toggle-option-show]').click();
-    cy.get('[data-test-id=togglestatus').click();
+    cy.get('[data-test-id=toggle-status').click();
 
     const listitem = cy.get('[todolist]').get('[todolistitem]');
     listitem.get('[tododuedate]').should('not.exist');
@@ -27,7 +27,7 @@ describe('Update TODO', () => {
       .get('[todoperformance]')
       .should('contain.text', 'Completed on time');
 
-    cy.get('[data-test-id=togglestatus').click();
+    cy.get('[data-test-id=toggle-status').click();
     listitem
       .get('[tododuedate]')
       .should('contain.text', `${data.months[+mm - 1]} ${+dd}, ${yyyy}`);
@@ -47,7 +47,7 @@ describe('Update TODO', () => {
     cy.createtodo(data.todos.new.heading, data.todos.new.text, duedate);
 
     cy.get('[data-test-id=toggle-option-show]').click();
-    cy.get('[data-test-id=togglestatus').click();
+    cy.get('[data-test-id=toggle-status').click();
 
     const listitem = cy.get('[todolist]').get('[todolistitem]');
     listitem.click();
@@ -100,7 +100,7 @@ describe('Update TODO', () => {
     listitem.get('[todoadditional]').should('contain.text', 'Past due date');
     listitem.get('[todostatus]').should('contain.text', 'Incomplete');
 
-    cy.get('[data-test-id=togglestatus').click();
+    cy.get('[data-test-id=toggle-status').click();
     listitem.get('[tododuedate]').should('not.exist');
     listitem.get('[todoadditional]').should('contain.text', 'Done');
     listitem.get('[todostatus]').should('not.exist');
