@@ -51,7 +51,7 @@ const panelTextClasses = computed(() => ({
   'text-orange-600': props.type === 'late',
 }));
 
-const dataTestId = computed(() => props.label.replaceAll(' ', '-'));
+const dataTestId = computed(() => props.label.split(' ').join('-').toLowerCase());
 
 defineOptions({
   name: 'UiStatusPanel',
