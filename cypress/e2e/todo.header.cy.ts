@@ -19,12 +19,12 @@ describe('Test Header', () => {
 
     cy.get('[data-test-id=showsearch]').click();
     cy.get('[data-test-id=showsearch]').should('not.exist');
-    cy.get('[data-test-id=inputsearch]').should('exist');
+    cy.get('[data-test-id=input-search]').should('exist');
     cy.get('[data-test-id=clearsearch]').should('exist');
 
     cy.get('[data-test-id=clearsearch]').click();
     cy.get('[data-test-id=showsearch]').should('exist');
-    cy.get('[data-test-id=inputsearch]').should('not.exist');
+    cy.get('[data-test-id=input-search]').should('not.exist');
     cy.get('[data-test-id=clearsearch]').should('not.exist');
   });
 

@@ -18,7 +18,7 @@
           name="searchTextField"
           type="text"
           placeholder="Search TODOs"
-          data-test-id="inputsearch"
+          data-test-id="input-search"
           class="mr-1 w-36 border-none bg-indigo-100 py-2 text-sm text-base caret-primary !outline-none md:w-48 md:text-md lg:w-60 xl:w-72 dark:caret-white"
           v-model.trim="searchValue" />
         <button

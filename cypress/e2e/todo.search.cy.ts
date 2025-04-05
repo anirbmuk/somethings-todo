@@ -103,8 +103,8 @@ describe('Search TODO', () => {
   });
 
   it('should search for a text', () => {
-    cy.get('[data-test-id=inputsearch]').click();
-    cy.get('[data-test-id=inputsearch]').type('todo heading 1');
+    cy.get('[data-test-id=input-search]').click();
+    cy.get('[data-test-id=input-search]').type('todo heading 1');
     cy.wait(200);
     cy.get('[todolistitem]').should('exist').should('have.length', 1);
     cy.get('[todolistitem]')
@@ -120,8 +120,8 @@ describe('Search TODO', () => {
   });
 
   it('should search for a due label', () => {
-    cy.get('[data-test-id=inputsearch]').click();
-    cy.get('[data-test-id=inputsearch]').type('past due date');
+    cy.get('[data-test-id=input-search]').click();
+    cy.get('[data-test-id=input-search]').type('past due date');
     cy.wait(200);
     cy.get('[todolistitem]').should('exist').should('have.length', 2);
     cy.get('[todolistitem]')
@@ -145,9 +145,9 @@ describe('Search TODO', () => {
           .should('contain.text', `TODO text ${day_1}`);
       });
 
-    cy.get('[data-test-id=inputsearch]').click();
-    cy.get('[data-test-id=inputsearch]').clear();
-    cy.get('[data-test-id=inputsearch]').type('due tomorrow');
+    cy.get('[data-test-id=input-search]').click();
+    cy.get('[data-test-id=input-search]').clear();
+    cy.get('[data-test-id=input-search]').type('due tomorrow');
     cy.wait(200);
     cy.get('[todolistitem]').should('exist').should('have.length', 1);
     cy.get('[todolistitem]')
@@ -161,9 +161,9 @@ describe('Search TODO', () => {
           .should('contain.text', `TODO text ${day1}`);
       });
 
-    cy.get('[data-test-id=inputsearch]').click();
-    cy.get('[data-test-id=inputsearch]').clear();
-    cy.get('[data-test-id=inputsearch]').type('next week');
+    cy.get('[data-test-id=input-search]').click();
+    cy.get('[data-test-id=input-search]').clear();
+    cy.get('[data-test-id=input-search]').type('next week');
     cy.wait(200);
     cy.get('[todolistitem]').should('exist').should('have.length', 1);
     cy.get('[todolistitem]')
@@ -177,9 +177,9 @@ describe('Search TODO', () => {
           .should('contain.text', `TODO text ${daynextweek}`);
       });
 
-    cy.get('[data-test-id=inputsearch]').click();
-    cy.get('[data-test-id=inputsearch]').clear();
-    cy.get('[data-test-id=inputsearch]').type('later');
+    cy.get('[data-test-id=input-search]').click();
+    cy.get('[data-test-id=input-search]').clear();
+    cy.get('[data-test-id=input-search]').type('later');
     cy.wait(200);
     cy.get('[todolistitem]').should('exist').should('have.length', 1);
     cy.get('[todolistitem]')
@@ -196,8 +196,8 @@ describe('Search TODO', () => {
 
   it('should search with arithmetic operators', () => {
     cy.log('Testing for eq');
-    cy.get('[data-test-id=inputsearch]').click();
-    cy.get('[data-test-id=inputsearch]').type('= 0');
+    cy.get('[data-test-id=input-search]').click();
+    cy.get('[data-test-id=input-search]').type('= 0');
     cy.wait(200);
     cy.get('[todolistitem]').should('exist').should('have.length', 1);
     cy.get('[todolistitem]')
@@ -210,9 +210,9 @@ describe('Search TODO', () => {
           .find('[todotext]')
           .should('contain.text', `TODO text ${day0}`);
       });
-    cy.get('[data-test-id=inputsearch]').click();
-    cy.get('[data-test-id=inputsearch]').clear();
-    cy.get('[data-test-id=inputsearch]').type('= -1');
+    cy.get('[data-test-id=input-search]').click();
+    cy.get('[data-test-id=input-search]').clear();
+    cy.get('[data-test-id=input-search]').type('= -1');
     cy.wait(200);
     cy.get('[todolistitem]').should('exist').should('have.length', 1);
     cy.get('[todolistitem]')
@@ -227,9 +227,9 @@ describe('Search TODO', () => {
       });
 
     cy.log('Testing for <');
-    cy.get('[data-test-id=inputsearch]').click();
-    cy.get('[data-test-id=inputsearch]').clear();
-    cy.get('[data-test-id=inputsearch]').type('< 0');
+    cy.get('[data-test-id=input-search]').click();
+    cy.get('[data-test-id=input-search]').clear();
+    cy.get('[data-test-id=input-search]').type('< 0');
     cy.wait(200);
     cy.get('[todolistitem]').should('exist').should('have.length', 2);
     cy.get('[todolistitem]')
@@ -254,9 +254,9 @@ describe('Search TODO', () => {
       });
 
     cy.log('Testing for >');
-    cy.get('[data-test-id=inputsearch]').click();
-    cy.get('[data-test-id=inputsearch]').clear();
-    cy.get('[data-test-id=inputsearch]').type('> 6');
+    cy.get('[data-test-id=input-search]').click();
+    cy.get('[data-test-id=input-search]').clear();
+    cy.get('[data-test-id=input-search]').type('> 6');
     cy.wait(200);
     cy.get('[todolistitem]').should('exist').should('have.length', 2);
     cy.get('[todolistitem]')
@@ -281,9 +281,9 @@ describe('Search TODO', () => {
       });
 
     cy.log('Testing for <=');
-    cy.get('[data-test-id=inputsearch]').click();
-    cy.get('[data-test-id=inputsearch]').clear();
-    cy.get('[data-test-id=inputsearch]').type('<= 1');
+    cy.get('[data-test-id=input-search]').click();
+    cy.get('[data-test-id=input-search]').clear();
+    cy.get('[data-test-id=input-search]').type('<= 1');
     cy.wait(200);
     cy.get('[todolistitem]').should('exist').should('have.length', 4);
     cy.get('[todolistitem]')
@@ -328,9 +328,9 @@ describe('Search TODO', () => {
       });
 
     cy.log('Testing for >=');
-    cy.get('[data-test-id=inputsearch]').click();
-    cy.get('[data-test-id=inputsearch]').clear();
-    cy.get('[data-test-id=inputsearch]').type('>= 3');
+    cy.get('[data-test-id=input-search]').click();
+    cy.get('[data-test-id=input-search]').clear();
+    cy.get('[data-test-id=input-search]').type('>= 3');
     cy.wait(200);
     cy.get('[todolistitem]').should('exist').should('have.length', 4);
     cy.get('[todolistitem]')
