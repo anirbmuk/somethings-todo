@@ -2,6 +2,7 @@ import { defineStore } from 'pinia';
 import { useStorage } from '@vueuse/core';
 import type {
   AddTodo,
+  ImportTodo,
   ITodo,
   UpdateTodo,
 } from '@/types/todo';
@@ -25,6 +26,18 @@ export const useTodoStore = defineStore('todos', () => {
     const newTodo = {
       ...todo,
       todoid: generateTodoId(),
+      status: 'Incomplete',
+      ...(duedateUTC && {
+        duedate: duedateUTC,
+      }),
+    } satisfies ITodo;
+    todos.value.push(newTodo);
+  };
+
+  const importTodo = (todo: ImportTodo) => {
+    const duedateUTC = getStorageDate(todo.duedate);
+    const newTodo = {
+      ...todo,
       status: 'Incomplete',
       ...(duedateUTC && {
         duedate: duedateUTC,
@@ -80,6 +93,7 @@ export const useTodoStore = defineStore('todos', () => {
   return {
     todos,
     addTodo,
+    importTodo,
     updateTodo,
     toggleTodo,
     deleteTodo,

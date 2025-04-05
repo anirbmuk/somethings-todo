@@ -8,6 +8,7 @@ import type {
   FilterBy,
   GroupBy,
   GroupedTodo,
+  ImportStatus,
   ITodo,
   UpdateTodo,
 } from '@/types/todo';
@@ -17,6 +18,8 @@ import { useTodoStore } from '@/stores/todo';
 import { useSearch } from './useSearch';
 import { useModal } from './useModal';
 import {
+  decryptTodo,
+  encryptTodo,
   getPerformance,
   getStatus,
 } from '@/helpers/todo';
@@ -153,6 +156,35 @@ export const useTodo = () => {
 
   const addTodo = (todo: AddTodo) => todoStore.addTodo(todo);
 
+  const importTodo = (content: string): ImportStatus => {
+    const decryptedTodo = decryptTodo(content);
+    if (!decryptedTodo) {
+      return {
+        status: 'failure',
+        message: 'Could not decrypt malformed TODO content',
+      };
+    }
+    const { todoid } = decryptedTodo;
+    if (!todoid) {
+      return {
+        status: 'failure',
+        message: 'Missing required \'todoid\' in the import data',
+      };
+    }
+    const indexOfTodoToBeImported = todos.value.findIndex((todo) => todo.todoid === todoid);
+    if (indexOfTodoToBeImported > -1) {
+      return {
+        status: 'failure',
+        message: 'This TODO already exists in your system',
+      };
+    }
+    todoStore.importTodo(decryptedTodo);
+    return {
+      status: 'success',
+      message: 'The TODO is successfully imported',
+    };
+  };
+
   const updateTodo = ({
     todoid,
     todo,
@@ -169,15 +201,18 @@ export const useTodo = () => {
       return;
     }
     const todoToBeShared = todos.value[indexOfTodoToBeShared];
+    const todoConfig = encryptTodo(todoToBeShared);
     const headingLength = Math.max(Math.floor(todoToBeShared.heading.length * 2), 10);
     const fill = (new Array(headingLength) as string[]).fill('-', 0).join('');
     const due = `Due: ${getReadableDate(todoToBeShared.duedate)}`;
     const url = window.location.href || 'https://somethings-todo.netlify.app/';
-    const text = `${todoToBeShared.heading || ''}\n${fill}\n${todoToBeShared.text || ''}\n\n${due}\n\nURL: ${url}`;
-    window.navigator.share({
+    const urlForImport = `${url}import/${todoConfig}`;
+    const text = `${todoToBeShared.heading || ''}\n${fill}\n${todoToBeShared.text || ''}\n\n${due}\n\nImport this TODO by visiting: ${urlForImport}`;
+    window?.navigator?.share({
       title: 'Sharing my TODO item',
       text,
-    });
+    // eslint-disable-next-line no-console
+    }).catch(() => console.warn('Sharing event was cancelled'));
   };
 
   const deleteTodo = (todoid: ITodo['todoid']) => todoStore.deleteTodo(todoid);
@@ -191,6 +226,7 @@ export const useTodo = () => {
     todos,
     groupedTodos,
     addTodo,
+    importTodo,
     updateTodo,
     toggleTodo,
     shareTodo,

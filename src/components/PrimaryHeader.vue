@@ -56,7 +56,7 @@
         <icon-dashboard class="size-6 text-white" />
       </button>
       <button
-        v-else-if="route.name === 'dashboard'"
+        v-else-if="route.name === 'dashboard' || route.name === 'import'"
         type="button"
         title="View TODOs"
         data-test-id="viewtodobtn"

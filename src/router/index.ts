@@ -27,6 +27,14 @@ const router = createRouter({
       },
     },
     {
+      path: '/import/:content',
+      name: 'import',
+      component: () => import('@/views/ImportView.vue'),
+      meta: {
+        title: 'Dashboard',
+      },
+    },
+    {
       path: '/notfound',
       name: 'page-not-found',
       component: () => import('@/views/PageNotFoundView.vue'),

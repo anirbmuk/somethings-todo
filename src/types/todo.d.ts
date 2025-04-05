@@ -19,6 +19,8 @@ export type ITodo = {
 
 export type AddTodo = Pick<ITodo, 'heading' | 'text' | 'duedate'>;
 
+export type ImportTodo = Pick<ITodo, 'todoid' | 'heading' | 'text' | 'duedate'>;
+
 export type UpdateTodo = Pick<
   ITodo,
   'heading' | 'text' | 'status' | 'duedate' | 'completedon'
@@ -39,3 +41,8 @@ export type Status = 'Incomplete' | 'Complete';
 export type State = 'error' | 'warn' | 'info' | 'moderate' | 'safe' | 'later' | 'done';
 
 export type Rating = 'beforetime' | 'ontime' | 'delayed' | 'late';
+
+export type ImportStatus = {
+  status: 'success' | 'failure';
+  message: string;
+}
