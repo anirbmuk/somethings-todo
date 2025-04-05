@@ -32,7 +32,7 @@ describe('Create TODO', () => {
     cy.get('[data-test-id=todo-list]').should('exist').should('have.length', 1);
     const listitem = cy.get('[data-test-id=todo-list]').get('[data-test-id=todo-list-item]');
     listitem
-      .get('[todoheading]')
+      .get('[data-test-id=todo-heading]')
       .should('contain.text', data.todos.new.heading);
     listitem.get('[todotext]').should('contain.text', data.todos.new.text);
     listitem
@@ -70,7 +70,7 @@ describe('Create TODO', () => {
     cy.get('[data-test-id=todo-list]').should('exist').should('have.length', 1);
     const listitem = cy.get('[data-test-id=todo-list]').get('[data-test-id=todo-list-item]');
     listitem
-      .get('[todoheading]')
+      .get('[data-test-id=todo-heading]')
       .should('contain.text', data.todos.new.heading);
     listitem.get('[todotext]').should('contain.text', data.todos.new.text);
     listitem
@@ -121,7 +121,7 @@ describe('Create TODO', () => {
     cy.get('[data-test-id=todo-list]').each((listitem, index) => {
       cy.wrap(listitem).should('exist');
       cy.wrap(listitem)
-        .find('[todoheading]')
+        .find('[data-test-id=todo-heading]')
         .should(
           'contain.text',
           data.todos[index === 0 ? 'new' : 'alt'].heading,

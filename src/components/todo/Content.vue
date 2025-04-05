@@ -37,8 +37,8 @@
             todoadditional>{{ todo.additional.message }}</span>
         </div>
         <div
-          class="pb-2 pt-1 text font-bold uppercase dark:text-white"
-          todoheading>
+          data-test-id="todo-heading"
+          class="pb-2 pt-1 text font-bold uppercase dark:text-white">
           {{ todo.heading }}
         </div>
         <div class="max-h-24 overflow-auto md:overflow-y-auto dark:text-white">
