@@ -1,5 +1,5 @@
 <template>
-  <div data-test-id="helpmodal">
+  <div data-test-id="help-modal">
     <div class="flex h-20 flex-col items-start justify-start dark:text-white">
       <div class="my-2 flex items-center justify-between px-2 text-3xl md:px-4">
         Help Topics
