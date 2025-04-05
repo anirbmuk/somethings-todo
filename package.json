@@ -26,7 +26,7 @@
     "test": "TZ=UTC vitest",
     "test:ci": "TZ=UTC vitest --silent --watch=false",
     "test-e2e": "cypress run --headless --browser chrome",
-    "test-e2e:ci": "start-server-and-test dev http://localhost:5173 cy:test",
+    "test-e2e:ci": "start-server-and-test dev http://localhost:5173 test-e2e",
     "format": "prettier . --write src/",
     "clean": "rimraf dist && rimraf .firebase && rimraf cypress/downloads",
     "prepare": "husky install",
