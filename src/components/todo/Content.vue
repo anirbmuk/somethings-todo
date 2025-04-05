@@ -96,7 +96,7 @@
             type="button"
             class="size-auto"
             title="Delete this TODO"
-            data-test-id="deletetodo"
+            data-test-id="delete-todo"
             @click.stop="$emit('delete-todo', todo.todoid)">
             <icon-delete class="size-6 text-amber-900 dark:text-white" />
           </button>

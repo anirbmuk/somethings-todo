@@ -22,7 +22,7 @@ describe('Delete TODO', () => {
   });
 
   it('should delete existing TODO on YES', () => {
-    cy.get('[data-test-id=deletetodo]').click();
+    cy.get('[data-test-id=delete-todo]').click();
     cy.wait(250);
 
     cy.get('[data-test-id=confirmmodal]').should('be.visible');
@@ -40,7 +40,7 @@ describe('Delete TODO', () => {
   });
 
   it('should not delete existing TODO on NO', () => {
-    cy.get('[data-test-id=deletetodo]').click();
+    cy.get('[data-test-id=delete-todo]').click();
     cy.wait(250);
 
     cy.get('[data-test-id=confirmmodal]').should('be.visible');
