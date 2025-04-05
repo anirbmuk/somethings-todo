@@ -28,8 +28,8 @@
         <p>Turn on dark mode on your mobile/laptop/PC and the page looks as elegant as it can get.</p>
       </details>
       <details class="mt-2">
-        <summary class="font-semibold">Easy Share</summary>
-        <p>Share your TODO items on your favourite medium.</p>
+        <summary class="font-semibold">Easy Share & Import</summary>
+        <p>Share your TODO items on your favourite medium, and import into your browser!</p>
       </details>
       <details class="mt-2">
         <summary class="font-semibold">Hybrid App</summary>
