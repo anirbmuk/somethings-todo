@@ -2,7 +2,7 @@ describe('Test Header', () => {
   it('should show correct app title', () => {
     cy.visit('/');
 
-    cy.get('[data-test-id=titlelink]').should('contain.text', 'Things TODO');
+    cy.get('[data-test-id=title-link]').should('contain.text', 'Things TODO');
   });
 
   it('should display action buttons', () => {

@@ -5,7 +5,7 @@
       router-link="/">
       <router-link
         to="/"
-        data-test-id="titlelink">
+        data-test-id="title-link">
         Things TODO
       </router-link>
     </div>

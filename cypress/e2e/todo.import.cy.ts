@@ -10,7 +10,7 @@ describe('Import TODO', () => {
     cy.get('[data-test-id=import-failure]').should('not.exist');
 
     cy.log('Navigate to home page to view the todo');
-    cy.get('[data-test-id=titlelink]').click();
+    cy.get('[data-test-id=title-link]').click();
 
     cy.url().should('contain', data.baseUrl);
     cy.get('[todolistitem]').should('exist').should('have.length', 1);

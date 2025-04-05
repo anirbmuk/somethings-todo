@@ -20,7 +20,7 @@ describe('Test routing', () => {
 
   it('clicking on title link should correctly redirect to main page', () => {
     cy.visit('/wrong');
-    cy.get('[data-test-id=titlelink]').click();
+    cy.get('[data-test-id=title-link]').click();
     cy.url().should('contain', data.baseUrl);
     cy.title().should('equal', `${data.title} | Home`);
   });
