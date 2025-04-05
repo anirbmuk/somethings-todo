@@ -20,12 +20,12 @@ describe('Test Header', () => {
     cy.get('[data-test-id=showsearch]').click();
     cy.get('[data-test-id=showsearch]').should('not.exist');
     cy.get('[data-test-id=input-search]').should('exist');
-    cy.get('[data-test-id=clearsearch]').should('exist');
+    cy.get('[data-test-id=clear-search]').should('exist');
 
-    cy.get('[data-test-id=clearsearch]').click();
+    cy.get('[data-test-id=clear-search]').click();
     cy.get('[data-test-id=showsearch]').should('exist');
     cy.get('[data-test-id=input-search]').should('not.exist');
-    cy.get('[data-test-id=clearsearch]').should('not.exist');
+    cy.get('[data-test-id=clear-search]').should('not.exist');
   });
 
   it('should open modal on clicking add icon', () => {

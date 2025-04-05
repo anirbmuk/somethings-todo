@@ -26,7 +26,7 @@
           type="button"
           class="z-10 -ml-8"
           title="Cancel search"
-          data-test-id="clearsearch"
+          data-test-id="clear-search"
           @click="searchStore.toggleSearchState">
           <icon-close class="size-6" />
         </button>
