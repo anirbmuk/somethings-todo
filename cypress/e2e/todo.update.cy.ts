@@ -21,7 +21,7 @@ describe('Update TODO', () => {
 
     const listitem = cy.get('[data-test-id=todo-list]').get('[data-test-id=todo-list-item]');
     listitem.get('[tododuedate]').should('not.exist');
-    listitem.get('[todostatus]').should('not.exist');
+    listitem.get('[data-test-id=todo-status]').should('not.exist');
     listitem.get('[todoadditional]').should('contain.text', 'Done');
     listitem
       .get('[todoperformance]')
@@ -33,7 +33,7 @@ describe('Update TODO', () => {
       .should('contain.text', `${data.months[+mm - 1]} ${+dd}, ${yyyy}`);
     listitem.get('[todoadditional]').should('contain.text', 'Due today');
     listitem.get('[todoperformance]').should('not.exist');
-    listitem.get('[todostatus]').should('contain.text', 'Incomplete');
+    listitem.get('[data-test-id=todo-status]').should('contain.text', 'Incomplete');
   });
 
   it('should not allow to edit Completed TODO', () => {
@@ -98,12 +98,12 @@ describe('Update TODO', () => {
     listitem.get('[todotext]').should('contain.text', 'Past TODO text');
     listitem.get('[tododuedate]').should('contain.text', 'Jan 1, 2020');
     listitem.get('[todoadditional]').should('contain.text', 'Past due date');
-    listitem.get('[todostatus]').should('contain.text', 'Incomplete');
+    listitem.get('[data-test-id=todo-status]').should('contain.text', 'Incomplete');
 
     cy.get('[data-test-id=toggle-status').click();
     listitem.get('[tododuedate]').should('not.exist');
     listitem.get('[todoadditional]').should('contain.text', 'Done');
-    listitem.get('[todostatus]').should('not.exist');
+    listitem.get('[data-test-id=todo-status]').should('not.exist');
     listitem
       .get('[todoperformance]')
       .should('contain.text', 'Task was delayed :-(');

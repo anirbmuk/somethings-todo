@@ -39,7 +39,7 @@ describe('Create TODO', () => {
       .get('[tododuedate]')
       .should('contain.text', `${data.months[+mm - 1]} ${+dd}, ${yyyy}`);
     listitem
-      .get('[todostatus]')
+      .get('[data-test-id=todo-status]')
       .should('contain.text', 'Incomplete');
     listitem.get('[todoadditional]').should('contain.text', 'Due today');
   });
@@ -77,14 +77,14 @@ describe('Create TODO', () => {
       .get('[tododuedate]')
       .should('contain.text', `${data.months[+mm - 1]} ${+dd}, ${yyyy}`);
     listitem
-      .get('[todostatus]')
+      .get('[data-test-id=todo-status]')
       .should('contain.text', 'Incomplete');
     listitem.get('[todoadditional]').should('contain.text', 'Due later');
 
     cy.get('[data-test-id=toggle-option-show]').click();
     cy.get('[data-test-id=toggle-status').click();
     listitem.get('[tododuedate]').should('not.exist');
-    listitem.get('[todostatus]').should('not.exist');
+    listitem.get('[data-test-id=todo-status]').should('not.exist');
     listitem.get('[todoadditional]').should('contain.text', 'Done');
     listitem
       .get('[todoperformance]')
@@ -130,7 +130,7 @@ describe('Create TODO', () => {
         .find('[todotext]')
         .should('contain.text', data.todos[index === 0 ? 'new' : 'alt'].text);
       cy.wrap(listitem)
-        .find('[todostatus]')
+        .find('[data-test-id=todo-status]')
         .should('contain.text', 'Incomplete');
       if (index === 0) {
         cy.wrap(listitem)

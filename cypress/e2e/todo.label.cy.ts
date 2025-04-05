@@ -110,7 +110,7 @@ describe('Label TODO', () => {
       .eq(0)
       .then((listitem) => {
         cy.wrap(listitem)
-          .find('[todostatus]')
+          .find('[data-test-id=todo-status]')
           .should('contain.text', 'Incomplete');
         cy.wrap(listitem)
           .find('[todoadditional]')
@@ -120,7 +120,7 @@ describe('Label TODO', () => {
       .eq(1)
       .then((listitem) => {
         cy.wrap(listitem)
-          .find('[todostatus]')
+          .find('[data-test-id=todo-status]')
           .should('contain.text', 'Incomplete');
         cy.wrap(listitem)
           .find('[todoadditional]')
@@ -130,7 +130,7 @@ describe('Label TODO', () => {
       .eq(2)
       .then((listitem) => {
         cy.wrap(listitem)
-          .find('[todostatus]')
+          .find('[data-test-id=todo-status]')
           .should('contain.text', 'Incomplete');
         cy.wrap(listitem)
           .find('[todoadditional]')
@@ -140,7 +140,7 @@ describe('Label TODO', () => {
       .eq(3)
       .then((listitem) => {
         cy.wrap(listitem)
-          .find('[todostatus]')
+          .find('[data-test-id=todo-status]')
           .should('contain.text', 'Incomplete');
         cy.wrap(listitem)
           .find('[todoadditional]')
@@ -150,7 +150,7 @@ describe('Label TODO', () => {
       .eq(4)
       .then((listitem) => {
         cy.wrap(listitem)
-          .find('[todostatus]')
+          .find('[data-test-id=todo-status]')
           .should('contain.text', 'Incomplete');
         cy.wrap(listitem)
           .find('[todoadditional]')
@@ -160,7 +160,7 @@ describe('Label TODO', () => {
       .eq(5)
       .then((listitem) => {
         cy.wrap(listitem)
-          .find('[todostatus]')
+          .find('[data-test-id=todo-status]')
           .should('contain.text', 'Incomplete');
         cy.wrap(listitem)
           .find('[todoadditional]')
@@ -170,7 +170,7 @@ describe('Label TODO', () => {
       .eq(6)
       .then((listitem) => {
         cy.wrap(listitem)
-          .find('[todostatus]')
+          .find('[data-test-id=todo-status]')
           .should('contain.text', 'Incomplete');
         cy.wrap(listitem)
           .find('[todoadditional]')
@@ -180,7 +180,7 @@ describe('Label TODO', () => {
       .eq(7)
       .then((listitem) => {
         cy.wrap(listitem)
-          .find('[todostatus]')
+          .find('[data-test-id=todo-status]')
           .should('contain.text', 'Incomplete');
         cy.wrap(listitem)
           .find('[todoadditional]')

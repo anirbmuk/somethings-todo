@@ -19,8 +19,10 @@
           class="z-10 flex space-x-2">
           <span
             v-if="todo.status !== 'Complete'"
-            class="rounded-sm border border-red-800 bg-red-50 px-2 py-1 text-center text-sm font-normal text-red-800"
-            todostatus>{{ todo.status }}</span>
+            data-test-id="todo-status"
+            class="rounded-sm border border-red-800 bg-red-50 px-2 py-1 text-center text-sm font-normal text-red-800">
+            {{ todo.status }}
+          </span>
           <span
             class="rounded-sm px-2 py-1 text-center text-sm font-normal"
             :class="{

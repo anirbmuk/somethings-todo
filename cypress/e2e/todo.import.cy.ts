@@ -19,7 +19,7 @@ describe('Import TODO', () => {
       .eq(0)
       .then((listitem) => {
         cy.wrap(listitem)
-          .find('[todostatus]')
+          .find('[data-test-id=todo-status]')
           .should('contain.text', 'Incomplete');
         cy.wrap(listitem)
           .find('[todoheading]')
