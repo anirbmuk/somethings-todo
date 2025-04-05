@@ -28,7 +28,7 @@
     "test:ci": "TZ=UTC vitest --silent --watch=false",
     "test-e2e:ci": "start-server-and-test dev http://localhost:5173 cy:test",
     "format": "prettier . --write src/",
-    "clean": "rimraf dist",
+    "clean": "rimraf dist && rimraf .firebase && rimraf cypress/downloads",
     "prepare": "husky install",
     "host": "firebase deploy --only hosting",
     "deploy": "yarn clean && yarn build && yarn host"
