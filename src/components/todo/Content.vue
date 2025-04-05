@@ -56,6 +56,7 @@
         </div>
         <div
           v-if="todo.performance && todo.status === 'Complete'"
+          data-test-id="todo-performance"
           class="z-10 pb-1 pt-4 text-sm text-gray-800 dark:text-white"
           :class="{
             'text-red-600': todo.performance.rating === 'late',
@@ -63,8 +64,7 @@
             'text-green-600':
               todo.performance.rating === 'ontime' ||
               todo.performance.rating === 'beforetime'
-          }"
-          todoperformance>
+          }">
           {{ todo?.performance?.message }}
         </div>
       </div>

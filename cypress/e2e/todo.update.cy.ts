@@ -24,7 +24,7 @@ describe('Update TODO', () => {
     listitem.get('[data-test-id=todo-status]').should('not.exist');
     listitem.get('[todoadditional]').should('contain.text', 'Done');
     listitem
-      .get('[todoperformance]')
+      .get('[data-test-id=todo-performance]')
       .should('contain.text', 'Completed on time');
 
     cy.get('[data-test-id=toggle-status').click();
@@ -32,7 +32,7 @@ describe('Update TODO', () => {
       .get('[data-test-id=todo-due-date]')
       .should('contain.text', `${data.months[+mm - 1]} ${+dd}, ${yyyy}`);
     listitem.get('[todoadditional]').should('contain.text', 'Due today');
-    listitem.get('[todoperformance]').should('not.exist');
+    listitem.get('[data-test-id=todo-performance]').should('not.exist');
     listitem.get('[data-test-id=todo-status]').should('contain.text', 'Incomplete');
   });
 
@@ -105,7 +105,7 @@ describe('Update TODO', () => {
     listitem.get('[todoadditional]').should('contain.text', 'Done');
     listitem.get('[data-test-id=todo-status]').should('not.exist');
     listitem
-      .get('[todoperformance]')
+      .get('[data-test-id=todo-performance]')
       .should('contain.text', 'Task was delayed :-(');
   });
 

@@ -87,7 +87,7 @@ describe('Create TODO', () => {
     listitem.get('[data-test-id=todo-status]').should('not.exist');
     listitem.get('[todoadditional]').should('contain.text', 'Done');
     listitem
-      .get('[todoperformance]')
+      .get('[data-test-id=todo-performance]')
       .should('contain.text', 'Completed before due date :-)');
   });
 
