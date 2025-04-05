@@ -24,6 +24,7 @@
             {{ todo.status }}
           </span>
           <span
+            data-test-id="todo-additional"
             class="rounded-sm px-2 py-1 text-center text-sm font-normal"
             :class="{
               'bg-error text-white': todo.additional.state === 'error',
@@ -33,8 +34,7 @@
               'bg-green-800 text-white': todo.additional.state === 'safe',
               'bg-gray-500 text-white': todo.additional.state === 'later',
               'border border-green-800 bg-green-50 text-green-800': todo.additional.state === 'done'
-            }"
-            todoadditional>{{ todo.additional.message }}</span>
+            }">{{ todo.additional.message }}</span>
         </div>
         <div
           data-test-id="todo-heading"

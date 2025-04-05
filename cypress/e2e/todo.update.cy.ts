@@ -22,7 +22,7 @@ describe('Update TODO', () => {
     const listitem = cy.get('[data-test-id=todo-list]').get('[data-test-id=todo-list-item]');
     listitem.get('[data-test-id=todo-due-date]').should('not.exist');
     listitem.get('[data-test-id=todo-status]').should('not.exist');
-    listitem.get('[todoadditional]').should('contain.text', 'Done');
+    listitem.get('[data-test-id=todo-additional]').should('contain.text', 'Done');
     listitem
       .get('[data-test-id=todo-performance]')
       .should('contain.text', 'Completed on time');
@@ -31,7 +31,7 @@ describe('Update TODO', () => {
     listitem
       .get('[data-test-id=todo-due-date]')
       .should('contain.text', `${data.months[+mm - 1]} ${+dd}, ${yyyy}`);
-    listitem.get('[todoadditional]').should('contain.text', 'Due today');
+    listitem.get('[data-test-id=todo-additional]').should('contain.text', 'Due today');
     listitem.get('[data-test-id=todo-performance]').should('not.exist');
     listitem.get('[data-test-id=todo-status]').should('contain.text', 'Incomplete');
   });
@@ -97,12 +97,12 @@ describe('Update TODO', () => {
     listitem.get('[data-test-id=todo-heading]').should('contain.text', 'Past TODO heading');
     listitem.get('[data-test-id=todo-text]').should('contain.text', 'Past TODO text');
     listitem.get('[data-test-id=todo-due-date]').should('contain.text', 'Jan 1, 2020');
-    listitem.get('[todoadditional]').should('contain.text', 'Past due date');
+    listitem.get('[data-test-id=todo-additional]').should('contain.text', 'Past due date');
     listitem.get('[data-test-id=todo-status]').should('contain.text', 'Incomplete');
 
     cy.get('[data-test-id=toggle-status').click();
     listitem.get('[data-test-id=todo-due-date]').should('not.exist');
-    listitem.get('[todoadditional]').should('contain.text', 'Done');
+    listitem.get('[data-test-id=todo-additional]').should('contain.text', 'Done');
     listitem.get('[data-test-id=todo-status]').should('not.exist');
     listitem
       .get('[data-test-id=todo-performance]')
