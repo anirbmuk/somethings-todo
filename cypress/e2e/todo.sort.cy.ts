@@ -55,216 +55,216 @@ describe('Sort TODO', () => {
   });
 
   it('should initially sort in ascending order of duedate', () => {
-    cy.get('[todolistitem]').should('exist').should('have.length', 3);
+    cy.get('[data-test-id=todo-list-item]').should('exist').should('have.length', 3);
 
-    cy.get('[todolistitem]')
+    cy.get('[data-test-id=todo-list-item]')
       .eq(0)
       .then((listitem) => {
         cy.wrap(listitem)
-          .find('[todoheading]')
+          .find('[data-test-id=todo-heading]')
           .should('contain.text', 'TODO heading 1');
         cy.wrap(listitem)
-          .find('[todotext]')
+          .find('[data-test-id=todo-text]')
           .should('contain.text', `TODO text ${day0}`);
       });
-    cy.get('[todolistitem]')
+    cy.get('[data-test-id=todo-list-item]')
       .eq(1)
       .then((listitem) => {
         cy.wrap(listitem)
-          .find('[todoheading]')
+          .find('[data-test-id=todo-heading]')
           .should('contain.text', 'TODO heading 2');
         cy.wrap(listitem)
-          .find('[todotext]')
+          .find('[data-test-id=todo-text]')
           .should('contain.text', `TODO text ${day1}`);
       });
-    cy.get('[todolistitem]')
+    cy.get('[data-test-id=todo-list-item]')
       .eq(2)
       .then((listitem) => {
         cy.wrap(listitem)
-          .find('[todoheading]')
+          .find('[data-test-id=todo-heading]')
           .should('contain.text', 'TODO heading 3');
         cy.wrap(listitem)
-          .find('[todotext]')
+          .find('[data-test-id=todo-text]')
           .should('contain.text', `TODO text ${day2}`);
       });
   });
 
   it('should push completed TODOs to end-of-group', () => {
     cy.log('Mark first TODO as done');
-    cy.get('[data-test-id=togglestatus]').eq(0).click();
+    cy.get('[data-test-id=toggle-status]').eq(0).click();
     cy.wait(250);
 
-    cy.get('[todolistitem]')
+    cy.get('[data-test-id=todo-list-item]')
       .eq(0)
       .then((listitem) => {
         cy.wrap(listitem)
-          .find('[todoheading]')
+          .find('[data-test-id=todo-heading]')
           .should('contain.text', 'TODO heading 2');
         cy.wrap(listitem)
-          .find('[todotext]')
+          .find('[data-test-id=todo-text]')
           .should('contain.text', `TODO text ${day1}`);
       });
-    cy.get('[todolistitem]')
+    cy.get('[data-test-id=todo-list-item]')
       .eq(1)
       .then((listitem) => {
         cy.wrap(listitem)
-          .find('[todoheading]')
+          .find('[data-test-id=todo-heading]')
           .should('contain.text', 'TODO heading 3');
         cy.wrap(listitem)
-          .find('[todotext]')
+          .find('[data-test-id=todo-text]')
           .should('contain.text', `TODO text ${day2}`);
       });
-    cy.get('[todolistitem]')
+    cy.get('[data-test-id=todo-list-item]')
       .eq(2)
       .then((listitem) => {
         cy.wrap(listitem)
-          .find('[todoheading]')
+          .find('[data-test-id=todo-heading]')
           .should('contain.text', 'TODO heading 1');
         cy.wrap(listitem)
-          .find('[todotext]')
+          .find('[data-test-id=todo-text]')
           .should('contain.text', `TODO text ${day0}`);
       });
 
     cy.log('Mark second TODO as done');
-    cy.get('[data-test-id=togglestatus]').eq(0).click();
+    cy.get('[data-test-id=toggle-status]').eq(0).click();
     cy.wait(250);
 
-    cy.get('[todolistitem]')
+    cy.get('[data-test-id=todo-list-item]')
       .eq(0)
       .then((listitem) => {
         cy.wrap(listitem)
-          .find('[todoheading]')
+          .find('[data-test-id=todo-heading]')
           .should('contain.text', 'TODO heading 3');
         cy.wrap(listitem)
-          .find('[todotext]')
+          .find('[data-test-id=todo-text]')
           .should('contain.text', `TODO text ${day2}`);
       });
-    cy.get('[todolistitem]')
+    cy.get('[data-test-id=todo-list-item]')
       .eq(1)
       .then((listitem) => {
         cy.wrap(listitem)
-          .find('[todoheading]')
+          .find('[data-test-id=todo-heading]')
           .should('contain.text', 'TODO heading 1');
         cy.wrap(listitem)
-          .find('[todotext]')
+          .find('[data-test-id=todo-text]')
           .should('contain.text', `TODO text ${day0}`);
       });
-    cy.get('[todolistitem]')
+    cy.get('[data-test-id=todo-list-item]')
       .eq(2)
       .then((listitem) => {
         cy.wrap(listitem)
-          .find('[todoheading]')
+          .find('[data-test-id=todo-heading]')
           .should('contain.text', 'TODO heading 2');
         cy.wrap(listitem)
-          .find('[todotext]')
+          .find('[data-test-id=todo-text]')
           .should('contain.text', `TODO text ${day1}`);
       });
   });
 
   it('should push incomplete TODOs to top-of-group', () => {
     cy.log('Mark all TODOs as done');
-    cy.get('[data-test-id=togglestatus]').each((toggle) => {
+    cy.get('[data-test-id=toggle-status]').each((toggle) => {
       cy.wrap(toggle).click();
     });
     cy.wait(250);
 
-    cy.get('[todolistitem]')
+    cy.get('[data-test-id=todo-list-item]')
       .eq(0)
       .then((listitem) => {
         cy.wrap(listitem)
-          .find('[todoheading]')
+          .find('[data-test-id=todo-heading]')
           .should('contain.text', 'TODO heading 1');
         cy.wrap(listitem)
-          .find('[todotext]')
+          .find('[data-test-id=todo-text]')
           .should('contain.text', `TODO text ${day0}`);
       });
-    cy.get('[todolistitem]')
+    cy.get('[data-test-id=todo-list-item]')
       .eq(1)
       .then((listitem) => {
         cy.wrap(listitem)
-          .find('[todoheading]')
+          .find('[data-test-id=todo-heading]')
           .should('contain.text', 'TODO heading 2');
         cy.wrap(listitem)
-          .find('[todotext]')
+          .find('[data-test-id=todo-text]')
           .should('contain.text', `TODO text ${day1}`);
       });
-    cy.get('[todolistitem]')
+    cy.get('[data-test-id=todo-list-item]')
       .eq(2)
       .then((listitem) => {
         cy.wrap(listitem)
-          .find('[todoheading]')
+          .find('[data-test-id=todo-heading]')
           .should('contain.text', 'TODO heading 3');
         cy.wrap(listitem)
-          .find('[todotext]')
+          .find('[data-test-id=todo-text]')
           .should('contain.text', `TODO text ${day2}`);
       });
 
     cy.log('Mark first TODO from bottom as Incomplete');
-    cy.get('[data-test-id=togglestatus]').eq(2).click();
+    cy.get('[data-test-id=toggle-status]').eq(2).click();
     cy.wait(250);
 
-    cy.get('[todolistitem]')
+    cy.get('[data-test-id=todo-list-item]')
       .eq(0)
       .then((listitem) => {
         cy.wrap(listitem)
-          .find('[todoheading]')
+          .find('[data-test-id=todo-heading]')
           .should('contain.text', 'TODO heading 3');
         cy.wrap(listitem)
-          .find('[todotext]')
+          .find('[data-test-id=todo-text]')
           .should('contain.text', `TODO text ${day2}`);
       });
-    cy.get('[todolistitem]')
+    cy.get('[data-test-id=todo-list-item]')
       .eq(1)
       .then((listitem) => {
         cy.wrap(listitem)
-          .find('[todoheading]')
+          .find('[data-test-id=todo-heading]')
           .should('contain.text', 'TODO heading 1');
         cy.wrap(listitem)
-          .find('[todotext]')
+          .find('[data-test-id=todo-text]')
           .should('contain.text', `TODO text ${day0}`);
       });
-    cy.get('[todolistitem]')
+    cy.get('[data-test-id=todo-list-item]')
       .eq(2)
       .then((listitem) => {
         cy.wrap(listitem)
-          .find('[todoheading]')
+          .find('[data-test-id=todo-heading]')
           .should('contain.text', 'TODO heading 2');
         cy.wrap(listitem)
-          .find('[todotext]')
+          .find('[data-test-id=todo-text]')
           .should('contain.text', `TODO text ${day1}`);
       });
 
-    cy.get('[data-test-id=togglestatus]').eq(2).click();
+    cy.get('[data-test-id=toggle-status]').eq(2).click();
     cy.wait(250);
 
-    cy.get('[todolistitem]')
+    cy.get('[data-test-id=todo-list-item]')
       .eq(0)
       .then((listitem) => {
         cy.wrap(listitem)
-          .find('[todoheading]')
+          .find('[data-test-id=todo-heading]')
           .should('contain.text', 'TODO heading 2');
         cy.wrap(listitem)
-          .find('[todotext]')
+          .find('[data-test-id=todo-text]')
           .should('contain.text', `TODO text ${day1}`);
       });
-    cy.get('[todolistitem]')
+    cy.get('[data-test-id=todo-list-item]')
       .eq(1)
       .then((listitem) => {
         cy.wrap(listitem)
-          .find('[todoheading]')
+          .find('[data-test-id=todo-heading]')
           .should('contain.text', 'TODO heading 3');
         cy.wrap(listitem)
-          .find('[todotext]')
+          .find('[data-test-id=todo-text]')
           .should('contain.text', `TODO text ${day2}`);
       });
-    cy.get('[todolistitem]')
+    cy.get('[data-test-id=todo-list-item]')
       .eq(2)
       .then((listitem) => {
         cy.wrap(listitem)
-          .find('[todoheading]')
+          .find('[data-test-id=todo-heading]')
           .should('contain.text', 'TODO heading 1');
         cy.wrap(listitem)
-          .find('[todotext]')
+          .find('[data-test-id=todo-text]')
           .should('contain.text', `TODO text ${day0}`);
       });
   });

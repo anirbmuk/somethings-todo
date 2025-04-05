@@ -29,19 +29,19 @@ describe('Create TODO', () => {
       // expect(output[0]['todoid']).to.not.be.null();
     });
 
-    cy.get('[todolist]').should('exist').should('have.length', 1);
-    const listitem = cy.get('[todolist]').get('[todolistitem]');
+    cy.get('[data-test-id=todo-list]').should('exist').should('have.length', 1);
+    const listitem = cy.get('[data-test-id=todo-list]').get('[data-test-id=todo-list-item]');
     listitem
-      .get('[todoheading]')
+      .get('[data-test-id=todo-heading]')
       .should('contain.text', data.todos.new.heading);
-    listitem.get('[todotext]').should('contain.text', data.todos.new.text);
+    listitem.get('[data-test-id=todo-text]').should('contain.text', data.todos.new.text);
     listitem
-      .get('[tododuedate]')
+      .get('[data-test-id=todo-due-date]')
       .should('contain.text', `${data.months[+mm - 1]} ${+dd}, ${yyyy}`);
     listitem
-      .get('[todostatus]')
+      .get('[data-test-id=todo-status]')
       .should('contain.text', 'Incomplete');
-    listitem.get('[todoadditional]').should('contain.text', 'Due today');
+    listitem.get('[data-test-id=todo-additional]').should('contain.text', 'Due today');
   });
 
   it('should create future TODO', () => {
@@ -67,27 +67,27 @@ describe('Create TODO', () => {
       // expect(output[0]['todoid']).to.be.not.null;
     });
 
-    cy.get('[todolist]').should('exist').should('have.length', 1);
-    const listitem = cy.get('[todolist]').get('[todolistitem]');
+    cy.get('[data-test-id=todo-list]').should('exist').should('have.length', 1);
+    const listitem = cy.get('[data-test-id=todo-list]').get('[data-test-id=todo-list-item]');
     listitem
-      .get('[todoheading]')
+      .get('[data-test-id=todo-heading]')
       .should('contain.text', data.todos.new.heading);
-    listitem.get('[todotext]').should('contain.text', data.todos.new.text);
+    listitem.get('[data-test-id=todo-text]').should('contain.text', data.todos.new.text);
     listitem
-      .get('[tododuedate]')
+      .get('[data-test-id=todo-due-date]')
       .should('contain.text', `${data.months[+mm - 1]} ${+dd}, ${yyyy}`);
     listitem
-      .get('[todostatus]')
+      .get('[data-test-id=todo-status]')
       .should('contain.text', 'Incomplete');
-    listitem.get('[todoadditional]').should('contain.text', 'Due later');
+    listitem.get('[data-test-id=todo-additional]').should('contain.text', 'Due later');
 
     cy.get('[data-test-id=toggle-option-show]').click();
-    cy.get('[data-test-id=togglestatus').click();
-    listitem.get('[tododuedate]').should('not.exist');
-    listitem.get('[todostatus]').should('not.exist');
-    listitem.get('[todoadditional]').should('contain.text', 'Done');
+    cy.get('[data-test-id=toggle-status]').click();
+    listitem.get('[data-test-id=todo-due-date]').should('not.exist');
+    listitem.get('[data-test-id=todo-status]').should('not.exist');
+    listitem.get('[data-test-id=todo-additional]').should('contain.text', 'Done');
     listitem
-      .get('[todoperformance]')
+      .get('[data-test-id=todo-performance]')
       .should('contain.text', 'Completed before due date :-)');
   });
 
@@ -116,35 +116,35 @@ describe('Create TODO', () => {
       expect(output).to.be.instanceOf(Array).of.length(2);
     });
 
-    cy.get('[todolist]').should('exist').should('have.length', 2);
+    cy.get('[data-test-id=todo-list]').should('exist').should('have.length', 2);
 
-    cy.get('[todolist]').each((listitem, index) => {
+    cy.get('[data-test-id=todo-list]').each((listitem, index) => {
       cy.wrap(listitem).should('exist');
       cy.wrap(listitem)
-        .find('[todoheading]')
+        .find('[data-test-id=todo-heading]')
         .should(
           'contain.text',
           data.todos[index === 0 ? 'new' : 'alt'].heading,
         );
       cy.wrap(listitem)
-        .find('[todotext]')
+        .find('[data-test-id=todo-text]')
         .should('contain.text', data.todos[index === 0 ? 'new' : 'alt'].text);
       cy.wrap(listitem)
-        .find('[todostatus]')
+        .find('[data-test-id=todo-status]')
         .should('contain.text', 'Incomplete');
       if (index === 0) {
         cy.wrap(listitem)
-          .find('[tododuedate]')
+          .find('[data-test-id=todo-due-date]')
           .should('contain.text', `${data.months[+mm1 - 1]} ${+dd1}, ${yyyy1}`);
         cy.wrap(listitem)
-          .find('[todoadditional]')
+          .find('[data-test-id=todo-additional]')
           .should('contain.text', 'Due today');
       } else {
         cy.wrap(listitem)
-          .find('[tododuedate]')
+          .find('[data-test-id=todo-due-date]')
           .should('contain.text', `${data.months[+mm2 - 1]} ${+dd2}, ${yyyy2}`);
         cy.wrap(listitem)
-          .find('[todoadditional]')
+          .find('[data-test-id=todo-additional]')
           .should('contain.text', 'Due later');
       }
     });

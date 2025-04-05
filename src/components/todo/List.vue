@@ -3,7 +3,7 @@
     <template v-if="todos.length">
       <div
         class="flex h-3 items-center justify-center text-md text-gray-800 dark:text-white"
-        data-test-id="totalpending"
+        data-test-id="total-pending"
         :class="{ show: totalPending }">
         {{ getTodoCountText(totalPending, true) }}
       </div>
@@ -15,12 +15,13 @@
             <span class="text-shadow dark:text-white">{{ transformDateDivider(group.datedivider) }}</span><span
               v-if="group.pending"
               class="pl-2 text-sm text-gray-600 dark:text-white"
-              data-test-id="grouppending">
+              data-test-id="group-pending">
               {{ getTodoCountText(group.pending) }}</span>
           </legend>
           <div
-            role="list"
-            todolist>
+            class="pb-2 pt-0.5"
+            data-test-id="todo-list"
+            role="list">
             <todo-content
               v-for="todo of group.todos"
               :key="todo.todoid"
@@ -36,12 +37,12 @@
     <template v-else>
       <div
         class="text-red-600 dark:text-white"
-        data-test-id="nodata">
+        data-test-id="no-data">
         No TODOs found
       </div>
       <p
         v-if="!allTodosShown"
-        data-test-id="nodata-additional"
+        data-test-id="no-data-additional"
         class="text-md text-red-600 dark:text-white">
         There may be completed TODOs which are not shown
       </p>

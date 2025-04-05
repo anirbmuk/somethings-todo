@@ -1,3 +1,6 @@
+## 1.5.0
+- Import TODOs into other browsers through a shareable link.  
+
 ## 1.4.0
 - Allow searching by todo status (done, complete or incomplete).  
 - Added more Cypress e2e tests.  

@@ -2,11 +2,15 @@ import {
   toValue,
   type MaybeRefOrGetter,
 } from 'vue';
-import type { ITodo } from '@/types/todo';
+import type {
+  ImportTodo,
+  ITodo,
+} from '@/types/todo';
 import {
   isNextMonth,
   isThisMonth,
 } from './date';
+import { Base64 } from 'js-base64';
 
 const ending = 'pending TODO';
 
@@ -191,4 +195,38 @@ export const getPastDueTodoCount = (todos: MaybeRefOrGetter<ITodo[]>) => {
     return 0;
   }
   return todosValue.filter((todo) => todo.status === 'Incomplete' && (todo?.additional?.remaining ?? 0) < 0).length;
+};
+
+export const encryptTodo = (todo: ITodo): string => {
+  const content = JSON.stringify({
+    todoid: todo.todoid,
+    heading: todo.heading,
+    text: todo.text,
+    duedate: todo.duedate,
+  });
+  return Base64.encode(content);
+};
+
+export const decryptTodo = (content: string): ImportTodo | undefined => {
+  if (!content) {
+    return;
+  }
+  try {
+    const decryptedString = Base64.decode(content);
+    const importTodo = JSON.parse(decryptedString || '{}');
+    if (importTodo.hasOwnProperty('todoid') &&
+        importTodo.hasOwnProperty('heading') &&
+        importTodo.hasOwnProperty('text') &&
+        importTodo.hasOwnProperty('duedate')) {
+      return {
+        todoid: importTodo.todoid,
+        heading: importTodo.heading,
+        text: importTodo.text,
+        duedate: importTodo.duedate,
+      } as ImportTodo;
+    }
+  } catch {
+    console.error('Could not decrypt malformed TODO content');
+    return;
+  }
 };

@@ -22,11 +22,11 @@ describe('Delete TODO', () => {
   });
 
   it('should delete existing TODO on YES', () => {
-    cy.get('[data-test-id=deletetodo]').click();
+    cy.get('[data-test-id=delete-todo]').click();
     cy.wait(250);
 
-    cy.get('[data-test-id=confirmmodal]').should('be.visible');
-    cy.get('[data-test-id=confirmmodal-yes]').click();
+    cy.get('[data-test-id=confirm-modal]').should('be.visible');
+    cy.get('[data-test-id=confirm-modal-yes]').click();
     cy.wait(250);
 
     cy.getAllLocalStorage({
@@ -36,15 +36,15 @@ describe('Delete TODO', () => {
       const output = JSON.parse(domainKeys[data.todos.key] as string);
       expect(output).to.be.instanceOf(Array).of.length(0);
     });
-    cy.get('[todolist]').should('not.exist');
+    cy.get('[data-test-id=todo-list]').should('not.exist');
   });
 
   it('should not delete existing TODO on NO', () => {
-    cy.get('[data-test-id=deletetodo]').click();
+    cy.get('[data-test-id=delete-todo]').click();
     cy.wait(250);
 
-    cy.get('[data-test-id=confirmmodal]').should('be.visible');
-    cy.get('[data-test-id=confirmmodal-no]').click();
+    cy.get('[data-test-id=confirm-modal]').should('be.visible');
+    cy.get('[data-test-id=confirm-modal-no]').click();
     cy.wait(250);
 
     cy.getAllLocalStorage({
@@ -54,6 +54,6 @@ describe('Delete TODO', () => {
       const output = JSON.parse(domainKeys[data.todos.key] as string);
       expect(output).to.be.instanceOf(Array).of.length(1);
     });
-    cy.get('[todolist]').should('exist').should('have.length', 1);
+    cy.get('[data-test-id=todo-list]').should('exist').should('have.length', 1);
   });
 });

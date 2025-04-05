@@ -17,23 +17,23 @@ describe('Update TODO', () => {
     cy.createtodo(data.todos.new.heading, data.todos.new.text, duedate);
 
     cy.get('[data-test-id=toggle-option-show]').click();
-    cy.get('[data-test-id=togglestatus').click();
+    cy.get('[data-test-id=toggle-status]').click();
 
-    const listitem = cy.get('[todolist]').get('[todolistitem]');
-    listitem.get('[tododuedate]').should('not.exist');
-    listitem.get('[todostatus]').should('not.exist');
-    listitem.get('[todoadditional]').should('contain.text', 'Done');
+    const listitem = cy.get('[data-test-id=todo-list]').get('[data-test-id=todo-list-item]');
+    listitem.get('[data-test-id=todo-due-date]').should('not.exist');
+    listitem.get('[data-test-id=todo-status]').should('not.exist');
+    listitem.get('[data-test-id=todo-additional]').should('contain.text', 'Done');
     listitem
-      .get('[todoperformance]')
+      .get('[data-test-id=todo-performance]')
       .should('contain.text', 'Completed on time');
 
-    cy.get('[data-test-id=togglestatus').click();
+    cy.get('[data-test-id=toggle-status]').click();
     listitem
-      .get('[tododuedate]')
+      .get('[data-test-id=todo-due-date]')
       .should('contain.text', `${data.months[+mm - 1]} ${+dd}, ${yyyy}`);
-    listitem.get('[todoadditional]').should('contain.text', 'Due today');
-    listitem.get('[todoperformance]').should('not.exist');
-    listitem.get('[todostatus]').should('contain.text', 'Incomplete');
+    listitem.get('[data-test-id=todo-additional]').should('contain.text', 'Due today');
+    listitem.get('[data-test-id=todo-performance]').should('not.exist');
+    listitem.get('[data-test-id=todo-status]').should('contain.text', 'Incomplete');
   });
 
   it('should not allow to edit Completed TODO', () => {
@@ -47,16 +47,16 @@ describe('Update TODO', () => {
     cy.createtodo(data.todos.new.heading, data.todos.new.text, duedate);
 
     cy.get('[data-test-id=toggle-option-show]').click();
-    cy.get('[data-test-id=togglestatus').click();
+    cy.get('[data-test-id=toggle-status]').click();
 
-    const listitem = cy.get('[todolist]').get('[todolistitem]');
+    const listitem = cy.get('[data-test-id=todo-list]').get('[data-test-id=todo-list-item]');
     listitem.click();
 
-    cy.get('[data-test-id=createupdatemodal]').should('be.visible');
-    cy.get('[data-test-id=createupdatemodal-heading]').should('be.disabled');
-    cy.get('[data-test-id=createupdatemodal-text]').should('be.disabled');
-    cy.get('[data-test-id=createupdatemodal-duedate]').should('be.disabled');
-    cy.get('[data-test-id=createupdatemodal-save]').should('be.disabled');
+    cy.get('[data-test-id=create-update-modal]').should('be.visible');
+    cy.get('[data-test-id=create-update-modal-heading]').should('be.disabled');
+    cy.get('[data-test-id=create-update-modal-text]').should('be.disabled');
+    cy.get('[data-test-id=create-update-modal-duedate]').should('be.disabled');
+    cy.get('[data-test-id=create-update-modal-save]').should('be.disabled');
   });
 
   it('should correctly toggle past TODO', () => {
@@ -92,20 +92,20 @@ describe('Update TODO', () => {
       expect(output[0]['todoid']).to.equal('test-past-todoid');
     });
 
-    cy.get('[todolist]').should('exist').should('have.length', 1);
-    const listitem = cy.get('[todolist]').get('[todolistitem]');
-    listitem.get('[todoheading]').should('contain.text', 'Past TODO heading');
-    listitem.get('[todotext]').should('contain.text', 'Past TODO text');
-    listitem.get('[tododuedate]').should('contain.text', 'Jan 1, 2020');
-    listitem.get('[todoadditional]').should('contain.text', 'Past due date');
-    listitem.get('[todostatus]').should('contain.text', 'Incomplete');
+    cy.get('[data-test-id=todo-list]').should('exist').should('have.length', 1);
+    const listitem = cy.get('[data-test-id=todo-list]').get('[data-test-id=todo-list-item]');
+    listitem.get('[data-test-id=todo-heading]').should('contain.text', 'Past TODO heading');
+    listitem.get('[data-test-id=todo-text]').should('contain.text', 'Past TODO text');
+    listitem.get('[data-test-id=todo-due-date]').should('contain.text', 'Jan 1, 2020');
+    listitem.get('[data-test-id=todo-additional]').should('contain.text', 'Past due date');
+    listitem.get('[data-test-id=todo-status]').should('contain.text', 'Incomplete');
 
-    cy.get('[data-test-id=togglestatus').click();
-    listitem.get('[tododuedate]').should('not.exist');
-    listitem.get('[todoadditional]').should('contain.text', 'Done');
-    listitem.get('[todostatus]').should('not.exist');
+    cy.get('[data-test-id=toggle-status]').click();
+    listitem.get('[data-test-id=todo-due-date]').should('not.exist');
+    listitem.get('[data-test-id=todo-additional]').should('contain.text', 'Done');
+    listitem.get('[data-test-id=todo-status]').should('not.exist');
     listitem
-      .get('[todoperformance]')
+      .get('[data-test-id=todo-performance]')
       .should('contain.text', 'Task was delayed :-(');
   });
 
@@ -143,21 +143,21 @@ describe('Update TODO', () => {
     });
 
     cy.get('[data-test-id=toggle-option-show]').click();
-    cy.get('[todolistitem]').should('exist').should('have.length', 2);
+    cy.get('[data-test-id=todo-list-item]').should('exist').should('have.length', 2);
 
     cy.log('Edit first item');
-    cy.get('[todolistitem]').eq(0).click();
+    cy.get('[data-test-id=todo-list-item]').eq(0).click();
     cy.wait(250);
 
-    cy.get('[data-test-id=createupdatemodal-heading]').click().clear();
-    cy.get('[data-test-id=createupdatemodal-heading]')
+    cy.get('[data-test-id=create-update-modal-heading]').click().clear();
+    cy.get('[data-test-id=create-update-modal-heading]')
       .click()
       .type('Updated future TODO heading 1');
-    cy.get('[data-test-id=createupdatemodal-text]').click().clear();
-    cy.get('[data-test-id=createupdatemodal-text]')
+    cy.get('[data-test-id=create-update-modal-text]').click().clear();
+    cy.get('[data-test-id=create-update-modal-text]')
       .click()
       .type('Future TODO text (exactly one year later)');
-    cy.get('[data-test-id=createupdatemodal-save]').click();
+    cy.get('[data-test-id=create-update-modal-save]').click();
     cy.wait(250);
 
     cy.getAllLocalStorage({
@@ -173,30 +173,30 @@ describe('Update TODO', () => {
       );
     });
 
-    cy.get('[todolistitem]')
+    cy.get('[data-test-id=todo-list-item]')
       .eq(0)
       .then((listitem) => {
         cy.wrap(listitem)
-          .find('[todoheading]')
+          .find('[data-test-id=todo-heading]')
           .should('contain.text', 'Updated future TODO heading 1');
         cy.wrap(listitem)
-          .find('[todotext]')
+          .find('[data-test-id=todo-text]')
           .should('contain.text', 'Future TODO text (exactly one year later)');
       });
 
     cy.log('Edit second item');
-    cy.get('[todolistitem]').eq(1).click();
+    cy.get('[data-test-id=todo-list-item]').eq(1).click();
     cy.wait(250);
 
-    cy.get('[data-test-id=createupdatemodal-heading]').click().clear();
-    cy.get('[data-test-id=createupdatemodal-heading]')
+    cy.get('[data-test-id=create-update-modal-heading]').click().clear();
+    cy.get('[data-test-id=create-update-modal-heading]')
       .click()
       .type('Updated future TODO heading 2');
-    cy.get('[data-test-id=createupdatemodal-text]').click().clear();
-    cy.get('[data-test-id=createupdatemodal-text]')
+    cy.get('[data-test-id=create-update-modal-text]').click().clear();
+    cy.get('[data-test-id=create-update-modal-text]')
       .click()
       .type('Future TODO text (exactly two years later)');
-    cy.get('[data-test-id=createupdatemodal-save]').click();
+    cy.get('[data-test-id=create-update-modal-save]').click();
     cy.wait(250);
 
     cy.getAllLocalStorage({
@@ -215,14 +215,14 @@ describe('Update TODO', () => {
       );
     });
 
-    cy.get('[todolistitem]')
+    cy.get('[data-test-id=todo-list-item]')
       .eq(1)
       .then((listitem) => {
         cy.wrap(listitem)
-          .find('[todoheading]')
+          .find('[data-test-id=todo-heading]')
           .should('contain.text', 'Updated future TODO heading 2');
         cy.wrap(listitem)
-          .find('[todotext]')
+          .find('[data-test-id=todo-text]')
           .should('contain.text', 'Future TODO text (exactly two years later)');
       });
   });

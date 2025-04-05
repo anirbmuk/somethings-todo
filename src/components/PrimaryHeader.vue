@@ -5,7 +5,7 @@
       router-link="/">
       <router-link
         to="/"
-        data-test-id="titlelink">
+        data-test-id="title-link">
         Things TODO
       </router-link>
     </div>
@@ -18,7 +18,7 @@
           name="searchTextField"
           type="text"
           placeholder="Search TODOs"
-          data-test-id="inputsearch"
+          data-test-id="input-search"
           class="mr-1 w-36 border-none bg-indigo-100 py-2 text-sm text-base caret-primary !outline-none md:w-48 md:text-md lg:w-60 xl:w-72 dark:caret-white"
           v-model.trim="searchValue" />
         <button
@@ -26,7 +26,7 @@
           type="button"
           class="z-10 -ml-8"
           title="Cancel search"
-          data-test-id="clearsearch"
+          data-test-id="clear-search"
           @click="searchStore.toggleSearchState">
           <icon-close class="size-6" />
         </button>
@@ -35,7 +35,7 @@
         v-else-if="!reduced"
         type="button"
         title="Search TODOs"
-        data-test-id="showsearch"
+        data-test-id="show-search"
         @click="toggleSearchState">
         <icon-search class="size-6 text-white" />
       </button>
@@ -43,7 +43,7 @@
         v-if="!reduced"
         type="button"
         title="Create a TODO"
-        data-test-id="addtodobtn"
+        data-test-id="add-todo-btn"
         @click="showCreateModal">
         <icon-add class="size-6 text-white" />
       </button>
@@ -51,22 +51,22 @@
         v-if="route.name === 'todo'"
         type="button"
         title="Analyse TODOs"
-        data-test-id="analysetodobtn"
+        data-test-id="analyse-todo-btn"
         @click="router.push('/dashboard')">
         <icon-dashboard class="size-6 text-white" />
       </button>
       <button
-        v-else-if="route.name === 'dashboard'"
+        v-else-if="route.name === 'dashboard' || route.name === 'import'"
         type="button"
         title="View TODOs"
-        data-test-id="viewtodobtn"
+        data-test-id="view-todo-btn"
         @click="router.push('/')">
         <icon-task class="size-6 text-white" />
       </button>
       <button
         type="button"
         title="Help with TODOs"
-        data-test-id="helptodobtn"
+        data-test-id="help-todo-btn"
         @click="showHelpModal">
         <icon-help class="size-6 text-white" />
       </button>

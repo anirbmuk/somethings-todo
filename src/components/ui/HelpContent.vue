@@ -1,5 +1,5 @@
 <template>
-  <div data-test-id="helpmodal">
+  <div data-test-id="help-modal">
     <div class="flex h-20 flex-col items-start justify-start dark:text-white">
       <div class="my-2 flex items-center justify-between px-2 text-3xl md:px-4">
         Help Topics
@@ -28,8 +28,8 @@
         <p>Turn on dark mode on your mobile/laptop/PC and the page looks as elegant as it can get.</p>
       </details>
       <details class="mt-2">
-        <summary class="font-semibold">Easy Share</summary>
-        <p>Share your TODO items on your favourite medium.</p>
+        <summary class="font-semibold">Easy Share & Import</summary>
+        <p>Share your TODO items on your favourite medium, and import into your browser!</p>
       </details>
       <details class="mt-2">
         <summary class="font-semibold">Hybrid App</summary>

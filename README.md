@@ -17,8 +17,8 @@ A light and fast todo-app, built with Vue3
 :heavy_check_mark: **Dark Mode Support**  
 > Turn on dark mode on your mobile/laptop/PC and the page looks as elegant as it can get.  
 
-:heavy_check_mark: **Easy Share**  
-> Share your TODO items on your favourite medium.  
+:heavy_check_mark: **Easy Share & Import**  
+> Share your TODO items on your favourite medium, and import into your browser!  
 
 :heavy_check_mark: **Hybrid App**  
 > Install as hybrid app on Android or add to your home-screen on iOS.

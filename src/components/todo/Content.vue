@@ -8,8 +8,8 @@
       'border-green-600': todo.additional?.state === 'moderate',
       'border-green-800': todo.additional?.state === 'safe',
     }"
-    role="listitem"
-    todolistitem>
+    data-test-id="todo-list-item"
+    role="listitem">
     <div class="flex w-full">
       <div
         class="flex w-5/6 flex-col space-y-2"
@@ -19,9 +19,12 @@
           class="z-10 flex space-x-2">
           <span
             v-if="todo.status !== 'Complete'"
-            class="rounded-sm border border-red-800 bg-red-50 px-2 py-1 text-center text-sm font-normal text-red-800"
-            todostatus>{{ todo.status }}</span>
+            data-test-id="todo-status"
+            class="rounded-sm border border-red-800 bg-red-50 px-2 py-1 text-center text-sm font-normal text-red-800">
+            {{ todo.status }}
+          </span>
           <span
+            data-test-id="todo-additional"
             class="rounded-sm px-2 py-1 text-center text-sm font-normal"
             :class="{
               'bg-error text-white': todo.additional.state === 'error',
@@ -31,29 +34,29 @@
               'bg-green-800 text-white': todo.additional.state === 'safe',
               'bg-gray-500 text-white': todo.additional.state === 'later',
               'border border-green-800 bg-green-50 text-green-800': todo.additional.state === 'done'
-            }"
-            todoadditional>{{ todo.additional.message }}</span>
+            }">{{ todo.additional.message }}</span>
         </div>
         <div
-          class="pb-2 pt-1 text font-bold uppercase dark:text-white"
-          todoheading>
+          data-test-id="todo-heading"
+          class="pb-2 pt-1 text font-bold uppercase dark:text-white">
           {{ todo.heading }}
         </div>
         <div class="max-h-24 overflow-auto md:overflow-y-auto dark:text-white">
           <div
-            class="whitespace-pre-line break-words py-2 text-justify text-md xl:py-1.5 3xl:py-1"
-            todotext>
+            data-test-id="todo-text"
+            class="whitespace-pre-line break-words py-2 text-justify text-md xl:py-1.5 3xl:py-1">
             {{ todo.text }}
           </div>
         </div>
         <div
           v-if="todo.status === 'Incomplete'"
-          class="z-10 pb-1 pt-4 text-sm text-gray-700 dark:text-white"
-          tododuedate>
+          data-test-id="todo-due-date"
+          class="z-10 pb-1 pt-4 text-sm text-gray-700 dark:text-white">
           Due: {{ getReadableDate(todo.duedate) }}
         </div>
         <div
           v-if="todo.performance && todo.status === 'Complete'"
+          data-test-id="todo-performance"
           class="z-10 pb-1 pt-4 text-sm text-gray-800 dark:text-white"
           :class="{
             'text-red-600': todo.performance.rating === 'late',
@@ -61,8 +64,7 @@
             'text-green-600':
               todo.performance.rating === 'ontime' ||
               todo.performance.rating === 'beforetime'
-          }"
-          todoperformance>
+          }">
           {{ todo?.performance?.message }}
         </div>
       </div>
@@ -72,7 +74,7 @@
             type="button"
             class="size-auto"
             :title="todo.status === 'Complete' ? 'Mark as incomplete' : 'Mark as complete'"
-            data-test-id="togglestatus"
+            data-test-id="toggle-status"
             @click.stop="$emit('toggle-todo', todo.todoid)">
             <lazy-icon-complete
               v-if="todo.status === 'Incomplete'"
@@ -96,7 +98,7 @@
             type="button"
             class="size-auto"
             title="Delete this TODO"
-            data-test-id="deletetodo"
+            data-test-id="delete-todo"
             @click.stop="$emit('delete-todo', todo.todoid)">
             <icon-delete class="size-6 text-amber-900 dark:text-white" />
           </button>
