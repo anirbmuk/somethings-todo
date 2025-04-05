@@ -19,7 +19,7 @@ describe('Update TODO', () => {
     cy.get('[data-test-id=toggle-option-show]').click();
     cy.get('[data-test-id=toggle-status').click();
 
-    const listitem = cy.get('[todolist]').get('[todolistitem]');
+    const listitem = cy.get('[data-test-id=todo-list]').get('[todolistitem]');
     listitem.get('[tododuedate]').should('not.exist');
     listitem.get('[todostatus]').should('not.exist');
     listitem.get('[todoadditional]').should('contain.text', 'Done');
@@ -49,7 +49,7 @@ describe('Update TODO', () => {
     cy.get('[data-test-id=toggle-option-show]').click();
     cy.get('[data-test-id=toggle-status').click();
 
-    const listitem = cy.get('[todolist]').get('[todolistitem]');
+    const listitem = cy.get('[data-test-id=todo-list]').get('[todolistitem]');
     listitem.click();
 
     cy.get('[data-test-id=create-update-modal]').should('be.visible');
@@ -92,8 +92,8 @@ describe('Update TODO', () => {
       expect(output[0]['todoid']).to.equal('test-past-todoid');
     });
 
-    cy.get('[todolist]').should('exist').should('have.length', 1);
-    const listitem = cy.get('[todolist]').get('[todolistitem]');
+    cy.get('[data-test-id=todo-list]').should('exist').should('have.length', 1);
+    const listitem = cy.get('[data-test-id=todo-list]').get('[todolistitem]');
     listitem.get('[todoheading]').should('contain.text', 'Past TODO heading');
     listitem.get('[todotext]').should('contain.text', 'Past TODO text');
     listitem.get('[tododuedate]').should('contain.text', 'Jan 1, 2020');

@@ -36,7 +36,7 @@ describe('Delete TODO', () => {
       const output = JSON.parse(domainKeys[data.todos.key] as string);
       expect(output).to.be.instanceOf(Array).of.length(0);
     });
-    cy.get('[todolist]').should('not.exist');
+    cy.get('[data-test-id=todo-list]').should('not.exist');
   });
 
   it('should not delete existing TODO on NO', () => {
@@ -54,6 +54,6 @@ describe('Delete TODO', () => {
       const output = JSON.parse(domainKeys[data.todos.key] as string);
       expect(output).to.be.instanceOf(Array).of.length(1);
     });
-    cy.get('[todolist]').should('exist').should('have.length', 1);
+    cy.get('[data-test-id=todo-list]').should('exist').should('have.length', 1);
   });
 });

@@ -29,8 +29,8 @@ describe('Create TODO', () => {
       // expect(output[0]['todoid']).to.not.be.null();
     });
 
-    cy.get('[todolist]').should('exist').should('have.length', 1);
-    const listitem = cy.get('[todolist]').get('[todolistitem]');
+    cy.get('[data-test-id=todo-list]').should('exist').should('have.length', 1);
+    const listitem = cy.get('[data-test-id=todo-list]').get('[todolistitem]');
     listitem
       .get('[todoheading]')
       .should('contain.text', data.todos.new.heading);
@@ -67,8 +67,8 @@ describe('Create TODO', () => {
       // expect(output[0]['todoid']).to.be.not.null;
     });
 
-    cy.get('[todolist]').should('exist').should('have.length', 1);
-    const listitem = cy.get('[todolist]').get('[todolistitem]');
+    cy.get('[data-test-id=todo-list]').should('exist').should('have.length', 1);
+    const listitem = cy.get('[data-test-id=todo-list]').get('[todolistitem]');
     listitem
       .get('[todoheading]')
       .should('contain.text', data.todos.new.heading);
@@ -116,9 +116,9 @@ describe('Create TODO', () => {
       expect(output).to.be.instanceOf(Array).of.length(2);
     });
 
-    cy.get('[todolist]').should('exist').should('have.length', 2);
+    cy.get('[data-test-id=todo-list]').should('exist').should('have.length', 2);
 
-    cy.get('[todolist]').each((listitem, index) => {
+    cy.get('[data-test-id=todo-list]').each((listitem, index) => {
       cy.wrap(listitem).should('exist');
       cy.wrap(listitem)
         .find('[todoheading]')
