@@ -59,7 +59,7 @@
         v-else-if="route.name === 'dashboard' || route.name === 'import'"
         type="button"
         title="View TODOs"
-        data-test-id="viewtodobtn"
+        data-test-id="view-todo-btn"
         @click="router.push('/')">
         <icon-task class="size-6 text-white" />
       </button>

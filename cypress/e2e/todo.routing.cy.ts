@@ -12,7 +12,7 @@ describe('Test routing', () => {
     cy.get('[data-test-id=show-search]').should('not.exist');
     cy.get('[data-test-id=add-todo-btn]').should('not.exist');
     cy.get('[data-test-id=analyse-todo-btn]').should('not.exist');
-    cy.get('[data-test-id=viewtodobtn]').should('not.exist');
+    cy.get('[data-test-id=view-todo-btn]').should('not.exist');
 
     cy.log('Only the help button should be visible on a 404 page');
     cy.get('[data-test-id=helptodobtn]').should('exist');
@@ -33,7 +33,7 @@ describe('Test routing', () => {
     cy.get('[data-test-id=show-search]').should('not.exist');
     cy.get('[data-test-id=add-todo-btn]').should('not.exist');
     cy.get('[data-test-id=analyse-todo-btn]').should('not.exist');
-    cy.get('[data-test-id=viewtodobtn]').should('exist');
+    cy.get('[data-test-id=view-todo-btn]').should('exist');
     cy.get('[data-test-id=helptodobtn]').should('exist');
   });
 });
