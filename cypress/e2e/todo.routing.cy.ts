@@ -10,7 +10,7 @@ describe('Test routing', () => {
   it('should not display action buttons', () => {
     cy.visit('/wrong');
     cy.get('[data-test-id=show-search]').should('not.exist');
-    cy.get('[data-test-id=addtodobtn]').should('not.exist');
+    cy.get('[data-test-id=add-todo-btn]').should('not.exist');
     cy.get('[data-test-id=analysetodobtn]').should('not.exist');
     cy.get('[data-test-id=viewtodobtn]').should('not.exist');
 
@@ -31,7 +31,7 @@ describe('Test routing', () => {
     cy.url().should('contain', '/dashboard');
     cy.title().should('equal', `${data.title} | Dashboard`);
     cy.get('[data-test-id=show-search]').should('not.exist');
-    cy.get('[data-test-id=addtodobtn]').should('not.exist');
+    cy.get('[data-test-id=add-todo-btn]').should('not.exist');
     cy.get('[data-test-id=analysetodobtn]').should('not.exist');
     cy.get('[data-test-id=viewtodobtn]').should('exist');
     cy.get('[data-test-id=helptodobtn]').should('exist');

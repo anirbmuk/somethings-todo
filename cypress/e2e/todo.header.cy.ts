@@ -10,7 +10,7 @@ describe('Test Header', () => {
 
     cy.get('[data-test-id=show-search]').should('exist');
     cy.get('[data-test-id=analysetodobtn]').should('exist');
-    cy.get('[data-test-id=addtodobtn]').should('exist');
+    cy.get('[data-test-id=add-todo-btn]').should('exist');
     cy.get('[data-test-id=helptodobtn]').should('exist');
   });
 
@@ -31,7 +31,7 @@ describe('Test Header', () => {
   it('should open modal on clicking add icon', () => {
     cy.visit('/');
 
-    cy.get('[data-test-id=addtodobtn]').click();
+    cy.get('[data-test-id=add-todo-btn]').click();
     cy.get('[data-test-id=createupdatemodal]').should('be.visible');
   });
 });

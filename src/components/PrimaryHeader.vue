@@ -43,7 +43,7 @@
         v-if="!reduced"
         type="button"
         title="Create a TODO"
-        data-test-id="addtodobtn"
+        data-test-id="add-todo-btn"
         @click="showCreateModal">
         <icon-add class="size-6 text-white" />
       </button>
