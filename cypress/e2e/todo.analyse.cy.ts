@@ -112,12 +112,12 @@ describe('Analyse TODO', () => {
       cy.get('[data-test-id=todo-list]').get('[data-test-id=todo-list-item]').should('have.length', 9);
 
       cy.log('Set all TODOs as complete');
-      cy.get('[data-test-id=toggle-status').click({
+      cy.get('[data-test-id=toggle-status]').click({
         multiple: true,
       });
 
       cy.log('Reset the first TODOs as incomplete');
-      cy.get('[data-test-id=toggle-status').eq(0).click();
+      cy.get('[data-test-id=toggle-status]').eq(0).click();
 
       cy.log('Navigate to the dashboard page');
       cy.get('[data-test-id=analyse-todo-btn').click();
