@@ -50,8 +50,8 @@
         </div>
         <div
           v-if="todo.status === 'Incomplete'"
-          class="z-10 pb-1 pt-4 text-sm text-gray-700 dark:text-white"
-          tododuedate>
+          data-test-id="todo-due-date"
+          class="z-10 pb-1 pt-4 text-sm text-gray-700 dark:text-white">
           Due: {{ getReadableDate(todo.duedate) }}
         </div>
         <div
