@@ -25,8 +25,8 @@ describe('Delete TODO', () => {
     cy.get('[data-test-id=delete-todo]').click();
     cy.wait(250);
 
-    cy.get('[data-test-id=confirmmodal]').should('be.visible');
-    cy.get('[data-test-id=confirmmodal-yes]').click();
+    cy.get('[data-test-id=confirm-modal]').should('be.visible');
+    cy.get('[data-test-id=confirm-modal-yes]').click();
     cy.wait(250);
 
     cy.getAllLocalStorage({
@@ -43,8 +43,8 @@ describe('Delete TODO', () => {
     cy.get('[data-test-id=delete-todo]').click();
     cy.wait(250);
 
-    cy.get('[data-test-id=confirmmodal]').should('be.visible');
-    cy.get('[data-test-id=confirmmodal-no]').click();
+    cy.get('[data-test-id=confirm-modal]').should('be.visible');
+    cy.get('[data-test-id=confirm-modal-no]').click();
     cy.wait(250);
 
     cy.getAllLocalStorage({
