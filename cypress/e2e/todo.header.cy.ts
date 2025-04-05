@@ -11,7 +11,7 @@ describe('Test Header', () => {
     cy.get('[data-test-id=show-search]').should('exist');
     cy.get('[data-test-id=analyse-todo-btn]').should('exist');
     cy.get('[data-test-id=add-todo-btn]').should('exist');
-    cy.get('[data-test-id=helptodobtn]').should('exist');
+    cy.get('[data-test-id=help-todo-btn]').should('exist');
   });
 
   it('should correctly toggle input search field', () => {

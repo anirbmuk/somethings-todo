@@ -66,7 +66,7 @@
       <button
         type="button"
         title="Help with TODOs"
-        data-test-id="helptodobtn"
+        data-test-id="help-todo-btn"
         @click="showHelpModal">
         <icon-help class="size-6 text-white" />
       </button>

@@ -15,7 +15,7 @@ describe('Test routing', () => {
     cy.get('[data-test-id=view-todo-btn]').should('not.exist');
 
     cy.log('Only the help button should be visible on a 404 page');
-    cy.get('[data-test-id=helptodobtn]').should('exist');
+    cy.get('[data-test-id=help-todo-btn]').should('exist');
   });
 
   it('clicking on title link should correctly redirect to main page', () => {
@@ -34,6 +34,6 @@ describe('Test routing', () => {
     cy.get('[data-test-id=add-todo-btn]').should('not.exist');
     cy.get('[data-test-id=analyse-todo-btn]').should('not.exist');
     cy.get('[data-test-id=view-todo-btn]').should('exist');
-    cy.get('[data-test-id=helptodobtn]').should('exist');
+    cy.get('[data-test-id=help-todo-btn]').should('exist');
   });
 });
