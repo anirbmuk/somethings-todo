@@ -8,7 +8,7 @@ describe('Test Header', () => {
   it('should display action buttons', () => {
     cy.visit('/');
 
-    cy.get('[data-test-id=showsearch]').should('exist');
+    cy.get('[data-test-id=show-search]').should('exist');
     cy.get('[data-test-id=analysetodobtn]').should('exist');
     cy.get('[data-test-id=addtodobtn]').should('exist');
     cy.get('[data-test-id=helptodobtn]').should('exist');
@@ -17,13 +17,13 @@ describe('Test Header', () => {
   it('should correctly toggle input search field', () => {
     cy.visit('/');
 
-    cy.get('[data-test-id=showsearch]').click();
-    cy.get('[data-test-id=showsearch]').should('not.exist');
+    cy.get('[data-test-id=show-search]').click();
+    cy.get('[data-test-id=show-search]').should('not.exist');
     cy.get('[data-test-id=input-search]').should('exist');
     cy.get('[data-test-id=clear-search]').should('exist');
 
     cy.get('[data-test-id=clear-search]').click();
-    cy.get('[data-test-id=showsearch]').should('exist');
+    cy.get('[data-test-id=show-search]').should('exist');
     cy.get('[data-test-id=input-search]').should('not.exist');
     cy.get('[data-test-id=clear-search]').should('not.exist');
   });

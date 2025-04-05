@@ -35,7 +35,7 @@
         v-else-if="!reduced"
         type="button"
         title="Search TODOs"
-        data-test-id="showsearch"
+        data-test-id="show-search"
         @click="toggleSearchState">
         <icon-search class="size-6 text-white" />
       </button>
