@@ -173,9 +173,17 @@ export const useTodo = () => {
     }
     const indexOfTodoToBeImported = todos.value.findIndex((todo) => todo.todoid === todoid);
     if (indexOfTodoToBeImported > -1) {
+      updateTodo({
+        todoid,
+        todo: {
+          ...decryptedTodo,
+          status: 'Incomplete',
+          completedon: undefined,
+        },
+      });
       return {
-        status: 'failure',
-        message: 'This TODO already exists in your system',
+        status: 'success',
+        message: 'The TODO is successfully updated',
       };
     }
     todoStore.importTodo(decryptedTodo);

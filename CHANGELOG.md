@@ -1,3 +1,6 @@
+## 1.6.0
+- If a shared TODO already exists, it will be updated. Earlier, an existing TODO was rejected.  
+
 ## 1.5.0
 - Import TODOs into other browsers through a shareable link.  
 

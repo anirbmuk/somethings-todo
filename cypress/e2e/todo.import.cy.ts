@@ -39,8 +39,8 @@ describe('Import TODO', () => {
     cy.get('[data-test-id=import-failure]').should('not.exist');
 
     cy.reload();
-    cy.get('[data-test-id=import-success]').should('not.exist');
-    cy.get('[data-test-id=import-failure]').should('exist').should('contain.text', 'This TODO already exists in your system');
+    cy.get('[data-test-id=import-success]').should('exist').should('contain.text', 'The TODO is successfully updated');
+    cy.get('[data-test-id=import-failure]').should('not.exist');
 
   });
 
