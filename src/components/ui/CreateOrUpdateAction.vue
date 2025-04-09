@@ -22,6 +22,7 @@
             id="todoheading"
             type="text"
             required
+            autocomplete="on"
             :disabled="!editable"
             data-test-id="create-update-modal-heading"
             v-model.trim="heading">
