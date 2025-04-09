@@ -17,7 +17,7 @@ const RATING_SEARCH_KEYWORDS = {
   beforetime: ['beforetime', 'before time', 'early'],
   delayed: ['delay', 'delayed', 'late'],
   late: ['delay', 'delayed', 'late'],
-  ontime: ['ontime', 'on time'],
+  ontime: ['ontime', 'on time', 'timely'],
 } satisfies Record<Rating, string[]>;
 
 const STATUS_SEARCH_KEYWORDS = {
@@ -87,10 +87,8 @@ export const getTextBasedConditions = (input: string): ITodoCondition => {
   return (item: ITodo) =>
     item.text?.toLowerCase().includes(searchString) ||
     item.heading.toLowerCase().includes(searchString) ||
-    isRatingMatch(input, item) ||
-    isStatusMatch(input, item) ||
-    item.additional?.message?.toLowerCase()?.includes(searchString) ||
-    item.performance?.message?.toLowerCase()?.includes(searchString) ||
+    isRatingMatch(searchString, item) ||
+    isStatusMatch(searchString, item) ||
     false;
 };
 
