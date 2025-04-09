@@ -1,5 +1,9 @@
 import type { ITodoCondition } from '@/types/condition';
-import type { ITodo } from '@/types/todo';
+import type {
+  ITodo,
+  Rating,
+  Status,
+} from '@/types/todo';
 
 const SEARCH_OPERATORS = {
   LESS_THAN_OR_EQUALS: '<=',
@@ -8,6 +12,18 @@ const SEARCH_OPERATORS = {
   LESS_THAN: '<',
   GREATER_THAN: '>',
 } as const;
+
+const RATING_SEARCH_KEYWORDS = {
+  beforetime: ['beforetime', 'before time', 'early'],
+  delayed: ['delay', 'delayed', 'late'],
+  late: ['delay', 'delayed', 'late'],
+  ontime: ['ontime', 'on time'],
+} satisfies Record<Rating, string[]>;
+
+const STATUS_SEARCH_KEYWORDS = {
+  Incomplete: ['incomplete', 'pending', 'not done'],
+  Complete: ['complete', 'done', 'finished'],
+} satisfies Record<Status, string[]>;
 
 type OperatorKeys = keyof typeof SEARCH_OPERATORS;
 type Operators = typeof SEARCH_OPERATORS[OperatorKeys];
@@ -56,14 +72,25 @@ export const findOperator = (input: string | undefined): Operators | undefined =
   }
 };
 
+export const isRatingMatch = (input: string, item: ITodo): boolean => {
+  if (!item.performance?.rating) {
+    return false;
+  }
+  return RATING_SEARCH_KEYWORDS[item.performance.rating].includes(input);
+};
+
+export const isStatusMatch = (input: string, item: ITodo): boolean =>
+  STATUS_SEARCH_KEYWORDS[item.status].includes(input);
+
 export const getTextBasedConditions = (input: string): ITodoCondition => {
   const searchString = input.toLowerCase();
   return (item: ITodo) =>
     item.text?.toLowerCase().includes(searchString) ||
     item.heading.toLowerCase().includes(searchString) ||
+    isRatingMatch(input, item) ||
+    isStatusMatch(input, item) ||
     item.additional?.message?.toLowerCase()?.includes(searchString) ||
     item.performance?.message?.toLowerCase()?.includes(searchString) ||
-    item.status?.toLowerCase() === searchString ||
     false;
 };
 
