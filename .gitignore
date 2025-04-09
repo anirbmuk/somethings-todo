@@ -37,4 +37,15 @@ coverage
 *.env
 functions/.env
 
-cypress/downloads/*
+# cypress output folders
+cypress/downloads
+cypress/results
+cypress/screenshots
+cypress/videos
+
+# https
+*.pub.key
+*.pem
+*.crt
+*.csr
+*.key
