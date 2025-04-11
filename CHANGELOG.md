@@ -1,3 +1,9 @@
+## 1.7.0
+- Quick filter feature.    
+- Stronger search logic by todo-state and todo-rating.  
+- Hide share button if not supported by browser.  
+- Improved performance by centralised watchers.  
+
 ## 1.6.0
 - If a shared TODO already exists, it will be updated. Earlier, an existing TODO was rejected.  
 
