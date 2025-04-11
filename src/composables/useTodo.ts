@@ -216,7 +216,12 @@ export const useTodo = () => {
     const url = window.location.href || 'https://somethings-todo.netlify.app/';
     const urlForImport = `${url}import/${todoConfig}`;
     const text = `${todoToBeShared.heading || ''}\n${fill}\n${todoToBeShared.text || ''}\n\n${due}\n\nImport this TODO by visiting: ${urlForImport}`;
-    window?.navigator?.share({
+    if (typeof window?.navigator?.share !== 'function') {
+      // eslint-disable-next-line no-console
+      console.warn('Sharing is not supported on this platform');
+      return;
+    }
+    window?.navigator?.share?.({
       title: 'Sharing my TODO item',
       text,
     // eslint-disable-next-line no-console

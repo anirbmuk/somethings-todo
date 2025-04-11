@@ -84,11 +84,14 @@
               class="size-6 text-error dark:text-white" />
           </button>
         </div>
-        <div class="flex justify-end">
+        <div
+          v-if="isShareEnabled"
+          class="flex justify-end">
           <button
             type="button"
             class="size-auto"
             title="Share this TODO"
+            data-test-id="share-todo"
             @click.stop="$emit('share-todo', todo.todoid)">
             <icon-share class="size-6 text-primary dark:text-white" />
           </button>
@@ -111,6 +114,8 @@
 <script setup lang="ts">
 import {
   defineAsyncComponent,
+  onMounted,
+  ref,
   type PropType,
 } from 'vue';
 import type { ITodo } from '@/types/todo';
@@ -134,6 +139,10 @@ defineEmits<{
   (e: 'share-todo', value: ITodo['todoid']): void,
   (e: 'delete-todo', value: ITodo['todoid']): void,
 }>();
+
+const isShareEnabled = ref<boolean>(false);
+
+onMounted(() => isShareEnabled.value = typeof window?.navigator?.share === 'function');
 
 defineOptions({
   name: 'TodoContent',
