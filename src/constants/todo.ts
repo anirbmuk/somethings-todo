@@ -35,3 +35,22 @@ export const FILTER_OPTIONS = [
     Value: 'hide',
   },
 ] satisfies KeyValue<FilterBy>[];
+
+export const QUICK_FILTER_OPTIONS = [
+  {
+    Key: 'Pending',
+    Value: 'pending',
+  },
+  {
+    Key: 'Past Due',
+    Value: '< 0',
+  },
+  {
+    Key: 'Late',
+    Value: 'late',
+  },
+  {
+    Key: 'On Time',
+    Value: 'on time',
+  },
+] satisfies KeyValue<string>[];

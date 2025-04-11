@@ -4,6 +4,7 @@
       <todo-action />
       <hr>
     </div>
+    <todo-quick-filter />
     <todo-list
       :todos="groupedTodos.groupedTodos"
       :total-pending="groupedTodos.pending"
@@ -38,6 +39,7 @@ import {
   defineAsyncComponent,
 } from 'vue';
 import TodoAction from '@/components/todo/Action.vue';
+import TodoQuickFilter from '@/components/todo/QuickFilter.vue';
 import TodoList from '@/components/todo/List.vue';
 import { useTodo } from '@/composables/useTodo';
 import { useModal } from '@/composables/useModal';

@@ -47,7 +47,12 @@ export const useSearch = () => {
     return [...todoFilterConditions, ...operatorBasedConditions];
   });
 
-  watch(searchValue, (text) => searchStore.setSearchText(text));
+  watch(searchValue, (text) => {
+    searchStore.setSearchText(text);
+    if (text) {
+      searchStore.setSearchState(true);
+    }
+  });
   watch(() => searchStore.todoSearchState.text, (text) => searchValue.value = text);
 
   const toggleSearchState = () => searchStore.toggleSearchState();

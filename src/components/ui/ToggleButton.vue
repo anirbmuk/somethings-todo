@@ -12,7 +12,7 @@
           'border-primary !bg-primary text-white dark:!bg-white dark:!text-base': modelValue === option.Value && type === 'default',
           '!bg-primary text-white opacity-85': modelValue === option.Value && type === 'pill',
           'min-w-14 p-3': type === 'default',
-          'mr-1 min-w-16 rounded-full px-2 py-1.5 text-md md:min-w-20': type === 'pill'
+          'mr-1 h-8 min-w-20 rounded-full px-2 py-0.5 text-md md:min-w-24': type === 'pill'
         }"
         :disabled="disabled"
         :aria-pressed="modelValue === option.Value"
