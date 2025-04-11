@@ -43,7 +43,7 @@ export const QUICK_FILTER_OPTIONS = [
   },
   {
     Key: 'Past Due',
-    Value: '< 0',
+    Value: 'past due date',
   },
   {
     Key: 'Late',

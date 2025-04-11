@@ -1,7 +1,6 @@
 import {
   computed,
   ref,
-  watch,
 } from 'vue';
 import { useFilterStore } from '@/stores/filter';
 import { useSearchStore } from '@/stores/search';
@@ -13,11 +12,13 @@ import {
 import type { ITodoCondition } from '@/types/condition';
 import type { ITodo } from '@/types/todo';
 
+const searchValue = ref<string | undefined>();
+
 export const useSearch = () => {
   const filterStore = useFilterStore();
   const searchStore = useSearchStore();
 
-  const searchValue = ref<string | undefined>(searchStore.todoSearchState.text);
+  searchValue.value = searchStore.todoSearchState.text;
 
   const conditions = computed<ITodoCondition[]>(() => {
     let hasOperator = false;
@@ -46,14 +47,6 @@ export const useSearch = () => {
     }
     return [...todoFilterConditions, ...operatorBasedConditions];
   });
-
-  watch(searchValue, (text) => {
-    searchStore.setSearchText(text);
-    if (text) {
-      searchStore.setSearchState(true);
-    }
-  });
-  watch(() => searchStore.todoSearchState.text, (text) => searchValue.value = text);
 
   const toggleSearchState = () => searchStore.toggleSearchState();
 

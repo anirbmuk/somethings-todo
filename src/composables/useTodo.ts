@@ -1,7 +1,6 @@
 import {
   computed,
   ref,
-  watch,
 } from 'vue';
 import type {
   AddTodo,
@@ -24,6 +23,9 @@ import {
   getStatus,
 } from '@/helpers/todo';
 import { getReadableDate } from '@/helpers/date';
+
+const groupBy = ref<GroupBy>('day');
+const filterBy = ref<FilterBy>('show');
 
 const defaultSort = (todo1: ITodo, todo2: ITodo) =>
   +new Date(todo1.duedate) - +new Date(todo2.duedate);
@@ -76,8 +78,8 @@ export const useTodo = () => {
     return '';
   };
 
-  const groupBy = ref<GroupBy>(groupStore.groupBy);
-  const filterBy = ref<FilterBy>(filterStore.filterBy);
+  groupBy.value = groupStore.groupBy;
+  filterBy.value = filterStore.filterBy;
 
   const hydratedTodos = computed<ITodo[]>(() => {
     const hydratedTodos = todoStore.todos.map((todo) => {
@@ -133,11 +135,6 @@ export const useTodo = () => {
       pending: totalPending,
       groupedTodos: groupedByTodos,
     };
-  });
-
-  watch([groupBy, filterBy], ([group, filter]) => {
-    groupStore.setGroupBy(group);
-    filterStore.setFilterBy(filter);
   });
 
   const showCreateModal = () => {

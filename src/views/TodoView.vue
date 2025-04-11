@@ -42,6 +42,8 @@ import TodoAction from '@/components/todo/Action.vue';
 import TodoQuickFilter from '@/components/todo/QuickFilter.vue';
 import TodoList from '@/components/todo/List.vue';
 import { useTodo } from '@/composables/useTodo';
+import { useTodoWatcher } from '@/composables/useTodoWatcher';
+import { useSearchWatcher } from '@/composables/useSearchWatcher';
 import { useModal } from '@/composables/useModal';
 import type {
   AddTodo,
@@ -68,6 +70,9 @@ const {
   closeCreateOrUpdateModal,
   filterByState,
 } = useTodo();
+
+useTodoWatcher();
+useSearchWatcher();
 
 let idOfTodoToBeDeleted: ITodo['todoid'] | undefined;
 

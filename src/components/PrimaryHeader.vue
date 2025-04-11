@@ -27,7 +27,7 @@
           class="z-10 -ml-8"
           title="Cancel search"
           data-test-id="clear-search"
-          @click="searchStore.toggleSearchState">
+          @click="toggleAndClearSearch">
           <icon-close class="size-6" />
         </button>
       </div>
@@ -127,6 +127,11 @@ const {
   toggleSearchState,
 } = useSearch();
 const { showCreateModal } = useTodo();
+
+const toggleAndClearSearch = () => {
+  searchValue.value = '';
+  toggleSearchState();
+};
 
 watch(() => searchStore.todoSearchState.search, (state) => {
   if (state) {
