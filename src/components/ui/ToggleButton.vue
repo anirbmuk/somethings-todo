@@ -10,7 +10,7 @@
         class="border border-gray-300 bg-white py-1 outline-gray-400 transition-all duration-200 ease-in-out dark:border-white dark:bg-transparent dark:text-white"
         :class="{
           'border-primary !bg-primary text-white dark:!bg-white dark:!text-base': modelValue === option.Value && type === 'default',
-          '!bg-primary text-white opacity-85 dark:!bg-white dark:text-base': modelValue === option.Value && type === 'pill',
+          '!bg-primary text-white opacity-85 dark:!bg-white dark:!text-base': modelValue === option.Value && type === 'pill',
           'min-w-14 p-3': type === 'default',
           'mr-1 h-8 min-w-20 rounded-full px-2 py-0.5 text-md md:min-w-24': type === 'pill'
         }"
