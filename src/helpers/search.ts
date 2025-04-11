@@ -89,6 +89,8 @@ export const getTextBasedConditions = (input: string): ITodoCondition => {
     item.heading.toLowerCase().includes(searchString) ||
     isRatingMatch(searchString, item) ||
     isStatusMatch(searchString, item) ||
+    item.additional?.message?.toLowerCase()?.includes(searchString) ||
+    item.performance?.message?.toLowerCase()?.includes(searchString) ||
     false;
 };
 
