@@ -35,17 +35,19 @@
       </template>
     </template>
     <template v-else>
-      <div
-        class="text-red-600 dark:text-white"
-        data-test-id="no-data">
-        No TODOs found
+      <div class="mx-auto text-center">
+        <div
+          class="text-red-600 dark:text-white"
+          data-test-id="no-data">
+          No TODOs found
+        </div>
+        <p
+          v-if="!allTodosShown"
+          data-test-id="no-data-additional"
+          class="text-md text-red-600 dark:text-white">
+          There may be completed TODOs which are not shown
+        </p>
       </div>
-      <p
-        v-if="!allTodosShown"
-        data-test-id="no-data-additional"
-        class="text-md text-red-600 dark:text-white">
-        There may be completed TODOs which are not shown
-      </p>
     </template>
   </div>
 </template>

@@ -16,7 +16,7 @@
     <button
       type="button"
       data-test-id="confirm-modal-yes"
-      class="min-w-24 cursor-pointer rounded-sm border-none bg-primary px-5 py-2.5 text-center text-white shadow-lg outline-primary md:hover:bg-primary"
+      class="cta-button-primary"
       @click="$emit('confirm', true)">
       YES
     </button>

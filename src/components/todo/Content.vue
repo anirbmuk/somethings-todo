@@ -1,6 +1,6 @@
 <template>
   <div
-    class="m-2 flex cursor-pointer flex-col justify-stretch rounded border-2 bg-gray-50/75 p-2 md:mx-6 md:px-4 dark:border-white dark:bg-transparent"
+    class="m-2 flex cursor-pointer flex-col justify-stretch rounded border bg-gray-50/75 p-2 md:mx-6 md:px-4 dark:border-white dark:bg-transparent"
     :class="{
       'border-error': todo.additional?.state === 'error',
       'border-warning': todo.additional?.state === 'warn',
@@ -20,20 +20,20 @@
           <span
             v-if="todo.status !== 'Complete'"
             data-test-id="todo-status"
-            class="rounded-sm border border-red-800 bg-red-50 px-2 py-1 text-center text-sm font-normal text-red-800">
+            class="rounded-sm border border-red-800 bg-red-50 px-2 py-1 text-center text-sm font-normal text-red-800 dark:border-none">
             {{ todo.status }}
           </span>
           <span
             data-test-id="todo-additional"
-            class="rounded-sm px-2 py-1 text-center text-sm font-normal"
+            class="rounded-sm border px-2 py-1 text-center text-sm font-normal dark:border-none"
             :class="{
-              'bg-error text-white': todo.additional.state === 'error',
-              'bg-warning text-white': todo.additional.state === 'warn',
-              'bg-info text-white': todo.additional.state === 'info',
-              'bg-green-600 text-white': todo.additional.state === 'moderate',
-              'bg-green-800 text-white': todo.additional.state === 'safe',
-              'bg-gray-500 text-white': todo.additional.state === 'later',
-              'border border-green-800 bg-green-50 text-green-800': todo.additional.state === 'done'
+              'border-error bg-error text-white': todo.additional.state === 'error',
+              'border-warning bg-warning text-white': todo.additional.state === 'warn',
+              'border-info bg-info text-white': todo.additional.state === 'info',
+              'border-green-600 bg-green-600 text-white': todo.additional.state === 'moderate',
+              'border-green-800 bg-green-800 text-white': todo.additional.state === 'safe',
+              'border-gray-500 bg-gray-500 text-white': todo.additional.state === 'later',
+              'border-green-800 bg-green-50 text-green-800': todo.additional.state === 'done'
             }">{{ todo.additional.message }}</span>
         </div>
         <div
