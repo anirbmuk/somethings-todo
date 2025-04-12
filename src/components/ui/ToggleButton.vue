@@ -11,10 +11,10 @@
         :class="{
           'min-w-14 p-3': type === 'default',
           'mr-1 h-8 min-w-20 rounded-full px-2 py-0.5 text-md md:min-w-24': type === 'pill',
-          '!border-primary !bg-primary text-white dark:!border-white dark:!bg-white dark:!text-base dark:!outline-white': modelValue === option.Value
+          '!border-primary !bg-primary text-white dark:!border-white dark:!bg-white dark:!text-base dark:!outline-white': isSelected(option.Value)
         }"
         :disabled="disabled"
-        :aria-pressed="modelValue === option.Value"
+        :aria-pressed="isSelected(option.Value)"
         :data-test-id="`toggle-option-${option.Value}`"
         @click="updateValue(option.Value)">
         {{ option.Key }}
@@ -48,6 +48,10 @@ const props = defineProps({
     type: String as PropType<'default' | 'pill'>,
     default: 'default',
   },
+  useLowercase: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const emit = defineEmits<{
@@ -58,11 +62,18 @@ const updateValue = (value: string | boolean) => {
   if (props.disabled) {
     return;
   }
-  emit('update:model-value', value);
+  emit('update:model-value', props.useLowercase && typeof value === 'string' ? value.toLowerCase() : value);
   window.scrollTo({
     behavior: 'smooth',
     top: 0,
   });
+};
+
+const isSelected = (value: string | boolean) => {
+  if (props.useLowercase  && typeof props.modelValue === 'string') {
+    return value === props.modelValue.toLowerCase();
+  }
+  return value === props.modelValue;
 };
 
 defineOptions({
