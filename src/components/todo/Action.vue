@@ -6,7 +6,7 @@
         class="text-md dark:text-white">Group By</label>
       <ui-toggle-button
         id="groupbyid"
-        v-model="groupBy"
+        v-model.lazy="groupBy"
         :options="GROUP_BY_OPTIONS" />
     </div>
     <div class="flex flex-col">
@@ -15,7 +15,7 @@
         class="text-md dark:text-white">Completed</label>
       <ui-toggle-button
         id="filterid"
-        v-model="filterBy"
+        v-model.lazy="filterBy"
         :options="FILTER_OPTIONS" />
     </div>
   </div>
