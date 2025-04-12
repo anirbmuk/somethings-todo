@@ -9,7 +9,8 @@
       <ui-toggle-button
         id="quickfilter"
         type="pill"
-        v-model="searchValue"
+        use-lowercase
+        v-model.lazy="searchValue"
         :options="QUICK_FILTER_OPTIONS" />
     </div>
   </div>
