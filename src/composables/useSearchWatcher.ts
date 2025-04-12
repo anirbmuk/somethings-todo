@@ -10,12 +10,13 @@ export const useSearchWatcher = () => {
   const { searchValue } = useSearch();
 
   watch(searchValue, (text) => {
-    searchStore.setSearchText(text);
+    searchStore.setDelayedSearchText(text);
     if (text) {
-      searchStore.setSearchState(true);
-      if (['late', 'on time'].includes(text.toLowerCase())) {
-        filterStore.setFilterBy('show');
+      const searchString = text.toLowerCase();
+      if (['late', 'on time'].includes(searchString)) {
+        filterStore.setDelayedFilterBy('show');
       }
+      searchStore.setSearchState(true);
     }
   });
 };
