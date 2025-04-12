@@ -22,14 +22,16 @@ export const useSearchStore = defineStore('todo_search', () => {
       todoSearchState.value.text = '';
     }
   };
-  const setSearchText = debounce({
+  const setSearchText = (text: string | undefined) => todoSearchState.value.text = text;
+  const setDelayedSearchText = debounce({
     delay: 200,
-  }, (text: string | undefined) => todoSearchState.value.text = text);
+  }, setSearchText);
 
   return {
     todoSearchState,
     setSearchState,
     toggleSearchState,
     setSearchText,
+    setDelayedSearchText,
   };
 });
