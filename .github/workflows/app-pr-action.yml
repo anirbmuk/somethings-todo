@@ -1,9 +1,9 @@
-name: somethings-todo production onpush
+name: somethings-todo pull-request
 
 # Controls when the action will run.
 on:
-  # Triggers the workflow on push events but only for the master branch
-  push:
+  # Triggers the workflow on pull request events but only for the production branch
+  pull_request:
     branches: [production]
 
   # Allows you to run this workflow manually from the Actions tab
@@ -69,31 +69,3 @@ jobs:
 
       - name: Build things-to-do project
         run: yarn build
-
-      - name: Archive build artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: dist-somethings-todo
-          path: dist
-
-  deploy:
-    needs: [build]
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/cache@v4
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-build-somethings-todo-node-modules-${{ hashFiles('yarn.lock') }}
-      - uses: actions/download-artifact@v4
-        with:
-          name: dist-somethings-todo
-          path: dist
-      - id: 'auth'
-        uses: google-github-actions/auth@v2
-        with:
-          credentials_json: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
-
-      - name: Deploy somethings-todo project to firebase
-        run: yarn host
