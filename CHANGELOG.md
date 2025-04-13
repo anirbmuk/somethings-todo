@@ -1,5 +1,9 @@
+## 1.7.1
+- Improved quick filter feature.  
+- Added e2e tests for quick filters.  
+
 ## 1.7.0
-- Quick filter feature.    
+- Quick filter feature.  
 - Stronger search logic by todo-state and todo-rating.  
 - Hide share button if not supported by browser.  
 - Improved performance by centralised watchers.  

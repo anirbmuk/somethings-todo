@@ -1,3 +1,4 @@
+import { QUICK_FILTER_OPTIONS } from '@/constants/todo';
 import type { ITodoCondition } from '@/types/condition';
 import type {
   ITodo,
@@ -14,7 +15,7 @@ const SEARCH_OPERATORS = {
 } as const;
 
 const RATING_SEARCH_KEYWORDS = {
-  beforetime: ['beforetime', 'before time', 'early'],
+  beforetime: ['beforetime', 'before due', 'before time', 'early', 'ontime', 'on time', 'timely'],
   delayed: ['delay', 'delayed', 'late'],
   late: ['delay', 'delayed', 'late'],
   ontime: ['ontime', 'on time', 'timely'],
@@ -84,14 +85,19 @@ export const isStatusMatch = (input: string, item: ITodo): boolean =>
 
 export const getTextBasedConditions = (input: string): ITodoCondition => {
   const searchString = input.toLowerCase();
-  return (item: ITodo) =>
+  const isQuickFilter = QUICK_FILTER_OPTIONS.map(({ Value }) => Value.toLowerCase()).includes(searchString);
+  return (item: ITodo) => {
+    if (isQuickFilter) {
+      return isRatingMatch(searchString, item) || isStatusMatch(searchString, item);
+    }
+    return item.heading.toLowerCase().includes(searchString) ||
     item.text?.toLowerCase().includes(searchString) ||
-    item.heading.toLowerCase().includes(searchString) ||
     isRatingMatch(searchString, item) ||
     isStatusMatch(searchString, item) ||
     item.additional?.message?.toLowerCase()?.includes(searchString) ||
     item.performance?.message?.toLowerCase()?.includes(searchString) ||
     false;
+  };
 };
 
 export const getOperatorBasedConditions = (input: string, operator: Operators): ITodoCondition | undefined => {

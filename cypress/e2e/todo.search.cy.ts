@@ -374,4 +374,28 @@ describe('Search TODO', () => {
           .should('contain.text', `TODO text ${daynextyear}`);
       });
   });
+
+  it('should test the quick filters', () => {
+    cy.log('Testing for "Pending"');
+    cy.get('[data-test-id=toggle-option-pending]').click();
+    cy.get('[data-test-id=todo-list-item]').should('exist').should('have.length', 9);
+    cy.get('[data-test-id=clear-search]').click();
+
+    cy.log('Testing for "Past Due"');
+    cy.get('[data-test-id=toggle-option-past-due]').click();
+    cy.get('[data-test-id=todo-list-item]').should('exist').should('have.length', 2);
+    cy.get('[data-test-id=clear-search]').click();
+
+    cy.log('Testing for "Late"');
+    cy.get('[data-test-id=toggle-status]').eq(1).click();
+    cy.get('[data-test-id=toggle-option-late]').click();
+    cy.get('[data-test-id=todo-list-item]').should('exist').should('have.length', 1);
+    cy.get('[data-test-id=clear-search]').click();
+
+    cy.log('Testing for "On Time"');
+    cy.get('[data-test-id=toggle-status]').eq(2).click();
+    cy.get('[data-test-id=toggle-status]').eq(8).click();
+    cy.get('[data-test-id=toggle-option-on-time]').click();
+    cy.get('[data-test-id=todo-list-item]').should('exist').should('have.length', 2);
+  });
 });
