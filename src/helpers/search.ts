@@ -15,7 +15,7 @@ const SEARCH_OPERATORS = {
 } as const;
 
 const RATING_SEARCH_KEYWORDS = {
-  beforetime: ['beforetime', 'before time', 'early'],
+  beforetime: ['beforetime', 'before due', 'before time', 'early', 'ontime', 'on time', 'timely'],
   delayed: ['delay', 'delayed', 'late'],
   late: ['delay', 'delayed', 'late'],
   ontime: ['ontime', 'on time', 'timely'],

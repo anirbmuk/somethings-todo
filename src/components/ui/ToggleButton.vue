@@ -15,7 +15,7 @@
         }"
         :disabled="disabled"
         :aria-pressed="isSelected(option.Value)"
-        :data-test-id="`toggle-option-${option.Value}`"
+        :data-test-id="`toggle-option-${getDataTestId(option.Key)}`"
         @click="updateValue(option.Value)">
         {{ option.Key }}
       </button>
@@ -75,6 +75,8 @@ const isSelected = (value: string | boolean) => {
   }
   return value === props.modelValue;
 };
+
+const getDataTestId = (key: string) => key.split(' ').join('-').toLowerCase();
 
 defineOptions({
   name: 'ToggleButton',
