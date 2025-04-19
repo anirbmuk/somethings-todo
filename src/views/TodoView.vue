@@ -30,6 +30,9 @@
         @create-todo="saveTodo('create', $event)"
         @edit-todo="saveTodo('edit', $event)" />
     </lazy-ui-modal>
+    <lazy-ui-back-to-top
+      v-show="showBackToTopButton"
+      @scroll-to-top="scrollToTop" />
   </div>
 </template>
 
@@ -45,6 +48,7 @@ import { useTodo } from '@/composables/useTodo';
 import { useTodoWatcher } from '@/composables/useTodoWatcher';
 import { useSearchWatcher } from '@/composables/useSearchWatcher';
 import { useModal } from '@/composables/useModal';
+import { useScroll } from '@/composables/useScroll.ts';
 import type {
   AddTodo,
   ITodo,
@@ -54,8 +58,14 @@ import type {
 const LazyUiModal = defineAsyncComponent(() => import('@/components/ui/Modal.vue'));
 const LazyUiCreateOrUpdateAction = defineAsyncComponent(() => import('@/components/ui/CreateOrUpdateAction.vue'));
 const LazyUiConfirmAction = defineAsyncComponent(() => import('@/components/ui/ConfirmAction.vue'));
+const LazyUiBackToTop = defineAsyncComponent(() => import('@/components/ui/BackToTop.vue'));
 
 const CONFIRM_MODAL_NAME = 'delete-todo-confirm-modal';
+
+const {
+  scrollToTop,
+  showBackToTopButton,
+} = useScroll();
 
 const {
   groupedTodos,
