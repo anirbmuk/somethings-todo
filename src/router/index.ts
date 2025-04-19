@@ -56,4 +56,10 @@ router.beforeEach((to) => {
   });
 });
 
+router.afterEach(() => window.scrollTo({
+  left: 0,
+  top: 0,
+  behavior: 'smooth',
+}));
+
 export default router;

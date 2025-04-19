@@ -1,3 +1,6 @@
+## 1.8.0
+- Added back-to-top feature.  
+
 ## 1.7.1
 - Improved quick filter feature.  
 - Added e2e tests for quick filters.  
