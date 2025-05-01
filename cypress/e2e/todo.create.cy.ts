@@ -26,7 +26,6 @@ describe('Create TODO', () => {
       expect(output[0]['status']).to.equal('Incomplete');
       expect(output[0]['heading']).to.equal(data.todos.new.heading);
       expect(output[0]['text']).to.equal(data.todos.new.text);
-      // expect(output[0]['todoid']).to.not.be.null();
     });
 
     cy.get('[data-test-id=todo-list]').should('exist').should('have.length', 1);
@@ -64,7 +63,6 @@ describe('Create TODO', () => {
       expect(output[0]['status']).to.equal('Incomplete');
       expect(output[0]['heading']).to.equal(data.todos.new.heading);
       expect(output[0]['text']).to.equal(data.todos.new.text);
-      // expect(output[0]['todoid']).to.be.not.null;
     });
 
     cy.get('[data-test-id=todo-list]').should('exist').should('have.length', 1);

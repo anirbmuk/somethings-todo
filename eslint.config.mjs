@@ -2,6 +2,7 @@ import pluginVue from 'eslint-plugin-vue';
 import vueTsEslintConfig from '@vue/eslint-config-typescript';
 import skipFormatting from '@vue/eslint-config-prettier/skip-formatting';
 import tailwindCssPlugin from 'eslint-plugin-tailwindcss';
+import sonarjs from 'eslint-plugin-sonarjs';
 
 export default [
   {
@@ -17,6 +18,7 @@ export default [
   ...pluginVue.configs['flat/essential'],
   ...vueTsEslintConfig(),
   ...tailwindCssPlugin.configs['flat/recommended'],
+  sonarjs.configs.recommended,
   skipFormatting,
 
   {
@@ -99,6 +101,15 @@ export default [
       'object-property-newline': ['error'],
       'prefer-destructuring': ['error'],
       'vue/html-indent': ['error'],
+      'vue/html-self-closing': ['error'],
+      '@typescript-eslint/prefer-ts-expect-error': ['warn'],
+      'sonarjs/no-duplicate-string': ['off'],
+      'sonarjs/cognitive-complexity': ['warn'],
+      'sonarjs/no-nested-assignment': ['warn'],
+      'sonarjs/no-unused-vars': ['error'],
+      'sonarjs/redundant-type-aliases': ['error'],
+      'sonarjs/no-nested-functions': ['warn'],
+      'sonarjs/no-nested-conditional': ['warn'],
     },
   },
 ];

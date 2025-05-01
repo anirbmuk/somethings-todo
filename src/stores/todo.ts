@@ -88,6 +88,7 @@ export const useTodoStore = defineStore('todos', () => {
     todos.value.splice(indexOfTodoToBeDeleted, 1);
   };
 
+  // eslint-disable-next-line sonarjs/pseudo-random
   const generateTodoId = () => btoa(`${+new Date()}-${Math.ceil(Math.random() * 1000)}`).slice(0, -2).toLowerCase();
 
   return {
