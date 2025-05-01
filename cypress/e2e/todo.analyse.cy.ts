@@ -122,20 +122,20 @@ describe('Analyse TODO', () => {
       cy.log('Navigate to the dashboard page');
       cy.get('[data-test-id=analyse-todo-btn]').click();
 
-      expect(cy.get('[data-test-id=status-completed-label]').should('have.text', 'completed'));
-      expect(cy.get('[data-test-id=status-completed-count]').should('have.text', '8'));
+      cy.get('[data-test-id=status-completed-label]').should('have.text', 'completed');
+      cy.get('[data-test-id=status-completed-count]').should('have.text', '8');
 
-      expect(cy.get('[data-test-id=status-pending-label]').should('have.text', 'pending'));
-      expect(cy.get('[data-test-id=status-pending-count]').should('have.text', '1'));
+      cy.get('[data-test-id=status-pending-label]').should('have.text', 'pending');
+      cy.get('[data-test-id=status-pending-count]').should('have.text', '1');
 
-      expect(cy.get('[data-test-id=status-past-due-label]').should('have.text', 'past due'));
-      expect(cy.get('[data-test-id=status-past-due-count]').should('have.text', '1'));
+      cy.get('[data-test-id=status-past-due-label]').should('have.text', 'past due');
+      cy.get('[data-test-id=status-past-due-count]').should('have.text', '1');
 
-      expect(cy.get('[data-test-id=status-late-label]').should('have.text', 'late'));
-      expect(cy.get('[data-test-id=status-late-count]').should('have.text', '1'));
+      cy.get('[data-test-id=status-late-label]').should('have.text', 'late');
+      cy.get('[data-test-id=status-late-count]').should('have.text', '1');
 
-      expect(cy.get('[data-test-id=status-on-time-label]').should('have.text', 'on time'));
-      expect(cy.get('[data-test-id=status-on-time-count]').should('have.text', '7'));
+      cy.get('[data-test-id=status-on-time-label]').should('have.text', 'on time');
+      cy.get('[data-test-id=status-on-time-count]').should('have.text', '7');
     });
   });
 });

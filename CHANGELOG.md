@@ -1,3 +1,8 @@
+## 1.8.1
+- Switched to NodeJS 22.  
+- Added `sonarjs` for eslint.  
+- Updated dev dependencies to latest versions.  
+
 ## 1.8.0
 - Added back-to-top feature.  
 

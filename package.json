@@ -1,6 +1,6 @@
 {
   "name": "somethings-todo",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "private": true,
   "description": "A light and fast todo-app, built with Vue3 and Pinia",
   "author": {
@@ -53,6 +53,7 @@
     "autoprefixer": "^10.4.20",
     "cypress": "^14.2.1",
     "eslint": "^9.13.0",
+    "eslint-plugin-sonarjs": "^3.0.2",
     "eslint-plugin-tailwindcss": "^3.18.0",
     "eslint-plugin-vue": "^10.0.0",
     "firebase-tools": "^14.2.0",
