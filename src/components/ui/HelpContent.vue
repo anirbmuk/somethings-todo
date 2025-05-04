@@ -25,7 +25,7 @@
       </details>
       <details class="mt-2">
         <summary class="font-semibold">Dark Mode Support</summary>
-        <p>Turn on dark mode on your mobile/laptop/PC and the page looks as elegant as it can get.</p>
+        <p>Easily toggle between dark and light modes and the page looks as elegant as it can get.</p>
       </details>
       <details class="mt-2">
         <summary class="font-semibold">Easy Share & Import</summary>
@@ -51,7 +51,8 @@
     <div class="mb-2 mt-4 flex items-center justify-end">
       <button
         type="button"
-        class="min-w-24 cursor-pointer rounded-sm border-none bg-primary px-5 py-2.5 text-center text-white shadow-lg outline-primary md:hover:bg-primary"
+        class="cta-button-primary"
+        data-test-id="close-help-btn"
         @click="$emit('close-help')">
         OK
       </button>

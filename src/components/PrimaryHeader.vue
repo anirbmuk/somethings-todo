@@ -70,6 +70,18 @@
         @click="showHelpModal">
         <icon-help class="size-6 text-white" />
       </button>
+      <button
+        type="button"
+        :title="isDarkTheme ? 'Turn on light mode' : 'Turn on dark mode'"
+        data-test-id="theme-todo-btn"
+        @click="toggleTheme">
+        <icon-dark
+          v-if="!isDarkTheme"
+          class="size-6 text-white" />
+        <icon-light
+          v-else
+          class="size-6 text-white" />
+      </button>
     </div>
     <lazy-ui-modal
       :name="HELP_TOPICS_MODAL_NAME"
@@ -96,8 +108,11 @@ import IconClose from '@/assets/icons/close.svg';
 import IconHelp from '@/assets/icons/help.svg';
 import IconTask from '@/assets/icons/task.svg';
 import IconDashboard from '@/assets/icons/dashboard.svg';
+import IconLight from '@/assets/icons/light.svg';
+import IconDark from '@/assets/icons/dark.svg';
 import { useSearchStore } from '@/stores/search';
 import { useSearch } from '@/composables/useSearch';
+import { useTheme } from '@/composables/useTheme';
 import { useTodo } from '@/composables/useTodo';
 import { useHelp } from '@/composables/useHelp';
 
@@ -106,6 +121,11 @@ const LazyUiHelpContent = defineAsyncComponent(() => import('@/components/ui/Hel
 
 const route = useRoute();
 const router = useRouter();
+
+const {
+  toggleTheme,
+  isDarkTheme,
+} = useTheme();
 
 defineProps({
   reduced: {
