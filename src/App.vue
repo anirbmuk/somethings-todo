@@ -14,9 +14,11 @@ import {
   RouterView,
   useRoute,
 } from 'vue-router';
+import useThemeWatcher from '@/composables/useThemeWatcher';
 import PrimaryHeader from '@/components/PrimaryHeader.vue';
 import { ROUTES_WITH_TOOLBAR } from './constants/route';
 
+useThemeWatcher();
 const route = useRoute();
 const reduced = computed(() => !ROUTES_WITH_TOOLBAR.includes(route.name));
 
