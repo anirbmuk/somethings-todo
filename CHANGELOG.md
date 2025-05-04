@@ -1,3 +1,6 @@
+## 1.9.0
+- Added `selector` based dark mode.  
+
 ## 1.8.1
 - Switched to NodeJS 22.  
 - Added `sonarjs` for eslint.  
