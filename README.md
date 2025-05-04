@@ -15,7 +15,7 @@ A light and fast todo-app, built with Vue3
 > Uses your browser's local-storage. So remember, a new browser means a new set of TODOs :-)  
 
 :heavy_check_mark: **Dark Mode Support**  
-> Turn on dark mode on your mobile/laptop/PC and the page looks as elegant as it can get.  
+> Easily toggle between dark and light modes and the page looks as elegant as it can get.  
 
 :heavy_check_mark: **Easy Share & Import**  
 > Share your TODO items on your favourite medium, and import into your browser!  

@@ -25,7 +25,7 @@
       </details>
       <details class="mt-2">
         <summary class="font-semibold">Dark Mode Support</summary>
-        <p>Turn on dark mode on your mobile/laptop/PC and the page looks as elegant as it can get.</p>
+        <p>Easily toggle between dark and light modes and the page looks as elegant as it can get.</p>
       </details>
       <details class="mt-2">
         <summary class="font-semibold">Easy Share & Import</summary>
