@@ -8,24 +8,10 @@ describe('Test Header', () => {
   it('should display action buttons', () => {
     cy.visit('/');
 
-    cy.get('[data-test-id=show-search]').should('exist');
     cy.get('[data-test-id=analyse-todo-btn]').should('exist');
     cy.get('[data-test-id=add-todo-btn]').should('exist');
     cy.get('[data-test-id=help-todo-btn]').should('exist');
-  });
-
-  it('should correctly toggle input search field', () => {
-    cy.visit('/');
-
-    cy.get('[data-test-id=show-search]').click();
-    cy.get('[data-test-id=show-search]').should('not.exist');
-    cy.get('[data-test-id=input-search]').should('exist');
-    cy.get('[data-test-id=clear-search]').should('exist');
-
-    cy.get('[data-test-id=clear-search]').click();
-    cy.get('[data-test-id=show-search]').should('exist');
-    cy.get('[data-test-id=input-search]').should('not.exist');
-    cy.get('[data-test-id=clear-search]').should('not.exist');
+    cy.get('[data-test-id=theme-todo-btn]').should('exist');
   });
 
   it('should open modal on clicking add icon', () => {

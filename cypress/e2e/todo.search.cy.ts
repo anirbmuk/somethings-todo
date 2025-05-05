@@ -101,6 +101,22 @@ describe('Search TODO', () => {
     cy.get('[data-test-id=toggle-option-show]').click();
   });
 
+  it('should correctly toggle input search field', () => {
+    cy.visit('/');
+
+    cy.get('[data-test-id=input-search]').should('exist');
+    cy.get('[data-test-id=clear-search]').should('not.be.visible');
+
+    cy.get('[data-test-id=input-search]').click();
+    cy.get('[data-test-id=clear-search]').should('not.be.visible');
+
+    cy.get('[data-test-id=input-search]').type('test');
+    cy.get('[data-test-id=clear-search]').should('be.visible');
+
+    cy.get('[data-test-id=clear-search]').click();
+    cy.get('[data-test-id=clear-search]').should('not.be.visible');
+  });
+
   it('should search for a text', () => {
     cy.get('[data-test-id=input-search]').click();
     cy.get('[data-test-id=input-search]').type('todo heading 1');
