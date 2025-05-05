@@ -7,11 +7,9 @@
         type="text"
         placeholder="Search TODOs"
         data-test-id="input-search"
-        class="mr-1 w-1/2 py-2 text-sm text-base transition-all duration-300 md:text-md"
-        :class="{ 'w-full': searchFieldInFocus || searchValue }"
-        v-model.trim="searchValue"
-        @focus="searchFieldInFocus = true"
-        @blur="searchFieldInFocus = false">
+        class="mr-1 w-1/2 py-2 text-sm text-base transition-all duration-200 ease-in-out md:text-md"
+        :class="{ 'w-full': Boolean(searchValue) }"
+        v-model.trim="searchValue">
       <util-fade-in-transition>
         <button
           v-show="searchValue"
@@ -35,19 +33,21 @@ import { useSearchWatcher } from '@/composables/useSearchWatcher';
 import UtilFadeInTransition from '@/components/util/FadeInTransition.vue';
 
 const searchTextField = ref<HTMLInputElement | null>(null);
-const searchFieldInFocus = ref<boolean>(false);
 
 const {
   searchValue,
-  toggleSearchState,
+  clearSearch,
 } = useSearch();
 useSearchWatcher();
 
 const toggleAndClearSearch = () => {
-  searchValue.value = '';
-  toggleSearchState();
-  searchFieldInFocus.value = true;
-  setTimeout(() => searchTextField.value?.focus(), 0);
+  clearSearch();
+  setTimeout(() => {
+    if (searchTextField.value) {
+      searchTextField.value.focus();
+      searchTextField.value.setSelectionRange(0, 0);
+    }
+  }, 0);
 };
 
 defineOptions({
