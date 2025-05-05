@@ -1,3 +1,8 @@
+## 1.9.1
+- Re-structured search input for better real estate management.  
+- Fixed incorrect meta `theme-color`.  
+- Added dynamic meta theme-color logic.  
+
 ## 1.9.0
 - Added `selector` based dark mode.  
 
