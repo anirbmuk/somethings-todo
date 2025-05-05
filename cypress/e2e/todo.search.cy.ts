@@ -99,7 +99,6 @@ describe('Search TODO', () => {
       },
     });
     cy.get('[data-test-id=toggle-option-show]').click();
-    cy.get('[data-test-id=show-search]').click();
   });
 
   it('should search for a text', () => {

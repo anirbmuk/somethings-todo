@@ -4,6 +4,7 @@
       <todo-action />
       <hr>
     </div>
+    <todo-search />
     <todo-quick-filter />
     <todo-list
       :todos="groupedTodos.groupedTodos"
@@ -43,10 +44,10 @@ import {
 } from 'vue';
 import TodoAction from '@/components/todo/Action.vue';
 import TodoQuickFilter from '@/components/todo/QuickFilter.vue';
+import TodoSearch from '@/components/todo/Search.vue';
 import TodoList from '@/components/todo/List.vue';
 import { useTodo } from '@/composables/useTodo';
 import { useTodoWatcher } from '@/composables/useTodoWatcher';
-import { useSearchWatcher } from '@/composables/useSearchWatcher';
 import { useModal } from '@/composables/useModal';
 import { useScroll } from '@/composables/useScroll.ts';
 import type {
@@ -82,7 +83,6 @@ const {
 } = useTodo();
 
 useTodoWatcher();
-useSearchWatcher();
 
 let idOfTodoToBeDeleted: ITodo['todoid'] | undefined;
 

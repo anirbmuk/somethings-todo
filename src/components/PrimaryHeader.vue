@@ -10,35 +10,6 @@
       </router-link>
     </div>
     <div class="flex items-center justify-between gap-2 md:gap-4">
-      <div
-        v-if="!reduced && searchStore.todoSearchState.search"
-        class="flex flex-row">
-        <input
-          ref="searchTextField"
-          name="searchTextField"
-          type="text"
-          placeholder="Search TODOs"
-          data-test-id="input-search"
-          class="mr-1 w-36 border-none bg-indigo-100 py-2 text-sm text-base caret-primary !outline-none md:w-48 md:text-md lg:w-60 xl:w-72 dark:caret-white"
-          v-model.trim="searchValue" >
-        <button
-          v-if="!reduced"
-          type="button"
-          class="z-10 -ml-8"
-          title="Cancel search"
-          data-test-id="clear-search"
-          @click="toggleAndClearSearch">
-          <icon-close class="size-6" />
-        </button>
-      </div>
-      <button
-        v-else-if="!reduced"
-        type="button"
-        title="Search TODOs"
-        data-test-id="show-search"
-        @click="toggleSearchState">
-        <icon-search class="size-6 text-white" />
-      </button>
       <button
         v-if="!reduced"
         type="button"
@@ -93,25 +64,17 @@
 </template>
 
 <script setup lang="ts">
-import {
-  defineAsyncComponent,
-  ref,
-  watch,
-} from 'vue';
+import { defineAsyncComponent } from 'vue';
 import {
   useRoute,
   useRouter,
 } from 'vue-router';
 import IconAdd from '@/assets/icons/create.svg';
-import IconSearch from '@/assets/icons/search.svg';
-import IconClose from '@/assets/icons/close.svg';
 import IconHelp from '@/assets/icons/help.svg';
 import IconTask from '@/assets/icons/task.svg';
 import IconDashboard from '@/assets/icons/dashboard.svg';
 import IconLight from '@/assets/icons/light.svg';
 import IconDark from '@/assets/icons/dark.svg';
-import { useSearchStore } from '@/stores/search';
-import { useSearch } from '@/composables/useSearch';
 import { useTheme } from '@/composables/useTheme';
 import { useTodo } from '@/composables/useTodo';
 import { useHelp } from '@/composables/useHelp';
@@ -134,30 +97,13 @@ defineProps({
   },
 });
 
-const searchTextField = ref<HTMLInputElement | null>(null);
-
-const searchStore = useSearchStore();
 const {
   HELP_TOPICS_MODAL_NAME,
   showHelpModal,
   closeHelpModal,
 } = useHelp();
-const {
-  searchValue,
-  toggleSearchState,
-} = useSearch();
+
 const { showCreateModal } = useTodo();
-
-const toggleAndClearSearch = () => {
-  searchValue.value = '';
-  toggleSearchState();
-};
-
-watch(() => searchStore.todoSearchState.search, (state) => {
-  if (state) {
-    setTimeout(() => searchTextField.value?.focus(), 0);
-  }
-});
 
 defineEmits(['create']);
 
