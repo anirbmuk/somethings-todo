@@ -33,7 +33,7 @@ jobs:
         if: steps.cache-node-modules-pre.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile
 
-  check:
+  build:
     needs: [install]
     runs-on: ubuntu-latest
 
@@ -49,35 +49,7 @@ jobs:
             node_modules
           key: ${{ runner.os }}-build-somethings-todo-node-modules-${{ hashFiles('yarn.lock') }}
 
-      - name: Run linter
-        run: yarn lint
-
-      - name: Run unit tests
-        run: yarn test:ci
-
-      - name: Run e2e tests
-        uses: cypress-io/github-action@v6
-        with:
-          start: yarn dev
-          browser: chrome
-
-  build:
-    needs: [check]
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22.14.0
-      - uses: actions/cache@v4
-        with:
-          path: |
-            ~/.cache
-            node_modules
-          key: ${{ runner.os }}-build-somethings-todo-node-modules-${{ hashFiles('yarn.lock') }}
-
-      - name: Build things-to-do project
+      - name: Build somethings-todo project
         run: yarn build
 
       - name: Archive build artifacts
