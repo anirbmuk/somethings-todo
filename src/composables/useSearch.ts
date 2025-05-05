@@ -50,9 +50,14 @@ export const useSearch = () => {
 
   const toggleSearchState = () => searchStore.toggleSearchState();
 
+  const clearSearch = () => {
+    searchValue.value = '';
+    toggleSearchState();
+  };
+
   return {
     conditions,
     searchValue,
-    toggleSearchState,
+    clearSearch,
   };
 };

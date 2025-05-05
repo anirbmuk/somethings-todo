@@ -115,6 +115,7 @@ describe('Search TODO', () => {
 
     cy.get('[data-test-id=clear-search]').click();
     cy.get('[data-test-id=clear-search]').should('not.be.visible');
+    cy.get('[data-test-id=input-search]').should('be.empty');
   });
 
   it('should search for a text', () => {
