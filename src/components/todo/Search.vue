@@ -7,14 +7,14 @@
         type="text"
         placeholder="Search TODOs"
         data-test-id="input-search"
-        class="mr-1 w-1/2 py-2 text-sm text-base transition-all duration-200 ease-in-out md:text-md"
+        class="mr-1 w-1/2 py-2 text-sm text-base transition-all duration-200 ease-linear focus:w-full md:text-md"
         :class="{ 'w-full': Boolean(searchValue) }"
         v-model.trim="searchValue">
       <util-fade-in-transition>
         <button
           v-show="searchValue"
           type="button"
-          class="absolute right-2 z-10"
+          class="absolute right-3 z-10"
           title="Cancel search"
           data-test-id="clear-search"
           @click="toggleAndClearSearch">
@@ -47,7 +47,7 @@ const toggleAndClearSearch = () => {
       searchTextField.value.focus();
       searchTextField.value.setSelectionRange(0, 0);
     }
-  }, 0);
+  }, 10);
 };
 
 defineOptions({
