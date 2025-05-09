@@ -1,6 +1,7 @@
 ## 1.9.2
 - Simplified search field toggle logic.  
 - Fixed input field focus on iOS.  
+- Accessibility and dark mode improvements.  
 
 ## 1.9.1
 - Re-structured search input for better real estate management.  
