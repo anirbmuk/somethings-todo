@@ -7,7 +7,7 @@ export const useFilterStore = defineStore('todo_filter', () => {
   const filterBy = useStorage<FilterBy>('todo_filter', 'show');
   const setFilterBy = (filter: FilterBy) => filterBy.value = filter;
   const setDelayedFilterBy = debounce({
-    delay: 200,
+    delay: 150,
   }, setFilterBy);
 
   return {

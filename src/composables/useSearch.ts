@@ -6,8 +6,8 @@ import { useFilterStore } from '@/stores/filter';
 import { useSearchStore } from '@/stores/search';
 import {
   findOperator,
-  getOperatorBasedConditions,
-  getTextBasedConditions,
+  getMemoizedTextBasedConditions,
+  getMemoizedOperatorBasedConditions,
 } from '@/helpers/search';
 import type { ITodoCondition } from '@/types/condition';
 import type { ITodo } from '@/types/todo';
@@ -35,7 +35,7 @@ export const useSearch = () => {
     const operatorBasedConditions: ITodoCondition[] = [];
     const operator = findOperator(searchInput);
     if (operator) {
-      const operatorBasedCondition = getOperatorBasedConditions(searchInput, operator);
+      const operatorBasedCondition = getMemoizedOperatorBasedConditions(searchInput, operator);
       if (operatorBasedCondition) {
         operatorBasedConditions.push(operatorBasedCondition);
       }
@@ -43,7 +43,7 @@ export const useSearch = () => {
     hasOperator = Boolean(operatorBasedConditions.length);
 
     if (!hasOperator) {
-      todoFilterConditions.push(getTextBasedConditions(searchInput));
+      todoFilterConditions.push(getMemoizedTextBasedConditions(searchInput));
     }
     return [...todoFilterConditions, ...operatorBasedConditions];
   });
