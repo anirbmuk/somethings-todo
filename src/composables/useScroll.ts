@@ -10,7 +10,7 @@ export const useScroll = () => {
   const scrollYPosition = ref<number>(0);
 
   const callback = debounce({
-    delay: 100,
+    delay: 150,
   }, () => (scrollYPosition.value = window.scrollY));
 
   const scrollToTop = () => window.scrollTo({

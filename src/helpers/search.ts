@@ -29,6 +29,9 @@ const STATUS_SEARCH_KEYWORDS = {
 type OperatorKeys = keyof typeof SEARCH_OPERATORS;
 type Operators = typeof SEARCH_OPERATORS[OperatorKeys];
 
+const VALID_OPERATORS = Object.values(SEARCH_OPERATORS)
+  .sort((operator1, operator2) => operator2.length - operator1.length);
+
 export const getCompareConditions = (operator: Operators, comparator: number): ITodoCondition => {
   return (item: ITodo) => {
     if (
@@ -65,9 +68,8 @@ export const findOperator = (input: string | undefined): Operators | undefined =
   if (!input) {
     return;
   }
-  const validOperators = Object.values(SEARCH_OPERATORS).sort((operator1, operator2) => operator2.length - operator1.length);
-  for (const validOperator of validOperators) {
-    if (input.startsWith(`${validOperator}`)) {
+  for (const validOperator of VALID_OPERATORS) {
+    if (input.startsWith(validOperator)) {
       return validOperator;
     }
   }
@@ -80,10 +82,10 @@ export const isRatingMatch = (input: string, item: ITodo): boolean => {
   return RATING_SEARCH_KEYWORDS[item.performance.rating].includes(input);
 };
 
-export const isStatusMatch = (input: string, item: ITodo): boolean =>
+const isStatusMatch = (input: string, item: ITodo): boolean =>
   STATUS_SEARCH_KEYWORDS[item.status].includes(input);
 
-export const getTextBasedConditions = (input: string): ITodoCondition => {
+const getTextBasedConditions = (input: string): ITodoCondition => {
   const searchString = input.toLowerCase();
   const isQuickFilter = QUICK_FILTER_OPTIONS.map(({ Value }) => Value.toLowerCase()).includes(searchString);
   return (item: ITodo) => {
@@ -100,7 +102,19 @@ export const getTextBasedConditions = (input: string): ITodoCondition => {
   };
 };
 
-export const getOperatorBasedConditions = (input: string, operator: Operators): ITodoCondition | undefined => {
+export const getMemoizedTextBasedConditions = (function() {
+  const cache = new Map<string, ITodoCondition>();
+  return (input: string): ITodoCondition => {
+    if (cache.has(input)) {
+      return cache.get(input)!;
+    }
+    const condition = getTextBasedConditions(input);
+    cache.set(input, condition);
+    return condition;
+  };
+})();
+
+const getOperatorBasedConditions = (input: string, operator: Operators): ITodoCondition | undefined => {
   const comparatorValues = input.split(operator);
   if (comparatorValues.length !== 2) {
     return;
@@ -111,3 +125,16 @@ export const getOperatorBasedConditions = (input: string, operator: Operators): 
     return getCompareConditions(operator, comparator);
   }
 };
+
+export const getMemoizedOperatorBasedConditions = (function() {
+  const cache = new Map<string, ITodoCondition | undefined>();
+  return (input: string, operator: Operators): ITodoCondition | undefined => {
+    const cacheKey = `${input}-${operator}`;
+    if (cache.has(cacheKey)) {
+      return cache.get(cacheKey)!;
+    }
+    const condition = getOperatorBasedConditions(input, operator);
+    cache.set(cacheKey, condition);
+    return condition;
+  };
+})();

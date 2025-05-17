@@ -1,5 +1,6 @@
 import {
   computed,
+  reactive,
   ref,
 } from 'vue';
 import type {
@@ -26,9 +27,21 @@ import { getReadableDate } from '@/helpers/date';
 
 const groupBy = ref<GroupBy>('day');
 const filterBy = ref<FilterBy>('show');
+const memoize = reactive<Record<string, number>>({
+});
 
-const defaultSort = (todo1: ITodo, todo2: ITodo) =>
-  +new Date(todo1.duedate) - +new Date(todo2.duedate);
+const defaultSort = (function () {
+  const getMemoizationKey = (todo1: ITodo, todo2: ITodo) => `${todo1.duedate}-${todo2.duedate}`;
+  return (todo1: ITodo, todo2: ITodo) => {
+    const key = getMemoizationKey(todo1, todo2);
+    if (memoize[key] !== undefined) {
+      return memoize[key];
+    }
+    const result = +new Date(todo1.duedate) - +new Date(todo2.duedate);
+    memoize[key] = result;
+    return result;
+  };
+})();
 
 const COMPLETE_STATUS = {
   remaining: undefined,

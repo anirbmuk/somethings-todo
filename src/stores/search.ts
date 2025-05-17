@@ -24,7 +24,7 @@ export const useSearchStore = defineStore('todo_search', () => {
   };
   const setSearchText = (text: string | undefined) => todoSearchState.value.text = text;
   const setDelayedSearchText = debounce({
-    delay: 200,
+    delay: 150,
   }, setSearchText);
 
   return {
