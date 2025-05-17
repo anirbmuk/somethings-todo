@@ -1,3 +1,6 @@
+## 1.9.3
+- Improved search and initial calculation time using memoization.  
+
 ## 1.9.2
 - Simplified search field toggle logic.  
 - Fixed input field focus on iOS.  
