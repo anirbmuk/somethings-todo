@@ -19,12 +19,14 @@
           class="z-10 flex space-x-2">
           <span
             v-if="todo.status !== 'Complete'"
+            role="status"
             data-test-id="todo-status"
             class="rounded-sm border border-red-800 bg-red-50 px-2 py-1 text-center text-sm font-normal text-red-800 dark:border-none">
             {{ todo.status }}
           </span>
           <span
             data-test-id="todo-additional"
+            role="status"
             class="rounded-sm border px-2 py-1 text-center text-sm font-normal dark:border-none"
             :class="{
               'border-error bg-error text-white': todo.additional.state === 'error',

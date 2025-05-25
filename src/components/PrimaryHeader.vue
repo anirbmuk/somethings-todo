@@ -16,7 +16,9 @@
         title="Create a TODO"
         data-test-id="add-todo-btn"
         @click="showCreateModal">
-        <icon-add class="size-6 text-white" />
+        <icon-add
+          class="size-6 text-white"
+          aria-hidden="true" />
       </button>
       <button
         v-if="route.name === 'todo'"
@@ -24,7 +26,9 @@
         title="Analyse TODOs"
         data-test-id="analyse-todo-btn"
         @click="router.push('/dashboard')">
-        <icon-dashboard class="size-6 text-white" />
+        <icon-dashboard
+          class="size-6 text-white"
+          aria-hidden="true" />
       </button>
       <button
         v-else-if="route.name === 'dashboard' || route.name === 'import'"
@@ -32,14 +36,18 @@
         title="View TODOs"
         data-test-id="view-todo-btn"
         @click="router.push('/')">
-        <icon-task class="size-6 text-white" />
+        <icon-task
+          class="size-6 text-white"
+          aria-hidden="true" />
       </button>
       <button
         type="button"
         title="Help with TODOs"
         data-test-id="help-todo-btn"
         @click="showHelpModal">
-        <icon-help class="size-6 text-white" />
+        <icon-help
+          class="size-6 text-white"
+          aria-hidden="true" />
       </button>
       <button
         type="button"
@@ -48,10 +56,12 @@
         @click="toggleTheme">
         <icon-dark
           v-if="!isDarkTheme"
-          class="size-6 text-white" />
+          class="size-6 text-white"
+          aria-hidden="true" />
         <icon-light
           v-else
-          class="size-6 text-white" />
+          class="size-6 text-white"
+          aria-hidden="true" />
       </button>
     </div>
     <lazy-ui-modal
