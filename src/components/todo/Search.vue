@@ -1,10 +1,16 @@
 <template>
   <div class="mx-auto my-2 flex items-center justify-center lg:w-1/2">
     <div class="relative flex w-9/10 items-center justify-center">
+      <label
+        for="searchTextField"
+        class="sr-only">
+        Search TODOs
+      </label>
       <input
         ref="searchTextField"
-        name="searchTextField"
+        id="searchTextField"
         type="text"
+        role="searchbox"
         placeholder="Search TODOs"
         data-test-id="input-search"
         class="mr-1 w-1/2 py-2 text-sm text-base transition-all duration-200 ease-linear focus:w-full md:text-md"
@@ -18,7 +24,9 @@
           title="Cancel search"
           data-test-id="clear-search"
           @click="toggleAndClearSearch">
-          <icon-close class="size-6" />
+          <icon-close
+            class="size-6"
+            aria-hidden="true" />
         </button>
       </util-fade-in-transition>
     </div>

@@ -7,7 +7,9 @@
     <div
       class="flex items-center text-3xl text-base dark:text-white"
       translate="no">
-      <lazy-icon-up-arrow class="size-6" />
+      <lazy-icon-up-arrow
+        class="size-6"
+        aria-hidden="true" />
     </div>
   </button>
 </template>
