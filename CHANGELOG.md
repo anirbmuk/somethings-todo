@@ -1,3 +1,6 @@
+## 1.9.4
+- Improved accessibility.  
+
 ## 1.9.3
 - Improved search and initial calculation time using memoization.  
 

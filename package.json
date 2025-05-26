@@ -1,6 +1,6 @@
 {
   "name": "somethings-todo",
-  "version": "1.9.3",
+  "version": "1.9.4",
   "private": true,
   "description": "A light and fast todo-app, built with Vue3 and Pinia",
   "author": {
@@ -59,6 +59,7 @@
     "firebase-tools": "^14.2.0",
     "husky": "^9.1.7",
     "js-base64": "^3.7.7",
+    "jsdom": "^26.1.0",
     "lint-staged": "^15.5.1",
     "npm-run-all2": "^7.0.2",
     "postcss": "^8.4.47",
