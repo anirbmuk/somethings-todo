@@ -1,7 +1,7 @@
 <template>
   <div class="sticky inset-0 z-20 flex h-16 items-center justify-between bg-primary px-3 md:px-4 dark:bg-base">
     <h1
-      class="text-white md:text-2xl"
+      class="text-xl text-white md:text-2xl"
       router-link="/">
       <router-link
         to="/"
