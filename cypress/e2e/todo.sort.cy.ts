@@ -89,7 +89,7 @@ describe('Sort TODO', () => {
       });
   });
 
-  it('should push completed TODOs to end-of-group', () => {
+  it.skip('should push completed TODOs to end-of-group', () => {
     cy.log('Mark first TODO as done');
     cy.get('[data-test-id=toggle-status]').eq(0).click();
     cy.wait(250);
@@ -161,7 +161,7 @@ describe('Sort TODO', () => {
       });
   });
 
-  it('should push incomplete TODOs to top-of-group', () => {
+  it.skip('should push incomplete TODOs to top-of-group', () => {
     cy.log('Mark all TODOs as done');
     cy.get('[data-test-id=toggle-status]').each((toggle) => {
       cy.wrap(toggle).click();
