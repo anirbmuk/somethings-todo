@@ -1,7 +1,5 @@
 <template>
-  <div
-    role="group"
-    :aria-labelledby="id">
+  <div role="group">
     <template
       v-for="option of options"
       :key="option.value">
@@ -29,10 +27,6 @@ import type { PropType } from 'vue';
 import type { KeyValue } from '@/types/key-value';
 
 const props = defineProps({
-  id: {
-    type: String,
-    required: true,
-  },
   modelValue: {
     type: [String, Boolean],
     default: '',
