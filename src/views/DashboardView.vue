@@ -1,6 +1,8 @@
 <template>
   <div class="mx-auto my-4 lg:w-1/2">
-    <h1 class="-mt-2 text-center font-semibold uppercase text-primary md:text-4xl dark:text-white">DASHBOARD</h1>
+    <h2 class="-mt-2 text-center font-semibold uppercase text-primary md:text-4xl dark:text-white">
+      DASHBOARD
+    </h2>
     <hr>
     <div class="my-2 grid gap-2 md:my-4 md:grid-cols-2 2xl:grid-cols-3">
       <lazy-ui-status-panel
