@@ -1,20 +1,24 @@
 <template>
   <div class="mx-auto flex items-center justify-between lg:w-1/2">
     <div class="flex flex-col">
-      <label
+      <div
         for="groupbyid"
-        class="text-md dark:text-white">Group By</label>
+        class="text-md dark:text-white"
+        label>
+        Group By
+      </div>
       <ui-toggle-button
-        id="groupbyid"
         v-model.lazy="groupBy"
         :options="GROUP_BY_OPTIONS" />
     </div>
     <div class="flex flex-col">
-      <label
+      <div
         for="filterid"
-        class="text-md dark:text-white">Completed</label>
+        class="text-md dark:text-white"
+        label>
+        Completed
+      </div>
       <ui-toggle-button
-        id="filterid"
         v-model.lazy="filterBy"
         :options="FILTER_OPTIONS" />
     </div>

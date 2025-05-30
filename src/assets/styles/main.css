@@ -53,6 +53,7 @@
   nav {
     @apply flex w-full flex-row items-center whitespace-nowrap bg-primary text-white;
   }
+  [label],
   label {
     @apply mb-1 text-md font-semibold text-gray-800 dark:text-white;
   }
@@ -89,10 +90,10 @@
   input[type='url'],
   input[type='search'],
   input[type='datetime-local'] {
-    @apply !h-11 rounded-sm border border-indigo-200 bg-indigo-50 px-3 py-2 shadow outline-primary dark:outline-indigo-400 focus:shadow disabled:cursor-text caret-primary;
+    @apply !h-11 rounded-sm border border-indigo-200 px-3 py-2 shadow outline-primary dark:outline-indigo-400 focus:shadow disabled:cursor-text caret-primary;
   }
   textarea {
-    @apply rounded-sm border border-indigo-200 bg-indigo-50 px-3 py-2 shadow outline-primary dark:outline-indigo-400 focus:shadow disabled:cursor-text disabled:resize-none;
+    @apply rounded-sm border border-indigo-200 px-3 py-2 shadow outline-primary dark:outline-indigo-400 focus:shadow disabled:cursor-text disabled:resize-none;
   }
   input[type='radio'],
   label[radio] {

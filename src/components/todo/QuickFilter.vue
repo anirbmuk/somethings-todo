@@ -1,13 +1,13 @@
 <template>
   <div class="mx-auto my-2 flex items-center justify-center lg:w-1/2">
     <div class="flex flex-col">
-      <label
+      <div
         for="quickfilter"
-        class="text-center text-md dark:text-white">
+        class="text-center text-md dark:text-white"
+        label>
         Quick Filters
-      </label>
+      </div>
       <ui-toggle-button
-        id="quickfilter"
         type="pill"
         use-lowercase
         v-model.lazy="searchValue"
