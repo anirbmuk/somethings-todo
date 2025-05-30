@@ -46,7 +46,7 @@
         <div class="max-h-24 overflow-auto md:overflow-y-auto dark:text-white">
           <div
             data-test-id="todo-text"
-            class="whitespace-pre-line break-words py-2 text-justify text-md xl:py-1.5 3xl:py-1">
+            class="whitespace-pre-line text-pretty break-words py-2 text-md xl:py-1.5 3xl:py-1">
             {{ todo.text }}
           </div>
         </div>
@@ -80,10 +80,12 @@
             @click.stop="$emit('toggle-todo', todo.todoid)">
             <lazy-icon-complete
               v-if="todo.status === 'Incomplete'"
-              class="size-6 text-green-700 dark:text-white" />
+              class="size-6 text-green-700 dark:text-white"
+              aria-hidden="true" />
             <lazy-icon-incomplete
               v-else
-              class="size-6 text-error dark:text-white" />
+              class="size-6 text-error dark:text-white"
+              aria-hidden="true" />
           </button>
         </div>
         <div
