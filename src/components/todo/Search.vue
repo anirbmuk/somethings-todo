@@ -13,7 +13,7 @@
         role="searchbox"
         placeholder="Search TODOs"
         data-test-id="input-search"
-        class="mr-1 w-1/2 py-2 text-sm text-base transition-all duration-200 ease-linear focus:w-full md:text-md"
+        class="mr-1 w-1/2 py-2 text-base transition-all duration-200 ease-linear focus:w-full md:text-md"
         :class="{ 'w-full': Boolean(searchValue) }"
         v-model.trim="searchValue">
       <util-fade-in-transition>
@@ -24,7 +24,7 @@
           title="Cancel search"
           data-test-id="clear-search"
           @click="toggleAndClearSearch">
-          <icon-close
+          <lazy-icon-close
             class="size-6"
             aria-hidden="true" />
         </button>
@@ -34,11 +34,16 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import IconClose from '@/assets/icons/close.svg';
+import {
+  defineAsyncComponent,
+  ref,
+} from 'vue';
+
 import { useSearch } from '@/composables/useSearch';
 import { useSearchWatcher } from '@/composables/useSearchWatcher';
 import UtilFadeInTransition from '@/components/util/FadeInTransition.vue';
+
+const LazyIconClose = defineAsyncComponent(() => import('@/assets/icons/close.svg'));
 
 const searchTextField = ref<HTMLInputElement | null>(null);
 
