@@ -1,3 +1,7 @@
+## 1.9.5
+- Improved accessibility.  
+- Stabilised cypress tests with fixed dates.  
+
 ## 1.9.4
 - Improved accessibility.  
 

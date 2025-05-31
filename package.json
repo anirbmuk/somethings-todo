@@ -1,6 +1,6 @@
 {
   "name": "somethings-todo",
-  "version": "1.9.4",
+  "version": "1.9.5",
   "private": true,
   "description": "A light and fast todo-app, built with Vue3 and Pinia",
   "author": {

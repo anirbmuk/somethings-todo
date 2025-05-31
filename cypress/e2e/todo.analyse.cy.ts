@@ -1,7 +1,13 @@
 import * as data from '../fixtures/data.json';
 
+const getToday = (): [number, number] => {
+  const today = new Date();
+  return [today.getFullYear(), today.getMonth()];
+};
+
 const addDays = (days = 0) => {
-  const date = new Date();
+  const [todayYear, todayMonth] = getToday();
+  const date = new Date(Date.UTC(todayYear, todayMonth, 1)); // Fixed date for consistent testing
   date.setDate(date.getDate() + days);
   return date;
 };
@@ -10,7 +16,7 @@ const getStorageDate = (date: Date) => {
   const dd = `${date.getDate()}`.padStart(2, '0');
   const mm = `${date.getMonth() + 1}`.padStart(2, '0');
   const yyyy1 = date.getFullYear();
-  const time = '20:00:00.000Z';
+  const time = '13:00:00.000Z';
   return `${yyyy1}-${mm}-${dd}T${time}`;
 };
 
@@ -26,6 +32,9 @@ describe('Analyse TODO', () => {
   const daynextyear = getStorageDate(addDays(366));
 
   beforeEach(() => {
+    const [todayYear, todayMonth] = getToday();
+    const now = new Date(Date.UTC(todayYear, todayMonth, 1));
+    cy.clock(now.getTime(), ['Date']);
     cy.visit('/', {
       onBeforeLoad(win) {
         win.localStorage.setItem(
