@@ -1,25 +1,34 @@
 import * as data from '../fixtures/data.json';
 
+const getToday = (): [number, number] => {
+  const today = new Date();
+  return [today.getFullYear(), today.getMonth()];
+};
+
 const addDays = (days = 0) => {
-  const date = new Date();
+  const [todayYear, todayMonth] = getToday();
+  const date = new Date(Date.UTC(todayYear, todayMonth, 1)); // Fixed date for consistent testing
   date.setDate(date.getDate() + days);
   return date;
 };
 
-const getStorageDate = (date: Date) => {
+const getStorageDate = (date: Date, hour = '20') => {
   const dd = `${date.getDate()}`.padStart(2, '0');
   const mm = `${date.getMonth() + 1}`.padStart(2, '0');
   const yyyy1 = date.getFullYear();
-  const time = '20:00:00.000Z';
+  const time = `${hour}:59:00.000Z`;
   return `${yyyy1}-${mm}-${dd}T${time}`;
 };
 
 describe('Sort TODO', () => {
-  const day0 = getStorageDate(addDays());
-  const day1 = getStorageDate(addDays(1));
-  const day2 = getStorageDate(addDays(2));
+  const day0 = getStorageDate(addDays(), '08');
+  const day1 = getStorageDate(addDays(), '11');
+  const day2 = getStorageDate(addDays(), '14');
 
   beforeEach(() => {
+    const [todayYear, todayMonth] = getToday();
+    const now = new Date(Date.UTC(todayYear, todayMonth, 1));
+    cy.clock(now.getTime(), ['Date']);
     cy.visit('/', {
       onBeforeLoad(win) {
         win.localStorage.setItem(
@@ -89,7 +98,7 @@ describe('Sort TODO', () => {
       });
   });
 
-  it.skip('should push completed TODOs to end-of-group', () => {
+  it('should push completed TODOs to end-of-group', () => {
     cy.log('Mark first TODO as done');
     cy.get('[data-test-id=toggle-status]').eq(0).click();
     cy.wait(250);
@@ -161,7 +170,7 @@ describe('Sort TODO', () => {
       });
   });
 
-  it.skip('should push incomplete TODOs to top-of-group', () => {
+  it('should push incomplete TODOs to top-of-group', () => {
     cy.log('Mark all TODOs as done');
     cy.get('[data-test-id=toggle-status]').each((toggle) => {
       cy.wrap(toggle).click();
