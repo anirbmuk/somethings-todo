@@ -1,3 +1,7 @@
+## 1.9.6
+- Greater unit test coverage for components.  
+- Fixed broken cypress tests.  
+
 ## 1.9.5
 - Improved accessibility.  
 - Stabilised cypress tests with fixed dates.  
