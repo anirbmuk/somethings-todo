@@ -8,7 +8,7 @@ const getToday = (): [number, number] => {
 const addDays = (days = 0) => {
   const [todayYear, todayMonth] = getToday();
   const date = new Date(Date.UTC(todayYear, todayMonth, 1)); // Fixed date for consistent testing
-  date.setDate(date.getDate() + days);
+  date.setDate(days + 1);
   return date;
 };
 
@@ -28,10 +28,10 @@ describe  ('Label TODO', () => {
   const day7 = getStorageDate(addDays(7));
 
   const now = new Date(Date.UTC(2025, 4, 1));
-  const lastDayOfMonth = new Date(
+  const lastDayOfMonth = new Date(Date.UTC(
     now.getFullYear(),
-    now.getMonth() + 1,
-    0,
+    now.getMonth(),
+    0),
   ).getDate();
   const daysToLastDayOfMonth = lastDayOfMonth - now.getDate();
 
@@ -40,6 +40,7 @@ describe  ('Label TODO', () => {
   const daylater = getStorageDate(addDays(62));
 
   beforeEach(() => {
+    cy.log('daysToLastDayOfMonth', lastDayOfMonth, daysToLastDayOfMonth);
     const [todayYear, todayMonth] = getToday();
     const now = new Date(Date.UTC(todayYear, todayMonth, 1));
     cy.clock(now.getTime(), ['Date']);
