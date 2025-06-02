@@ -185,45 +185,44 @@ describe('[HELPER] TODO', () => {
   });
 
   test('getStatus should return correct message', () => {
-    const now = +today;
 
-    const one_day_ago = now - 24 * 3600 * 1000;
+    const one_day_ago = Date.UTC(todayYear, todayMonth, todayDate - 1);
     expect(getStatus(new Date(one_day_ago).toISOString())).toMatchObject({
       state: 'error',
       message: 'Past due date',
     });
 
-    expect(getStatus(new Date(now).toISOString())).toMatchObject({
+    expect(getStatus(new Date(Date.UTC(todayYear, todayMonth, todayDate)).toISOString())).toMatchObject({
       state: 'warn',
       message: 'Due today',
     });
 
-    const tomorrow = now + 24 * 3600 * 1000;
+    const tomorrow = Date.UTC(todayYear, todayMonth, todayDate + 1);
     expect(getStatus(new Date(tomorrow).toISOString())).toMatchObject({
       state: 'warn',
       message: 'Due tomorrow',
     });
 
-    const three_days_later = now + 3 * 24 * 3600 * 1000;
+    const three_days_later = Date.UTC(todayYear, todayMonth, todayDate + 3);
     expect(getStatus(new Date(three_days_later).toISOString())).toMatchObject({
       state: 'warn',
       message: 'Due in 3 days',
     });
 
-    const seven_days_later = now + 7 * 24 * 3600 * 1000;
+    const seven_days_later = Date.UTC(todayYear, todayMonth, todayDate + 7);
     expect(getStatus(new Date(seven_days_later).toISOString())).toMatchObject({
       state: 'info',
       message: 'Due next week',
     });
 
-    const eight_days_later = now + 8 * 24 * 3600 * 1000;
+    const eight_days_later = Date.UTC(todayYear, todayMonth, todayDate + 8);
     const isEightDaysLaterInThisMonth = isThisMonth(today, new Date(eight_days_later));
     expect(getStatus(new Date(eight_days_later).toISOString())).toMatchObject({
       state: isEightDaysLaterInThisMonth ? 'moderate' : 'safe',
       message: isEightDaysLaterInThisMonth ? 'Due this month' : 'Due next month',
     });
 
-    const many_days_later = now + 62 * 24 * 3600 * 1000;
+    const many_days_later = Date.UTC(todayYear, todayMonth, todayDate + 62);
     expect(getStatus(new Date(many_days_later).toISOString())).toMatchObject({
       state: 'later',
       message: 'Due later',
