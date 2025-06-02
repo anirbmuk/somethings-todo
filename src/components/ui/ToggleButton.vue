@@ -13,7 +13,6 @@
         }"
         :disabled="disabled"
         :aria-pressed="isSelected(option.Value)"
-        :aria-label="`Select ${option.Key}`"
         :data-test-id="`toggle-option-${getDataTestId(option.Key)}`"
         @click="updateValue(option.Value)">
         {{ option.Key }}
