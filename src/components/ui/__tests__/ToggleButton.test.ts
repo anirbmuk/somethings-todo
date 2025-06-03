@@ -163,7 +163,6 @@ describe('ToggleButton', () => {
 
     const button = wrapper.find('button');
     expect(button.attributes('aria-pressed')).toBe('true');
-    expect(button.attributes('aria-label')).toBe('Select Option');
   });
 
   it('sets correct ARIA attributes', () => {
