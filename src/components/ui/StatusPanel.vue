@@ -3,13 +3,13 @@
     class="rounded border p-2 md:p-4 dark:border-white dark:bg-transparent"
     :class="panelBackgroundClasses"
     :title="`${value > 0 ? value : 'None'} ${label}`">
-    <div class="flex items-start justify-between gap-2">
+    <div class="relative">
       <div
-        class="text-xl uppercase dark:text-white"
+        class="absolute left-0 top-0 text-xl uppercase dark:text-white"
         :data-test-id="`status-${dataTestId}-label`"
         :class="panelTextClasses">{{ label }}</div>
       <div
-        class="text-16xl md:text-massive dark:text-white"
+        class="flex justify-end text-16xl md:text-18xl dark:text-white"
         :data-test-id="`status-${dataTestId}-count`"
         :class="panelTextClasses">{{ value }}</div>
     </div>
