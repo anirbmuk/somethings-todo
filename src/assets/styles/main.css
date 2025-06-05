@@ -9,7 +9,8 @@
     @apply scroll-smooth;
   }
   body {
-    @apply text-base;
+    @apply text-base antialiased;
+    text-rendering: optimizeLegibility;
   }
   h1 {
     @apply text-4xl md:text-6xl;
