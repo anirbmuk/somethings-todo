@@ -1,3 +1,6 @@
+## 1.9.8
+- UI improvement and fixes.  
+
 ## 1.9.7
 - Unit test fixes.  
 - More unit test coverage.  
