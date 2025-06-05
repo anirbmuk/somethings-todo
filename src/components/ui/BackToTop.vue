@@ -1,7 +1,7 @@
 <template>
   <button
     type="button"
-    class="fixed bottom-2 right-2 z-10 cursor-pointer rounded-full border border-base bg-white p-2.5 hover:opacity-100 md:bottom-6 md:right-6 md:opacity-80 md:hover:bg-gray-50 dark:border-white dark:bg-base dark:md:hover:bg-transparent"
+    class="fixed bottom-3 right-3 z-10 cursor-pointer rounded-full border border-base bg-white p-2.5 hover:opacity-100 md:bottom-6 md:right-6 md:opacity-80 md:hover:bg-gray-50 dark:border-white dark:bg-base dark:md:hover:bg-transparent"
     aria-label="Click to scroll to the top of the page"
     @click="$emit('scrollToTop')">
     <div
