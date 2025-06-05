@@ -41,7 +41,7 @@
         target="_blank"
         class="md:navlink relative font-semibold max-md:underline">GitHub project</a>.</p>
       <p>Found a bug? Just open an issue.</p>
-      <h6 class="mt-6 text font-semibold text-primary dark:text-white">Who developed this?</h6>
+      <h4 class="mt-6 text font-semibold text-primary dark:text-white">Who developed this?</h4>
       <p>That would be me, <a
         href="https://anirbmuk.appspot.com/en"
         target="_blank"
@@ -66,6 +66,6 @@ defineEmits(['close-help']);
 
 <style lang="css" scoped>
 p {
-  @apply text-justify text-pretty;
+  @apply text-pretty;
 }
 </style>

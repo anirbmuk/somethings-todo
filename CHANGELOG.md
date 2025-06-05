@@ -1,3 +1,8 @@
+## 1.9.7
+- Unit test fixes.  
+- More unit test coverage.  
+- Dark mode fixes.  
+
 ## 1.9.6
 - Greater unit test coverage for components.  
 - Fixed broken cypress tests.  

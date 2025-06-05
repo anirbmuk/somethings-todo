@@ -79,6 +79,7 @@ describe('PrimaryHeader.vue', () => {
     });
 
     expect(wrapper.find('[data-test-id="add-todo-btn"]').exists()).toBe(true);
+    expect(wrapper.find('[data-test-id="add-todo-btn"]').attributes('aria-haspopup')).toBe('dialog');
   });
 
   it('hides add button when in reduced mode', () => {
@@ -126,6 +127,7 @@ describe('PrimaryHeader.vue', () => {
     });
 
     expect(wrapper.find('[data-test-id="help-todo-btn"]').exists()).toBe(true);
+    expect(wrapper.find('[data-test-id="help-todo-btn"]').attributes('aria-haspopup')).toBe('dialog');
   });
 
   it('shows theme toggle button with correct icon', () => {

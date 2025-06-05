@@ -14,6 +14,7 @@
         v-if="!reduced"
         type="button"
         title="Create a TODO"
+        aria-haspopup="dialog"
         data-test-id="add-todo-btn"
         @click="showCreateModal">
         <icon-add
@@ -26,7 +27,7 @@
         title="Analyse TODOs"
         data-test-id="analyse-todo-btn"
         @click="router.push('/dashboard')">
-        <icon-dashboard
+        <lazy-icon-dashboard
           class="size-6 text-white"
           aria-hidden="true" />
       </button>
@@ -43,6 +44,7 @@
       <button
         type="button"
         title="Help with TODOs"
+        aria-haspopup="dialog"
         data-test-id="help-todo-btn"
         @click="showHelpModal">
         <icon-help
@@ -79,18 +81,18 @@ import {
   useRoute,
   useRouter,
 } from 'vue-router';
-import IconAdd from '@/assets/icons/create.svg';
-import IconHelp from '@/assets/icons/help.svg';
-import IconTask from '@/assets/icons/task.svg';
-import IconDashboard from '@/assets/icons/dashboard.svg';
-import IconLight from '@/assets/icons/light.svg';
-import IconDark from '@/assets/icons/dark.svg';
 import { useTheme } from '@/composables/useTheme';
 import { useTodo } from '@/composables/useTodo';
 import { useHelp } from '@/composables/useHelp';
+import IconAdd from '@/assets/icons/create.svg';
+import IconHelp from '@/assets/icons/help.svg';
+import IconTask from '@/assets/icons/task.svg';
+import IconLight from '@/assets/icons/light.svg';
+import IconDark from '@/assets/icons/dark.svg';
 
 const LazyUiModal = defineAsyncComponent(() => import('@/components/ui/Modal.vue'));
 const LazyUiHelpContent = defineAsyncComponent(() => import('@/components/ui/HelpContent.vue'));
+const LazyIconDashboard = defineAsyncComponent(() => import('@/assets/icons/dashboard.svg'));
 
 const route = useRoute();
 const router = useRouter();
