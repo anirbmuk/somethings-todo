@@ -1,10 +1,11 @@
 <template>
   <div
     v-if="title"
-    id="dialog-title"
     data-test-id="confirm-modal"
-    class="flex h-20 flex-col items-start justify-start dark:text-white">
-    <div class="my-2 flex items-center justify-between px-2 text-3xl md:px-4">
+    class="flex flex-col items-start justify-start dark:text-white">
+    <div
+      id="dialog-title"
+      class="my-2 flex items-center justify-between px-2 text-3xl md:px-4">
       {{ title }}
     </div>
     <hr class="mx-2 w-[calc(100%-1rem)] md:mx-4 md:w-[calc(100%-2rem)]">

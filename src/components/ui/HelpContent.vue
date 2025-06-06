@@ -1,10 +1,17 @@
 <template>
   <div data-test-id="help-modal">
-    <div class="flex h-20 flex-col items-start justify-start dark:text-white">
-      <div class="my-2 flex items-center justify-between px-2 text-3xl md:px-4">
+    <div class="flex flex-col items-start justify-start dark:text-white">
+      <div
+        id="dialog-title"
+        class="my-2 flex items-center justify-between px-2 text-3xl md:px-4">
         Help Topics
       </div>
       <hr class="mx-2 w-[calc(100%-1rem)] md:mx-4 md:w-[calc(100%-2rem)]">
+    </div>
+    <div
+      id="dialog-description"
+      class="sr-only">
+      {{ 'Frequently asked questions (FAQs) about this web application' }}
     </div>
     <div class="max-h-[calc(60dvh-50px)] overflow-auto text-pretty p-2 md:max-h-[60dvh] md:p-4 dark:text-white">
       <h1 class="-mt-2 font-semibold uppercase text-primary md:text-4xl dark:text-white">Somethings TODO</h1>
@@ -12,7 +19,7 @@
       <h2 class="mt-6 font-semibold text-primary md:text-3xl dark:text-white">Features</h2>
       <details class="mt-2">
         <summary class="font-semibold">Lightweight UI</summary>
-        <p>Makes use of light UI components, so that your app remains featherlight and blazing fast!</p>
+        <p>Makes use of light-weight UI components, so that your app remains featherlight and blazing fast!</p>
       </details>
       <details class="mt-2">
         <summary class="font-semibold">Strong Search</summary>

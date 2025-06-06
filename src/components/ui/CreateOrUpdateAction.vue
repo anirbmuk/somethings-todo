@@ -2,7 +2,7 @@
   <div data-test-id="create-update-modal">
     <div
       id="dialog-title"
-      class="flex h-20 flex-col items-start justify-start dark:text-white">
+      class="flex flex-col items-start justify-start dark:text-white">
       <div class="my-2 flex items-center justify-between px-2 text-3xl md:px-3">
         {{ mode === 'create' ? 'Create TODO' : 'Edit TODO' }}
       </div>
