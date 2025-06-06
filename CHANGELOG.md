@@ -1,3 +1,8 @@
+## 1.9.9
+- UI improvement and fixes.  
+- Accessibility fixes.  
+- Better keyboard navigation for modals, focus on first available element.  
+
 ## 1.9.8
 - UI improvement and fixes.  
 

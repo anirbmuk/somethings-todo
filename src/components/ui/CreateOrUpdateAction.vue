@@ -1,10 +1,17 @@
 <template>
   <div data-test-id="create-update-modal">
-    <div class="flex h-20 flex-col items-start justify-start dark:text-white">
+    <div
+      id="dialog-title"
+      class="flex flex-col items-start justify-start dark:text-white">
       <div class="my-2 flex items-center justify-between px-2 text-3xl md:px-3">
         {{ mode === 'create' ? 'Create TODO' : 'Edit TODO' }}
       </div>
       <hr class="mx-2 w-[calc(100%-1rem)] md:mx-4 md:w-[calc(100%-2rem)]">
+    </div>
+    <div
+      id="dialog-description"
+      class="sr-only">
+      {{ `Use this form to ${mode === 'create' ? 'create' : 'edit'} a TODO` }}
     </div>
     <form
       id="createOrUpdateActionForm"
@@ -64,7 +71,8 @@
         type="submit"
         form="createOrUpdateActionForm"
         data-test-id="create-update-modal-save"
-        :disabled="!editable">
+        :disabled="!editable"
+        :aria-disabled="!editable">
         SAVE
       </button>
       <button

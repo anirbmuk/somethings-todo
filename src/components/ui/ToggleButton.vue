@@ -12,6 +12,7 @@
           '!border-primary !bg-primary text-white dark:!border-white dark:!bg-base dark:!text-white dark:!outline-white': isSelected(option.Value)
         }"
         :disabled="disabled"
+        :aria-disabled="disabled"
         :aria-pressed="isSelected(option.Value)"
         :data-test-id="`toggle-option-${getDataTestId(option.Key)}`"
         @click="updateValue(option.Value)">

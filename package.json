@@ -1,6 +1,6 @@
 {
   "name": "somethings-todo",
-  "version": "1.9.8",
+  "version": "1.9.9",
   "private": true,
   "description": "A light and fast todo-app, built with Vue3 and Pinia",
   "author": {
@@ -37,25 +37,26 @@
     "**/*.{js,ts,vue}": "eslint"
   },
   "dependencies": {
-    "pinia": "^3.0.2",
-    "vue": "^3.5.13",
-    "vue-router": "^4.5.0"
+    "pinia": "^3.0.3",
+    "vue": "^3.5.16",
+    "vue-router": "^4.5.1"
   },
   "devDependencies": {
     "@tsconfig/node22": "^22.0.1",
     "@types/node": "^22.14.0",
+    "@typescript-eslint/parser": "^8.0.0",
     "@vitejs/plugin-vue": "^5.2.3",
     "@vue/eslint-config-prettier": "^10.0.0",
     "@vue/eslint-config-typescript": "^14.1.1",
     "@vue/test-utils": "^2.4.6",
     "@vue/tsconfig": "^0.7.0",
-    "@vueuse/core": "^13.1.0",
+    "@vueuse/core": "^13.3.0",
     "autoprefixer": "^10.4.20",
     "cypress": "^14.2.1",
     "eslint": "^9.13.0",
     "eslint-plugin-sonarjs": "^3.0.2",
     "eslint-plugin-tailwindcss": "^3.18.0",
-    "eslint-plugin-vue": "^10.0.0",
+    "eslint-plugin-vue": "^9.28.0",
     "firebase-tools": "^14.2.0",
     "husky": "^9.1.7",
     "js-base64": "^3.7.7",
@@ -64,7 +65,7 @@
     "npm-run-all2": "^7.0.2",
     "postcss": "^8.4.47",
     "prettier": "^3.3.3",
-    "prettier-plugin-tailwindcss": "^0.6.11",
+    "prettier-plugin-tailwindcss": "^0.6.12",
     "radash": "^12.1.0",
     "rimraf": "^6.0.1",
     "run-p": "^0.0.0",
@@ -74,10 +75,13 @@
     "vite": "^6.3.2",
     "vite-plugin-pwa": "^1.0.0",
     "vite-svg-loader": "^5.1.0",
-    "vitest": "^3.1.2",
-    "vue-tsc": "^2.2.10"
+    "vitest": "^3.2.0",
+    "vue-eslint-parser": "^10.0.0",
+    "vue-tsc": "^2.2.10",
+    "workbox-build": "^7.3.0",
+    "workbox-window": "^7.3.0"
   },
   "resolutions": {
-    "rollup": "4.24.0"
+    "rollup": "^4.34.9"
   }
 }
