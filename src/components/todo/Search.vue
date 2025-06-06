@@ -15,7 +15,8 @@
         data-test-id="input-search"
         class="mr-1 w-1/2 py-2 text-base transition-all duration-200 ease-linear focus:w-full md:text-md"
         :class="{ 'w-full': Boolean(searchValue) }"
-        v-model.trim="searchValue">
+        v-model.trim="searchValue"
+        @keyup.esc="clearSearch">
       <util-fade-in-transition>
         <button
           v-show="searchValue"
