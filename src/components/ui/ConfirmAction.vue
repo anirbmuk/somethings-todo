@@ -1,6 +1,7 @@
 <template>
   <div
     v-if="title"
+    id="dialog-title"
     data-test-id="confirm-modal"
     class="flex h-20 flex-col items-start justify-start dark:text-white">
     <div class="my-2 flex items-center justify-between px-2 text-3xl md:px-4">
@@ -8,7 +9,9 @@
     </div>
     <hr class="mx-2 w-[calc(100%-1rem)] md:mx-4 md:w-[calc(100%-2rem)]">
   </div>
-  <div class="max-h-[80dvh] overflow-auto p-4 max-md:p-2 dark:text-white">
+  <div
+    id="dialog-description"
+    class="max-h-[80dvh] overflow-auto p-4 max-md:p-2 dark:text-white">
     {{ message }}
   </div>
   <hr class="mx-2 w-[calc(100%-1rem)] md:mx-4 md:w-[calc(100%-2rem)]">
