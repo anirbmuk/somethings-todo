@@ -23,6 +23,39 @@ export const useModal = (key: string) => {
     close: closeModal,
   } = modalStore;
 
+  const findActiveInput = (element: HTMLElement): HTMLInputElement | undefined => {
+    const inputs = element.getElementsByTagName('input');
+    for (const input of inputs) {
+      if (!input.disabled) {
+        return input;
+      }
+    }
+  };
+
+  const findActiveButton = (element: HTMLElement): HTMLButtonElement | undefined => {
+    const buttons = element.getElementsByTagName('button');
+    for (const button of buttons) {
+      if (!button.disabled) {
+        return button;
+      }
+    }
+  };
+
+  const findFirstFocus = (element: HTMLElement) => {
+    if (element.hasChildNodes()) {
+      const elementToFocus = findActiveInput(element) || findActiveButton(element);
+      if (elementToFocus) {
+        try {
+          elementToFocus.focus({
+            preventScroll: true,
+          });
+        } catch {
+          console.error('Unable to set focus on any element');
+        }
+      }
+    }
+  };
+
   watch(() => modalStore.state, (open) => {
     if (open) {
       window.document.body.classList.add('overflow-hidden');
@@ -35,5 +68,6 @@ export const useModal = (key: string) => {
     modalState: computed(() => modalStore.state),
     showModal,
     closeModal,
+    findFirstFocus,
   };
 };

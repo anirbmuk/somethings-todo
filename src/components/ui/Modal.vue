@@ -9,7 +9,10 @@
           <div
             v-if="modalState"
             class="z-20"
-            role="dialog">
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="dialog-title"
+            aria-describedby="dialog-description">
             <div
               class="m-auto max-md:h-dvh max-md:w-dvw md:mt-[65px] md:translate-y-[5%] md:rounded"
               :class="{ 'sm:w-1/2 lg:w-1/3': type === 'default',
@@ -20,7 +23,10 @@
                         'bg-white p-2 dark:border dark:border-white dark:bg-base': !transparent,
               }"
               @click.stop="() => {}">
-              <div class="flex h-full flex-col md:max-h-[700px] 5xl:max-h-dvh">
+              <div
+                ref="modalContent"
+                class="flex h-full flex-col md:max-h-[700px] 5xl:max-h-dvh"
+                @keyup.esc="closeModal">
                 <slot />
               </div>
             </div>
@@ -32,7 +38,11 @@
 </template>
 
 <script setup lang="ts">
-import type { PropType } from 'vue';
+import {
+  useTemplateRef,
+  watch,
+  type PropType,
+} from 'vue';
 import { useModal } from '@/composables/useModal';
 import UtilFadeInTransition from '@/components/util/FadeInTransition.vue';
 import UtilSlideInFromBottomTransition from '@/components/util/SlideInFromBottomTransition.vue';
@@ -68,9 +78,12 @@ const EMIT_CLOSE_MODAL = 'close-modal';
 
 const emit = defineEmits(['close-modal']);
 
+const modalContent = useTemplateRef<HTMLDivElement>('modalContent');
+
 const {
   modalState,
   closeModal,
+  findFirstFocus,
 } = useModal(props.name);
 
 const close = () => {
@@ -79,6 +92,16 @@ const close = () => {
     emit(EMIT_CLOSE_MODAL);
   }
 };
+
+watch(modalState, (state) => {
+  if (state) {
+    setTimeout(() => {
+      if (modalContent.value) {
+        findFirstFocus(modalContent.value);
+      }
+    }, 100);
+  }
+});
 
 defineOptions({
   name: 'UiModal',
