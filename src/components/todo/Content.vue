@@ -1,6 +1,6 @@
 <template>
   <div
-    class="m-2 flex cursor-pointer flex-col justify-stretch rounded border bg-gray-50/75 p-2 md:mx-6 md:px-4 dark:border-white dark:bg-transparent"
+    class="m-2 flex cursor-pointer flex-col justify-stretch rounded-sm border bg-gray-50/75 p-2 shadow md:mx-6 md:px-4 dark:border-white dark:bg-transparent"
     :class="{
       'border-error': todo.additional?.state === 'error',
       'border-warning': todo.additional?.state === 'warn',
