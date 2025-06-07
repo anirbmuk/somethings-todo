@@ -91,10 +91,10 @@
   input[type='url'],
   input[type='search'],
   input[type='datetime-local'] {
-    @apply !h-11 rounded-sm border border-indigo-200 px-3 py-2 shadow outline-primary dark:outline-indigo-400 focus:shadow disabled:cursor-text caret-primary disabled:bg-gray-200 dark:disabled:bg-gray-300;
+    @apply !h-11 rounded-sm border border-indigo-200 px-3 py-2 caret-primary shadow outline-primary focus:shadow disabled:cursor-text disabled:bg-gray-200 dark:outline-indigo-400 dark:disabled:bg-gray-300;
   }
   textarea {
-    @apply rounded-sm border border-indigo-200 px-3 py-2 shadow outline-primary dark:outline-indigo-400 focus:shadow disabled:cursor-text disabled:resize-none  disabled:bg-gray-200 dark:disabled:bg-gray-300;
+    @apply rounded-sm border border-indigo-200 px-3 py-2 shadow outline-primary focus:shadow disabled:cursor-text disabled:resize-none disabled:bg-gray-200 dark:outline-indigo-400 dark:disabled:bg-gray-300;
   }
   input[type='radio'],
   label[radio] {
@@ -128,14 +128,14 @@
     text-align: left !important;
   }
   button {
-    @apply h-10 font-semibold inline-flex items-center justify-center;
+    @apply inline-flex h-10 items-center justify-center font-semibold;
   }
   .cta-button-primary,
   button[type='submit'] {
-    @apply min-w-24 cursor-pointer rounded-sm border border-primary bg-primary px-3 py-2 text-center text-white shadow-lg outline-base duration-200 ease-in-out enabled:opacity-90 hover:enabled:opacity-100 md:hover:bg-primary dark:bg-base dark:!border-white dark:md:hover:bg-base;
+    @apply min-w-24 cursor-pointer rounded-sm border border-primary bg-primary px-3 py-2 text-center text-white shadow-lg outline-base duration-200 ease-in-out enabled:opacity-90 hover:enabled:opacity-100 md:hover:bg-primary dark:!border-white dark:bg-base dark:md:hover:bg-base;
   }
   button[type='reset'] {
-    @apply min-w-24 cursor-pointer rounded-sm border-none bg-transparent px-3 py-2 text-center text-error dark:text-white outline-red-500 duration-200 ease-in-out enabled:opacity-90 hover:enabled:opacity-100;
+    @apply min-w-24 cursor-pointer rounded-sm border-none bg-transparent px-3 py-2 text-center text-error outline-red-500 duration-200 ease-in-out enabled:opacity-90 hover:enabled:opacity-100 dark:text-white;
   }
   button:disabled {
     @apply pointer-events-none cursor-not-allowed opacity-50;
