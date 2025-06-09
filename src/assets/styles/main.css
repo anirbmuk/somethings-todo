@@ -215,7 +215,7 @@
     @apply border border-gray-100 bg-[#EFEFEF] shadow;
   }
   mark {
-    @apply bg-transparent font-semibold !text-primary;
+    @apply bg-transparent font-semibold !text-primary dark:!text-white;
   }
   .center-position {
     position: absolute;
