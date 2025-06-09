@@ -20,4 +20,20 @@ describe('Test Header', () => {
     cy.get('[data-test-id=add-todo-btn]').click();
     cy.get('[data-test-id=create-update-modal]').should('be.visible');
   });
+
+  it('should open modal on clicking help icon', () => {
+    cy.visit('/');
+
+    cy.get('[data-test-id=help-todo-btn]').click();
+    cy.get('[data-test-id=help-modal]').should('be.visible');
+  });
+
+  it('should toggle dark-mode clicking theme icon', () => {
+    cy.visit('/');
+
+    cy.get('body').should('have.class', 'dark:bg-base');
+
+    cy.get('[data-test-id=theme-todo-btn]').click();
+    cy.get('body').should('have.class', 'dark:bg-base dark');
+  });
 });

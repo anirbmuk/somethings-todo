@@ -4,8 +4,9 @@
       <div
         for="groupbyid"
         class="text-md dark:text-white"
+        data-test-id="group-by-label"
         label>
-        Group By
+        {{ groupByLabel }}
       </div>
       <ui-toggle-button
         v-model.lazy="groupBy"
@@ -15,8 +16,9 @@
       <div
         for="filterid"
         class="text-md dark:text-white"
+        data-test-id="filter-by-label"
         label>
-        Completed
+        {{ filterByLabel }}
       </div>
       <ui-toggle-button
         v-model.lazy="filterBy"
@@ -32,11 +34,15 @@ import {
   GROUP_BY_OPTIONS,
   FILTER_OPTIONS,
 } from '@/constants/todo';
+import { computed } from 'vue';
 
 const {
   filterBy,
   groupBy,
 } = useTodo();
+
+const groupByLabel = computed(() => 'Grouped By: ' + (groupBy.value === 'month' ? 'Month' : 'Day'));
+const filterByLabel = computed(() => 'Completed: ' + (filterBy.value === 'show' ? 'Shown' : 'Hidden'));
 
 defineOptions({
   name: 'TodoAction',

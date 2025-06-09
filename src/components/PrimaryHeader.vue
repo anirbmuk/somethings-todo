@@ -9,7 +9,7 @@
         Things TODO
       </router-link>
     </h1>
-    <div class="flex items-center justify-between gap-2 md:gap-4">
+    <div class="flex items-center justify-between gap-4">
       <button
         v-if="!reduced"
         type="button"

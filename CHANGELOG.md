@@ -1,3 +1,8 @@
+## 1.9.10
+- Updated dev dependencies.  
+- Accessibility and dark-mode fixes.  
+- More cypress e2e coverage.  
+
 ## 1.9.9
 - UI improvement and fixes.  
 - Accessibility fixes.  
