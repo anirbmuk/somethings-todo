@@ -1,6 +1,6 @@
 <template>
   <div
-    class="rounded border p-2 md:p-4 dark:border-white dark:bg-transparent"
+    class="rounded border p-2 font-semibold md:p-4 dark:border-white dark:bg-transparent"
     :class="panelBackgroundClasses"
     :title="`${value > 0 ? value : 'None'} ${label}`">
     <div class="relative">
@@ -45,10 +45,10 @@ const panelBackgroundClasses = computed(() => ({
 }));
 
 const panelTextClasses = computed(() => ({
-  'text-green-600': props.type === 'complete',
-  'text-red-600': props.type === 'incomplete' || props.type === 'past',
-  'text-blue-600': props.type === 'ontime',
-  'text-orange-600': props.type === 'late',
+  'text-green-700': props.type === 'complete',
+  'text-red-700': props.type === 'incomplete' || props.type === 'past',
+  'text-blue-700': props.type === 'ontime',
+  'text-orange-700': props.type === 'late',
 }));
 
 const dataTestId = computed(() => props.label.split(' ').join('-').toLowerCase());
