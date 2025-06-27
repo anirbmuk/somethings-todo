@@ -94,7 +94,7 @@ describe('StatusPanel', () => {
     expect(wrapper.find('[data-test-id="status-test-tasks-count"]').text()).toBe('0');
   });
 
-  it('displays correct title attribute', () => {
+  it('displays correct aria-label attribute', () => {
     const wrapper = mount(StatusPanel, {
       props: {
         label: 'Test Tasks',
@@ -103,10 +103,10 @@ describe('StatusPanel', () => {
       },
     });
 
-    expect(wrapper.attributes('title')).toBe('5 Test Tasks');
+    expect(wrapper.attributes('aria-label')).toBe('5 Test Tasks');
   });
 
-  it('displays "None" in title when value is 0', () => {
+  it('displays "None" in aria-label when value is 0', () => {
     const wrapper = mount(StatusPanel, {
       props: {
         label: 'Test Tasks',
@@ -115,6 +115,6 @@ describe('StatusPanel', () => {
       },
     });
 
-    expect(wrapper.attributes('title')).toBe('None Test Tasks');
+    expect(wrapper.attributes('aria-label')).toBe('None Test Tasks');
   });
 });
