@@ -91,10 +91,10 @@
   input[type='url'],
   input[type='search'],
   input[type='datetime-local'] {
-    @apply !h-11 rounded-sm border border-indigo-200 px-3 py-2 caret-primary shadow outline-primary focus:shadow disabled:cursor-text disabled:bg-gray-200 dark:outline-indigo-400 dark:disabled:bg-gray-300;
+    @apply !h-11 rounded-sm border border-indigo-200 px-3 py-2 caret-primary shadow outline-primary focus:shadow focus-visible:bg-indigo-50 disabled:cursor-text disabled:bg-gray-200 dark:outline-none dark:disabled:bg-gray-300;
   }
   textarea {
-    @apply rounded-sm border border-indigo-200 px-3 py-2 shadow outline-primary focus:shadow disabled:cursor-text disabled:resize-none disabled:bg-gray-200 dark:outline-indigo-400 dark:disabled:bg-gray-300;
+    @apply rounded-sm border border-indigo-200 px-3 py-2 shadow focus-visible:bg-indigo-50 disabled:cursor-text disabled:resize-none disabled:bg-gray-200 dark:outline-none dark:disabled:bg-gray-300;
   }
   input[type='radio'],
   label[radio] {
@@ -127,12 +127,15 @@
   input::-webkit-date-and-time-value {
     text-align: left !important;
   }
+  a {
+    @apply outline-offset-1 outline-transparent;
+  }
   button {
-    @apply inline-flex h-10 items-center justify-center font-semibold;
+    @apply inline-flex h-10 items-center justify-center font-semibold outline-offset-1 outline-primary dark:outline-white;
   }
   .cta-button-primary,
   button[type='submit'] {
-    @apply min-w-24 cursor-pointer rounded-sm border border-primary bg-primary px-3 py-2 text-center text-white shadow-lg outline-base duration-200 ease-in-out enabled:opacity-90 hover:enabled:opacity-100 md:hover:bg-primary dark:!border-white dark:bg-base dark:md:hover:bg-base;
+    @apply min-w-24 cursor-pointer rounded-sm border border-primary bg-primary px-3 py-2 text-center text-white shadow-lg duration-200 ease-in-out enabled:opacity-90 hover:enabled:opacity-100 md:hover:bg-primary dark:!border-white dark:bg-base dark:md:hover:bg-base;
   }
   button[type='reset'] {
     @apply min-w-24 cursor-pointer rounded-sm border-none bg-transparent px-3 py-2 text-center text-error outline-red-500 duration-200 ease-in-out enabled:opacity-90 hover:enabled:opacity-100 dark:text-white;

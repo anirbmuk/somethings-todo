@@ -5,7 +5,7 @@
       :key="option.value">
       <button
         type="button"
-        class="border border-gray-300 bg-white py-1 outline-gray-400 transition-all duration-200 ease-in-out dark:border-white dark:bg-base dark:text-white"
+        class="border border-gray-300 bg-white py-1 outline-offset-0 outline-primary transition-all duration-200 ease-in-out dark:border-white dark:bg-base dark:text-white dark:outline-offset-1 dark:outline-white"
         :class="{
           'min-w-14 p-3': type === 'default',
           'mr-1 h-8 min-w-20 rounded-full px-2 py-0.5 text-md md:min-w-24': type === 'pill',
