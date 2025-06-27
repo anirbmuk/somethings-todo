@@ -49,7 +49,7 @@ import TodoList from '@/components/todo/List.vue';
 import { useTodo } from '@/composables/useTodo';
 import { useTodoWatcher } from '@/composables/useTodoWatcher';
 import { useModal } from '@/composables/useModal';
-import { useScroll } from '@/composables/useScroll.ts';
+import { useTodoScroll } from '@/composables/useTodoScroll';
 import type {
   AddTodo,
   ITodo,
@@ -66,7 +66,7 @@ const CONFIRM_MODAL_NAME = 'delete-todo-confirm-modal';
 const {
   scrollToTop,
   showBackToTopButton,
-} = useScroll();
+} = useTodoScroll();
 
 const {
   groupedTodos,
