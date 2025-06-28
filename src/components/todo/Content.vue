@@ -5,8 +5,8 @@
       'border-error': todo.additional?.state === 'error',
       'border-warning': todo.additional?.state === 'warn',
       'border-info': todo.additional?.state === 'info',
-      'border-green-600': todo.additional?.state === 'moderate',
-      'border-green-800': todo.additional?.state === 'safe',
+      'border-green-700': todo.additional?.state === 'moderate',
+      'border-green-900': todo.additional?.state === 'safe',
     }"
     data-test-id="todo-list-item"
     role="listitem">
@@ -32,10 +32,10 @@
               'border-error bg-error text-white': todo.additional.state === 'error',
               'border-warning bg-warning': todo.additional.state === 'warn',
               'border-info bg-info text-white': todo.additional.state === 'info',
-              'border-green-600 bg-green-600 text-white': todo.additional.state === 'moderate',
-              'border-green-800 bg-green-800 text-white': todo.additional.state === 'safe',
+              'border-green-700 bg-green-700 text-white': todo.additional.state === 'moderate',
+              'border-green-900 bg-green-900 text-white': todo.additional.state === 'safe',
               'border-gray-500 bg-gray-500 text-white': todo.additional.state === 'later',
-              'border-green-800 bg-green-50 text-green-800': todo.additional.state === 'done'
+              'border-green-900 bg-green-50 text-green-900': todo.additional.state === 'done'
             }">{{ todo.additional.message }}</span>
         </div>
         <div
@@ -61,9 +61,9 @@
           data-test-id="todo-performance"
           class="z-10 pb-1 pt-4 text-sm text-gray-800 dark:text-white"
           :class="{
-            'text-red-600': todo.performance.rating === 'late',
-            'text-orange-600': todo.performance.rating === 'delayed',
-            'text-green-600':
+            'text-red-700': todo.performance.rating === 'late',
+            'text-orange-700': todo.performance.rating === 'delayed',
+            'text-green-700':
               todo.performance.rating === 'ontime' ||
               todo.performance.rating === 'beforetime'
           }">

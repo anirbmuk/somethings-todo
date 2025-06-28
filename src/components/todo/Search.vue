@@ -1,23 +1,22 @@
 <template>
   <div class="mx-auto my-2 flex items-center justify-center lg:w-1/2">
-    <div class="relative flex w-9/10 items-center justify-center">
+    <div class="relative flex w-full items-center justify-center md:w-4/5">
       <label
         for="searchTextField"
         class="sr-only">
-        Search TODOs
+        Search
       </label>
       <input
         ref="searchTextField"
         id="searchTextField"
         type="text"
         role="searchbox"
-        placeholder="Search TODOs"
+        placeholder="Search your TODOs..."
         data-test-id="input-search"
         class="mr-1 w-1/2 py-2 text-base transition-all duration-200 ease-linear focus:w-full md:text-md"
-        :class="{ 'w-full': Boolean(searchValue) }"
         v-model.trim="searchValue"
         @keyup.esc="clearSearch">
-      <util-fade-in-transition>
+      <lazy-util-fade-in-transition>
         <button
           v-show="searchValue"
           type="button"
@@ -29,7 +28,7 @@
             class="size-6"
             aria-hidden="true" />
         </button>
-      </util-fade-in-transition>
+      </lazy-util-fade-in-transition>
     </div>
   </div>
 </template>
@@ -42,9 +41,9 @@ import {
 
 import { useSearch } from '@/composables/useSearch';
 import { useSearchWatcher } from '@/composables/useSearchWatcher';
-import UtilFadeInTransition from '@/components/util/FadeInTransition.vue';
 
 const LazyIconClose = defineAsyncComponent(() => import('@/assets/icons/close.svg'));
+const LazyUtilFadeInTransition = defineAsyncComponent(() => import('@/components/util/FadeInTransition.vue'));
 
 const searchTextField = ref<HTMLInputElement | null>(null);
 

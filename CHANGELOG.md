@@ -1,3 +1,8 @@
+## 1.9.11
+- Updated dev dependencies.  
+- Accessibility and dark-mode fixes for keyboard navigation hints.  
+- Simplified scroll and back-to-top behaviour.  
+
 ## 1.9.10
 - Updated dev dependencies.  
 - Accessibility and dark-mode fixes.  

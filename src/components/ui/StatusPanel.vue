@@ -2,7 +2,8 @@
   <div
     class="rounded border p-2 font-semibold md:p-4 dark:border-white dark:bg-transparent"
     :class="panelBackgroundClasses"
-    :title="`${value > 0 ? value : 'None'} ${label}`">
+    role="status"
+    :aria-label="`${value > 0 ? value : 'None'} ${label}`">
     <div class="relative">
       <div
         class="absolute left-0 top-0 text-xl uppercase dark:text-white"
