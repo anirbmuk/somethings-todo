@@ -13,7 +13,8 @@
         role="searchbox"
         placeholder="Search your TODOs..."
         data-test-id="input-search"
-        class="mr-1 w-1/2 py-2 text-base transition-all duration-200 ease-linear focus:w-full md:text-md"
+        class="mr-1 w-1/2 py-2 text-base transition-all duration-200 ease-linear focus-within:w-full focus:w-full md:text-md"
+        :class="{ 'w-full bg-indigo-50': Boolean(searchValue) }"
         v-model.trim="searchValue"
         @keyup.esc="clearSearch">
       <lazy-util-fade-in-transition>
