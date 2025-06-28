@@ -1,11 +1,11 @@
 <template>
   <teleport to="#backdrop">
-    <util-fade-in-transition>
+    <lazy-util-fade-in-transition>
       <div
         v-show="modalState"
         class="fixed inset-0 z-100 bg-black/75"
         @click="close">
-        <util-slide-in-from-bottom-transition>
+        <lazy-util-slide-in-from-bottom-transition>
           <div
             v-if="modalState"
             class="z-20"
@@ -31,21 +31,23 @@
               </div>
             </div>
           </div>
-        </util-slide-in-from-bottom-transition>
+        </lazy-util-slide-in-from-bottom-transition>
       </div>
-    </util-fade-in-transition>
+    </lazy-util-fade-in-transition>
   </teleport>
 </template>
 
 <script setup lang="ts">
 import {
+  defineAsyncComponent,
   useTemplateRef,
   watch,
   type PropType,
 } from 'vue';
 import { useModal } from '@/composables/useModal';
-import UtilFadeInTransition from '@/components/util/FadeInTransition.vue';
-import UtilSlideInFromBottomTransition from '@/components/util/SlideInFromBottomTransition.vue';
+
+const LazyUtilFadeInTransition = defineAsyncComponent(() => import('@/components/util/FadeInTransition.vue'));
+const LazyUtilSlideInFromBottomTransition = defineAsyncComponent(() => import('@/components/util/SlideInFromBottomTransition.vue'));
 
 const props = defineProps({
   name: {
