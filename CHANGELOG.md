@@ -1,3 +1,7 @@
+## 1.9.12
+- Updated dev dependencies.  
+- Added onCleanup method to cleanup timers in watcher callback.  
+
 ## 1.9.11
 - Updated dev dependencies.  
 - Accessibility and dark-mode fixes for keyboard navigation hints.  
