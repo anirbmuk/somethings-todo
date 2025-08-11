@@ -27,7 +27,7 @@ describe  ('Label TODO', () => {
   const day2 = getStorageDate(addDays(2));
   const day7 = getStorageDate(addDays(7));
 
-  const now = new Date(Date.UTC(2025, 4, 1));
+  const now = new Date();
   const lastDayOfMonth = new Date(Date.UTC(
     now.getFullYear(),
     now.getMonth(),
@@ -36,7 +36,7 @@ describe  ('Label TODO', () => {
   const daysToLastDayOfMonth = lastDayOfMonth - now.getDate();
 
   const dayThisMonth = getStorageDate(addDays(daysToLastDayOfMonth));
-  const dayNextMonth = getStorageDate(addDays(daysToLastDayOfMonth + 1));
+  const dayNextMonth = getStorageDate(addDays(lastDayOfMonth));
   const daylater = getStorageDate(addDays(62));
 
   beforeEach(() => {
