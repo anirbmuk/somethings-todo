@@ -86,7 +86,7 @@ describe('Create TODO', () => {
     listitem.get('[data-test-id=todo-additional]').should('contain.text', 'Done');
     listitem
       .get('[data-test-id=todo-performance]')
-      .should('contain.text', 'Completed before due date :-)');
+      .should('contain.text', 'Completed before time :-)');
   });
 
   it('should create multiple TODOs', () => {

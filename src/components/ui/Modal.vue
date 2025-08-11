@@ -95,13 +95,14 @@ const close = () => {
   }
 };
 
-watch(modalState, (state) => {
-  if (state) {
-    setTimeout(() => {
+watch(modalState, (newState, _oldState, onCleanup) => {
+  if (newState) {
+    const timerId = setTimeout(() => {
       if (modalContent.value) {
         findFirstFocus(modalContent.value);
       }
     }, 100);
+    onCleanup(() => clearTimeout(timerId));
   }
 });
 

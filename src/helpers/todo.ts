@@ -19,7 +19,7 @@ export const getRating = (variation: number): ITodo['performance'] => {
     return {
       variation,
       rating: 'beforetime',
-      message: 'Completed before due date :-)',
+      message: 'Completed before time :-)',
     };
   } else if (variation < 1) {
     return {

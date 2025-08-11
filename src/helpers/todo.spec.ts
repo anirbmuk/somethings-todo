@@ -170,7 +170,7 @@ describe('[HELPER] TODO', () => {
   test('getRating should return correct message', () => {
 
     expect(getRating(-1)).toMatchObject({
-      message: 'Completed before due date :-)',
+      message: 'Completed before time :-)',
     });
     expect(getRating(0)).toMatchObject({
       message: 'Completed on time :-)',
@@ -273,7 +273,7 @@ describe('[HELPER] TODO', () => {
     });
     expect(getPerformance('2024-06-01T12:00:00.000Z', '2024-05-31T12:00:00.000Z')).toMatchObject({
       rating: 'beforetime',
-      message: 'Completed before due date :-)',
+      message: 'Completed before time :-)',
     });
     expect(getPerformance('2024-06-01T12:00:00.000Z', '2024-06-01T18:00:00.000Z')).toMatchObject({
       rating: 'ontime',
