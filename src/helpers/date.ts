@@ -78,7 +78,10 @@ export const transformDateDivider = (value: string | undefined | null): string |
   if (!value) {
     return;
   }
-  const [year, month, day] = value.split('-');
+  const [year = '', month = '', day] = value.split('-');
+  if (!year || !month || isNaN(+month) || +month < 1 || +month > 12) {
+    return;
+  }
   return day
     ? `${MONTHS[+month - 1]} ${day}, ${year}`
     : `${MONTHS[+month - 1]} ${year}`;

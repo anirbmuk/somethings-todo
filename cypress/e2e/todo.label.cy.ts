@@ -27,7 +27,8 @@ describe  ('Label TODO', () => {
   const day2 = getStorageDate(addDays(2));
   const day7 = getStorageDate(addDays(7));
 
-  const now = new Date();
+  const [todayYear, todayMonth] = getToday();
+  const now = new Date(Date.UTC(todayYear, todayMonth, 1));
   const lastDayOfMonth = new Date(Date.UTC(
     now.getFullYear(),
     now.getMonth(),

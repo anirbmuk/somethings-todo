@@ -219,6 +219,11 @@ export const useTodo = () => {
       return;
     }
     const todoToBeShared = todos.value[indexOfTodoToBeShared];
+    if (!todoToBeShared) {
+      // eslint-disable-next-line no-console
+      console.warn('WARNING: No TODO found to share');
+      return;
+    }
     const todoConfig = encryptTodo(todoToBeShared);
     const headingLength = Math.max(Math.floor(todoToBeShared.heading.length * 2), 10);
     const fill = (new Array(headingLength) as string[]).fill('-', 0).join('');
