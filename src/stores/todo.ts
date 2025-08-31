@@ -54,6 +54,9 @@ export const useTodoStore = defineStore('todos', () => {
     if (indexOfTodoToBeUpdated < 0) {
       return;
     }
+    if (!todos.value[indexOfTodoToBeUpdated]) {
+      return;
+    }
     todos.value[indexOfTodoToBeUpdated] = {
       ...todos.value[indexOfTodoToBeUpdated],
       ...todo,
@@ -66,6 +69,9 @@ export const useTodoStore = defineStore('todos', () => {
       return;
     }
     const todoToBeUpdated = todos.value[indexOfTodoToBeUpdated];
+    if (!todoToBeUpdated) {
+      return;
+    }
     const newStatus = todoToBeUpdated.status === 'Complete' ? 'Incomplete' : 'Complete';
     updateTodo({
       todoid,
