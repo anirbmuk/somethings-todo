@@ -1,3 +1,7 @@
+## 1.9.13
+- Updated dev dependencies.  
+- Stricter vue-tsc rule fixes.    
+
 ## 1.9.12
 - Updated dev dependencies.  
 - Added onCleanup method to cleanup timers in watcher callback.  
