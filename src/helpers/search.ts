@@ -23,7 +23,7 @@ const RATING_SEARCH_KEYWORDS = {
 
 const STATUS_SEARCH_KEYWORDS = {
   Incomplete: ['incomplete', 'pending', 'not done'],
-  Complete: ['complete', 'done', 'finished'],
+  Complete: ['complete', 'completed', 'done', 'finished'],
 } satisfies Record<Status, string[]>;
 
 type OperatorKeys = keyof typeof SEARCH_OPERATORS;
@@ -75,6 +75,21 @@ export const findOperator = (input: string | undefined): Operators | undefined =
   }
 };
 
+export const isQuickFilter = (input: string): boolean => {
+  const searchString = input.toLowerCase();
+  return QUICK_FILTER_OPTIONS.map(({ Value }) => Value.toLowerCase()).includes(searchString);
+};
+
+export const showAllForQuickFilter = (input: string): boolean => {
+  const searchString = input.toLowerCase();
+  return isQuickFilter(searchString) &&
+    Boolean(QUICK_FILTER_OPTIONS.find(({
+      Value,
+      FilterBy,
+    }) =>
+      Value.toLowerCase() === searchString && FilterBy === 'show'));
+};
+
 export const isRatingMatch = (input: string, item: ITodo): boolean => {
   if (!item.performance?.rating) {
     return false;
@@ -87,9 +102,8 @@ const isStatusMatch = (input: string, item: ITodo): boolean =>
 
 const getTextBasedConditions = (input: string): ITodoCondition => {
   const searchString = input.toLowerCase();
-  const isQuickFilter = QUICK_FILTER_OPTIONS.map(({ Value }) => Value.toLowerCase()).includes(searchString);
   return (item: ITodo) => {
-    if (isQuickFilter) {
+    if (isQuickFilter(searchString)) {
       return isRatingMatch(searchString, item) || isStatusMatch(searchString, item);
     }
     return item.heading.toLowerCase().includes(searchString) ||

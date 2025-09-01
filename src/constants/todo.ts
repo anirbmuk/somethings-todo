@@ -38,6 +38,11 @@ export const FILTER_OPTIONS = [
 
 export const QUICK_FILTER_OPTIONS = [
   {
+    Key: 'Done',
+    Value: 'done',
+    FilterBy: 'show',
+  },
+  {
     Key: 'Pending',
     Value: 'pending',
   },
@@ -48,9 +53,11 @@ export const QUICK_FILTER_OPTIONS = [
   {
     Key: 'Late',
     Value: 'late',
+    FilterBy: 'show',
   },
   {
     Key: 'On Time',
     Value: 'on time',
+    FilterBy: 'show',
   },
-] satisfies KeyValue<string>[];
+] satisfies (KeyValue<string> & { FilterBy?: FilterBy })[];

@@ -7,13 +7,16 @@ export const useSearchWatcher = () => {
   const filterStore = useFilterStore();
   const searchStore = useSearchStore();
 
-  const { searchValue } = useSearch();
+  const {
+    searchValue,
+    showAllForQuickFilter,
+  } = useSearch();
 
   watch(searchValue, (text) => {
     const searchString = text?.toLowerCase();
     searchStore.setDelayedSearchText(searchString);
     if (searchString) {
-      if (['late', 'on time'].includes(searchString)) {
+      if (showAllForQuickFilter(searchString)) {
         filterStore.setDelayedFilterBy('show');
       }
       searchStore.setSearchState(true);
