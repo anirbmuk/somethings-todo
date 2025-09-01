@@ -1,11 +1,13 @@
 <template>
-  <div class="mx-auto my-2 flex items-center justify-center lg:w-1/2">
+  <div
+    class="mx-auto my-2 flex items-center justify-center lg:w-1/2"
+    data-test-id="quick-filters">
     <div class="flex flex-col">
       <div
-        for="quickfilter"
         class="text-center text-md dark:text-white"
+        data-test-id="quick-filters-label"
         label>
-        Quick Filters
+        {{ LABEL }}
       </div>
       <ui-toggle-button
         type="pill"
@@ -22,6 +24,8 @@ import { useSearch } from '@/composables/useSearch';
 import { QUICK_FILTER_OPTIONS } from '@/constants/todo';
 
 const { searchValue } = useSearch();
+
+const LABEL = 'Quick Filters' as const;
 defineOptions({
   name: 'TodoQuickFilter',
 });
