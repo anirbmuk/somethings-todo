@@ -30,8 +30,8 @@ describe  ('Label TODO', () => {
   const [todayYear, todayMonth] = getToday();
   const now = new Date(Date.UTC(todayYear, todayMonth, 1));
   const lastDayOfMonth = new Date(Date.UTC(
-    now.getFullYear(),
-    now.getMonth(),
+    todayYear,
+    todayMonth + 1,
     0),
   ).getDate();
   const daysToLastDayOfMonth = lastDayOfMonth - now.getDate();
