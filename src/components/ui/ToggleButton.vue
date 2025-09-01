@@ -74,6 +74,6 @@ const isSelected = (value: string | boolean) => {
 const getDataTestId = (key: string) => key.split(' ').join('-').toLowerCase();
 
 defineOptions({
-  name: 'ToggleButton',
+  name: 'UiToggleButton',
 });
 </script>
