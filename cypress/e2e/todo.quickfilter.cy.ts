@@ -1,4 +1,4 @@
-describe('Test quick filter buttons', () => {
+describe('Quick Filter TODO', () => {
   beforeEach(() => {
     cy.visit('/');
   });

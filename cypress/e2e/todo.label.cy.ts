@@ -20,7 +20,7 @@ const getStorageDate = (date: Date) => {
   return `${yyyy1}-${mm}-${dd}T${time}`;
 };
 
-describe  ('Label TODO', () => {
+describe ('Label TODO', () => {
   const day_1 = getStorageDate(addDays(-1));
   const day0 = getStorageDate(addDays(0));
   const day1 = getStorageDate(addDays(1));
