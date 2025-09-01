@@ -6,6 +6,7 @@ import { useFilterStore } from '@/stores/filter';
 import { useSearchStore } from '@/stores/search';
 import {
   findOperator,
+  showAllForQuickFilter,
   getMemoizedTextBasedConditions,
   getMemoizedOperatorBasedConditions,
 } from '@/helpers/search';
@@ -56,6 +57,7 @@ export const useSearch = () => {
   };
 
   return {
+    showAllForQuickFilter,
     conditions,
     searchValue,
     clearSearch,
