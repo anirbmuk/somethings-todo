@@ -12,7 +12,7 @@
       <ui-toggle-button
         type="pill"
         use-lowercase
-        class="flex flex-wrap items-center justify-evenly gap-1.5"
+        class="flex flex-wrap items-center justify-center gap-x-1 gap-y-1.5"
         v-model.lazy="searchValue"
         :options="QUICK_FILTER_OPTIONS" />
     </div>
