@@ -1,3 +1,7 @@
+## 1.11.0
+- Added support to toggle on/off for toggle buttons.  
+- Better placement of quick filters on mobile devices.  
+
 ## 1.10.0
 - Added new quick filter `Done`.  
 - More cypress e2e coverage.  
