@@ -53,7 +53,8 @@ describe('ToggleButton', () => {
 
     const button = wrapper.find('button');
     expect(button.classes()).toContain('rounded-full');
-    expect(button.classes()).toContain('min-w-20');
+    expect(button.classes()).toContain('min-w-16');
+    expect(button.classes()).toContain('md:min-w-20');
   });
 
   it('emits update:model-value event when option is clicked', async () => {
