@@ -37,6 +37,7 @@
 <script setup lang="ts">
 import {
   defineAsyncComponent,
+  nextTick,
   ref,
 } from 'vue';
 
@@ -56,12 +57,12 @@ useSearchWatcher();
 
 const toggleAndClearSearch = () => {
   clearSearch();
-  setTimeout(() => {
+  nextTick(() => {
     if (searchTextField.value) {
       searchTextField.value.focus();
       searchTextField.value.setSelectionRange(0, 0);
     }
-  }, 10);
+  });
 };
 
 defineOptions({

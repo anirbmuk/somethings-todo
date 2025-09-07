@@ -106,12 +106,15 @@ const getTextBasedConditions = (input: string): ITodoCondition => {
     if (isQuickFilter(searchString)) {
       return isRatingMatch(searchString, item) || isStatusMatch(searchString, item);
     }
-    return item.heading.toLowerCase().includes(searchString) ||
-    item.text?.toLowerCase().includes(searchString) ||
+    const textToSearch = [
+      item.heading,
+      item.text,
+      item.additional?.message,
+      item.performance?.message,
+    ].filter(Boolean).join(' ');
+    return textToSearch.search(new RegExp(searchString, 'gi')) > -1 ||
     isRatingMatch(searchString, item) ||
     isStatusMatch(searchString, item) ||
-    item.additional?.message?.toLowerCase()?.includes(searchString) ||
-    item.performance?.message?.toLowerCase()?.includes(searchString) ||
     false;
   };
 };

@@ -40,6 +40,7 @@
 <script setup lang="ts">
 import {
   defineAsyncComponent,
+  nextTick,
   useTemplateRef,
   watch,
   type PropType,
@@ -95,14 +96,13 @@ const close = () => {
   }
 };
 
-watch(modalState, (newState, _oldState, onCleanup) => {
+watch(modalState, (newState) => {
   if (newState) {
-    const timerId = setTimeout(() => {
+    nextTick(() => {
       if (modalContent.value) {
         findFirstFocus(modalContent.value);
       }
-    }, 100);
-    onCleanup(() => clearTimeout(timerId));
+    });
   }
 });
 
