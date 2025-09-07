@@ -7,7 +7,7 @@
         @click="close">
         <lazy-util-slide-in-from-bottom-transition>
           <div
-            v-if="modalState"
+            v-show="modalState"
             class="z-20"
             role="dialog"
             aria-modal="true"
