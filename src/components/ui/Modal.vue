@@ -7,7 +7,7 @@
         @click="close">
         <lazy-util-slide-in-from-bottom-transition>
           <div
-            v-show="modalState"
+            v-if="modalState"
             class="z-20"
             role="dialog"
             aria-modal="true"
@@ -40,7 +40,6 @@
 <script setup lang="ts">
 import {
   defineAsyncComponent,
-  nextTick,
   useTemplateRef,
   watch,
   type PropType,
@@ -96,13 +95,14 @@ const close = () => {
   }
 };
 
-watch(modalState, (newState) => {
+watch(modalState, (newState, _, onCleanup) => {
   if (newState) {
-    nextTick(() => {
+    const timerId = setTimeout(() => {
       if (modalContent.value) {
         findFirstFocus(modalContent.value);
       }
-    });
+    }, 150);
+    onCleanup(() => clearTimeout(timerId));
   }
 });
 
