@@ -59,8 +59,9 @@ const toggleAndClearSearch = () => {
   clearSearch();
   nextTick(() => {
     if (searchTextField.value) {
-      searchTextField.value.focus();
-      searchTextField.value.setSelectionRange(0, 0);
+      searchTextField.value.focus({
+        preventScroll: true,
+      });
     }
   });
 };
