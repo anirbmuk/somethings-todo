@@ -21,13 +21,13 @@
             v-if="todo.status !== 'Complete'"
             role="status"
             data-test-id="todo-status"
-            class="rounded-sm border border-red-800 bg-red-50 px-2 py-1 text-center text-sm font-semibold text-red-800 dark:border-none">
+            class="rounded-sm border border-red-800 bg-red-50 px-2 py-1 text-center text-sm font-semibold text-red-800  dark:border-white dark:bg-base dark:text-white">
             {{ todo.status }}
           </span>
           <span
             data-test-id="todo-additional"
             role="status"
-            class="rounded-sm border px-2 py-1 text-center text-sm font-semibold dark:border-none"
+            class="rounded-sm border px-2 py-1 text-center text-sm font-semibold dark:border-white dark:bg-base dark:text-white"
             :class="{
               'border-error bg-error text-white': todo.additional.state === 'error',
               'border-warning bg-warning': todo.additional.state === 'warn',
