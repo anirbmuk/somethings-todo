@@ -1,4 +1,7 @@
 ## 1.11.0
+- Improvement for labels in dark-model for better visibility.  
+
+## 1.11.0
 - Added support to toggle on/off for toggle buttons.  
 - Better placement of quick filters on mobile devices.  
 
