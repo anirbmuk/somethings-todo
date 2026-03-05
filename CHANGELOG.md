@@ -1,4 +1,8 @@
-## 1.11.0
+## 1.11.2
+- Updated dev dependencies.  
+- Added scrollbar-gutter stable property.  
+
+## 1.11.1
 - Improvement for labels in dark-model for better visibility.  
 
 ## 1.11.0
