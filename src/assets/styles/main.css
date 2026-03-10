@@ -7,11 +7,11 @@
 @layer base {
   html {
     @apply scroll-smooth;
+    scrollbar-gutter: stable;
   }
   body {
     @apply text-base antialiased;
     text-rendering: optimizeLegibility;
-    scrollbar-gutter: stable;
   }
   h1 {
     @apply text-4xl md:text-6xl;
