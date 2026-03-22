@@ -1,3 +1,7 @@
+## 1.11.3
+- Updated dev dependencies and fixed build errors.  
+- Updated GitHub Actions to Node24.  
+
 ## 1.11.2
 - Updated dev dependencies.  
 - Added scrollbar-gutter stable property.  
