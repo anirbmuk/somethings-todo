@@ -2,7 +2,7 @@
   <div role="group">
     <template
       v-for="option of options"
-      :key="option.value">
+      :key="String(option.Value)">
       <button
         type="button"
         class="border border-gray-300 bg-white py-1 outline-offset-0 outline-primary transition-all duration-200 ease-in-out dark:border-white dark:bg-base dark:text-white dark:outline-offset-1 dark:outline-white"
