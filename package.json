@@ -1,6 +1,6 @@
 {
   "name": "somethings-todo",
-  "version": "1.11.3",
+  "version": "1.12.0",
   "private": true,
   "description": "A light and fast todo-app, built with Vue3 and Pinia",
   "author": {
@@ -57,7 +57,9 @@
     "eslint-plugin-sonarjs": "^3.0.2",
     "eslint-plugin-tailwindcss": "^3.18.0",
     "eslint-plugin-vue": "^9.28.0",
+    "eslint-plugin-vuejs-accessibility": "^2.5.0",
     "firebase-tools": "^15.8.0",
+    "globals": "13.12.1",
     "husky": "^9.1.7",
     "js-base64": "^3.7.7",
     "jsdom": "^26.1.0",

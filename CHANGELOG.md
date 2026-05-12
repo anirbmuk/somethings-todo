@@ -1,3 +1,7 @@
+## 1.12.0
+- Added undo delete feature.  
+- Stronger accessibility rules.  
+
 ## 1.11.3
 - Updated dev dependencies and fixed build errors.  
 - Updated GitHub Actions to Node24.  

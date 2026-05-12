@@ -1,9 +1,11 @@
-import { defineConfig } from 'vite';
+import {
+  defineConfig,
+  type UserConfig,
+} from 'vite';
 import { fileURLToPath } from 'node:url';
 import vue from '@vitejs/plugin-vue';
 import svgLoader from 'vite-svg-loader';
-import type { UserConfig } from 'vite';
-import type { InlineConfig } from 'vitest';
+import type { InlineConfig } from 'vitest/node';
 
 interface VitestConfigExport extends UserConfig {
   test: InlineConfig;

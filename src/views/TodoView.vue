@@ -50,6 +50,7 @@ import { useTodo } from '@/composables/useTodo';
 import { useTodoWatcher } from '@/composables/useTodoWatcher';
 import { useModal } from '@/composables/useModal';
 import { useTodoScroll } from '@/composables/useTodoScroll';
+import { useNotification } from '@/composables/useNotification';
 import type {
   AddTodo,
   ITodo,
@@ -81,6 +82,7 @@ const {
   closeCreateOrUpdateModal,
   filterByState,
 } = useTodo();
+const { notify } = useNotification();
 
 useTodoWatcher();
 
@@ -102,9 +104,25 @@ const showDeleteConfirmModal = (todoid: ITodo['todoid']) => {
 const onConfirm = (decision: boolean) => {
   closeConfirmModal();
   if (decision && idOfTodoToBeDeleted) {
-    deleteTodo(idOfTodoToBeDeleted);
+    notify({
+      message: 'TODO is being deleted...',
+      type: 'failure',
+      duration: 3,
+      showprogress: true,
+      cta: {
+        label: 'Undo',
+        callback: () => {
+          idOfTodoToBeDeleted = undefined;
+        },
+      },
+      callbackOnClose: () => {
+        if (idOfTodoToBeDeleted) {
+          deleteTodo(idOfTodoToBeDeleted);
+        }
+        idOfTodoToBeDeleted = undefined;
+      },
+    });
   }
-  idOfTodoToBeDeleted = undefined;
 };
 
 const saveTodo = (mode: 'create' | 'edit', todo: AddTodo | UpdateTodo) => {

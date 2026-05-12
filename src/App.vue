@@ -1,5 +1,8 @@
 <template>
   <primary-header :reduced="reduced" />
+  <div class="sticky top-16 z-50 h-0 w-full">
+    <lazy-ui-notifications />
+  </div>
   <main class="mx-auto mb-6 px-1 pb-1 sm:mb-4 sm:px-2 sm:pb-2">
     <suspense>
       <router-view />
@@ -9,7 +12,10 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+import {
+  computed,
+  defineAsyncComponent,
+} from 'vue';
 import {
   RouterView,
   useRoute,
@@ -21,6 +27,8 @@ import { ROUTES_WITH_TOOLBAR } from './constants/route';
 useThemeWatcher();
 const route = useRoute();
 const reduced = computed(() => !ROUTES_WITH_TOOLBAR.includes(route.name));
+
+const LazyUiNotifications = defineAsyncComponent(() => import('@/components/ui/Notifications.vue'));
 
 defineOptions({
   name: 'AppRoot',
