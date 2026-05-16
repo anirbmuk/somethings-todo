@@ -51,7 +51,7 @@ describe('Delete TODO', () => {
     cy.get('[data-test-id=confirm-modal-yes]').click();
 
     cy.contains('TODO is being deleted...').should('be.visible');
-    cy.contains('button', 'Undo').click();
+    cy.contains('button', 'Cancel').click();
 
     // Advance well past the deletion window to confirm nothing gets deleted
     cy.tick(4000);

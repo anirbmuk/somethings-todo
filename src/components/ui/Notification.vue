@@ -23,7 +23,7 @@
         :aria-valuemin="0"
         :aria-valuemax="100"
         aria-label="Progress bar for closing the toast notification"
-        class="absolute bottom-0 left-0 h-1 rounded-sm"
+        class="absolute bottom-0 right-0 h-1 rounded-sm"
         :class="progressBarClass"
         :style="progressStyle" />
     </div>
@@ -55,7 +55,7 @@ const duration = computed(() => props.notification.duration ?? 0);
 const full = ref(false);
 
 const progressStyle = computed(() => ({
-  width: full.value ? '100%' : '0%',
+  width: full.value ? '0%' : '100%',
   transition: full.value ? `width ${duration.value}s linear` : 'none',
 }));
 
