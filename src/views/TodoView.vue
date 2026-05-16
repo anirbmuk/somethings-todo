@@ -110,7 +110,7 @@ const onConfirm = (decision: boolean) => {
       duration: 3,
       showprogress: true,
       cta: {
-        label: 'Undo',
+        label: 'Cancel',
         callback: () => {
           idOfTodoToBeDeleted = undefined;
         },
