@@ -1,3 +1,9 @@
+## 1.12.1
+- Updated Vue, Pinia, VueUse, Cypress, and build dependencies to compatible versions.
+- Updated Node.js and GitHub Actions configuration to Node 24.
+- Fixed Cypress multi-spec execution issues with the Cypress 16 upgrade.
+- Fixed SonarJS lint compatibility with the TypeScript toolchain.
+
 ## 1.12.0
 - Added undo delete feature.  
 - Stronger accessibility rules.  
